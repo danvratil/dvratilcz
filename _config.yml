@@ -7,6 +7,7 @@ baseurl: ""
 url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
+
 # Build settings
 markdown: kramdown
 theme: minima
