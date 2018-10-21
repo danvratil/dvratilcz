@@ -1,0 +1,31 @@
+---
+layout: post
+title: Packaging changes in KDE Telepathy
+date: 2013-01-14 23:22:19.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+- Telepathy
+tags:
+- KDE
+- Telepathy
+meta:
+  _edit_last: '1'
+  _thumbnail_id: '386'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538317294;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:706;}i:1;a:1:{s:2:"id";i:14;}i:2;a:1:{s:2:"id";i:348;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>We have done some changes to our KDE Telepathy repositories recently, that might be interesting for packagers.</p>
+<p>We have consolidated all Plasma applets into a single repository called ktp-desktop-applets (originally ktp-contact-applet). The ktp-presence-applet repository is now empty, the master branch contains just a README, the stable branch kde-telepathy-0.5 is preserved.</p>
+<p>We have also normalized names of the applets, so they are now called org.kde.ktp-presence, org.kde.ktp-chat, org.kde.ktp-contactlist and org.kde.ktp-contact. The ktp-desktop-applets installs an update script for Plasma Desktop that will automatically update user configuration on next login.</p>
+<p>All declarative plugins are now located in ktp-common-internals, so that all our QML models and utils are available for developers.</p>
+<p>These changes will be first available in 0.6 release.</p>

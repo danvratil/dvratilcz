@@ -1,0 +1,44 @@
+---
+layout: post
+title: LibVirt Monitor Plasma Applet
+date: 2012-06-27 18:38:59.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+tags:
+- KDE
+- libvirt
+- Plasma
+meta:
+  _edit_last: '1'
+  _wp_old_slug: libvirt-monitor-plasma-applet
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538396205;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:972;}i:1;a:1:{s:2:"id";i:303;}i:2;a:1:{s:2:"id";i:14;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>This semester I attended<em> Advanced Topics of Linux Administration</em> course on my university. To successfully complete the course, one must pass an exam, have a presentation and write an article on a related topic. I had a presentation about <a title="Libvirt homepage" href="http://libvirt.org/" target="_blank">libvirt</a> and decided to write an introduction into using libvirt's API (the article has been <a title="ATOL - Libvirt API" href="http://www.abclinuxu.cz/blog/Atol/2012/6/atol-libvirt-api" target="_blank">published</a> (in English) on Czech Linux portal ABCLinuxu.cz).</p>
+<p>As an example, I have written a Plasma Applet in QML (yay, my first QML thingie!) and a Plasma DataEngine that serves data about QEMU/KVM virtual machines running under local libvirtd.</p>
+<p>On the applet you can watch state of all virtual machines, you can boot/pause/resume/shutdown and reboot them and configure soft and hard memory limits and amount of virtual CPUs allocated to each machine.</p>
+<p>Pictures!</p>
+<table border="0">
+<tbody>
+<tr>
+<td><a href="http://www.progdan.cz/wp-content/uploads/plasma-virt-monitor-dataengine.png"><img class="aligncenter size-thumbnail wp-image-270" title="Plasma Virt Monitor DataEngine" src="{{ site.baseurl }}/assets/plasma-virt-monitor-dataengine-150x150.png" alt="" width="150" height="150" /></a></td>
+<td><a href="http://www.progdan.cz/wp-content/uploads/plasma-virt-monitor-applet-2.png"><img class="aligncenter size-thumbnail wp-image-268" title="Plasma Virt Monitor Applet" src="{{ site.baseurl }}/assets/plasma-virt-monitor-applet-2-150x150.png" alt="" width="150" height="150" /></a></td>
+<td><a href="http://www.progdan.cz/wp-content/uploads/plasma-virt-monitor-applet-1.png"><img class="aligncenter size-thumbnail wp-image-269" title="Plasma Virt Monitor Applet" src="{{ site.baseurl }}/assets/plasma-virt-monitor-applet-1-150x150.png" alt="" width="150" height="150" /></a></td>
+</tr>
+</tbody>
+</table>
+<p>I must admit that I was always a bit skeptical about QML, but my two previous encounters with QML made me really curious about it and writing this applet was really <del>pain</del><strong>fun</strong> and it taught me a lot about QML.</p>
+<p>The big advantage of the DataEngine is that it's not constantly polling libvirt for changes, but it rather utilizes it's events API.</p>
+<p>Wanna try? :-) There's a tarball <a href="http://kde-apps.org/CONTENT/content-files/151919-plasma-virt-monitor.tar.xz">here</a> and git repo here: git://anongit.kde.org/scratch/dvratil/plasma-virt-monitor</p>
+<p>It was fun to hack and I plan to give it some more love, possibly after Akademy.</p>
+<p><strong>PS:</strong> Akademy - anyone flying on Friday at 08:10 from Vienna :-) ?</p>

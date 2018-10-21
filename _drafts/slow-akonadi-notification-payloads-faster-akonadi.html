@@ -1,0 +1,23 @@
+---
+layout: post
+title: Slow Akonadi + Notification Payloads = Faster Akonadi
+date: 
+type: post
+parent_id: '0'
+published: false
+password: ''
+status: draft
+categories: []
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>Making good use of the nearly 5-hour layover in Frankfurt on my way to the KDE PIM Sprint in Toulouse (that's the cost you pay for trying to save 10 EUR on flight tickets, but I'm pretty sure I already wasted more money on coffee here) I got back to a feature I started working on at the last sprint, but never got around to finish it. The feature is called "Notification Payloads" and we hope it will improve performance during synchronization (like fetching emails) and reduce CPU load.</p>
+<p>Right now whenever something changes in Akonadi (like a new email is synced from a mail server, or the user creates a new event etc.), Akonadi will emit a notification that something has changed to all PIM applications that are listening. Now each of these gets the notification, finds out what it's about and then asks Akonadi for the actual email or event etc. that has changed. If 5 applications are listening, Akonadi will receive 5 separate requests for the changed entity. Retrieving a single entity is usually something around 3 SQL queries. Times 5 applications, we end up with 15 basically identical queries being executed to satisfy each request.</p>
+<p>The idea behind notification payloads is that we send the changed entity already as a part of the change notification, so the applications don't have to ask anything else from Akonadi.</p>

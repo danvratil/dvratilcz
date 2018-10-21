@@ -1,0 +1,47 @@
+---
+layout: post
+title: Akonadi 1.10.3 - with PostgreSQL fix
+date: 2013-10-06 13:28:24.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Akonadi
+- KDE
+tags:
+- Akonadi
+- KDE
+- PIM
+meta:
+  _edit_last: '1'
+  _thumbnail_id: '444'
+  _aioseop_keywords: KDE, Akonadi, PIM, PostgreSQL
+  _aioseop_description: Akonadi 1.10.3 has been release, featuring among others fix
+    for PostgreSQL 9.2
+  _aioseop_title: Akonadi 1.10.3
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538558104;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:785;}i:1;a:1:{s:2:"id";i:480;}i:2;a:1:{s:2:"id";i:438;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>Akonadi 1.10.3 has been released, fixing (among other things) support for PostgreSQL 9.2 with Qt 4.8.5.</p>
+<p>I write a blog specially about this update, because the fix requires updating the Akonadi database schema. The update will be performed on next Akonadi start and it can take some time, especially on larger databases, so we kindly ask users for patience.</p>
+<p><strong>Update:</strong> if your distribution ships Qt 4.8.5 with the PSQL driver patch reverted, please make sure to remove the revert before pushing Akonadi 1.10.3 to repositories.</p>
+<p>Users of other backends (MySQL or SQLite) will not be affected by this update.</p>
+<p>Big thank you for investigating and fixing this problem to Cédric Villemain.</p>
+<h2>Full changelog:</h2>
+<ul>
+<li>Fix crash when there are no flags to update during flags change</li>
+<li>Fix crash on Akonadi shutdown when using PostgreSQL</li>
+<li>Fix notification to clients about database upgrade</li>
+<li>Send dummy requests to MySQL from time to time to keep the connection alive</li>
+<li><a title="Bug 277839 - akonadiserver.socket path to long" href="http://bugs.kde.org/show_bug.cgi?id=277839">Bug #277839</a> - Fix problem with too long socket paths</li>
+<li><a title="Bug 323977 - information_schema.REFERENTIAL_CONSTRAINTS errors in akonadi server log" href="http://bugs.kde.org/show_bug.cgi?id=323977">Bug #323977</a> - Check minimum MySQL version at runtime</li>
+<li><a title="Bug 252120 - Akonadi fails to start with postgres backend. Possibly due to wrong escape '\\ANSWERED'" href="http://bugs.kde.org/show_bug.cgi?id=252120">Bug #252120</a>, <a title=" Bug 322931 - Akonadi postgresql backend ( qt 4.8.5+ ) " href="https://bugs.kde.org/show_bug.cgi?id=322931">Bug #322931</a> - Use text instead of bytea column type for QString in PostgreSQL</li>
+</ul>
+<p>Thanks to Volker Krause, Christian Mollekopf and Cédric Villemain for their contributions to this release.</p>

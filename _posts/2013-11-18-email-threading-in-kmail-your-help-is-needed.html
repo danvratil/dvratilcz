@@ -1,0 +1,39 @@
+---
+layout: post
+title: 'Email Threading in KMail: Your Help is Needed!'
+date: 2013-11-18 16:09:52.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Akonadi
+- KDE
+tags:
+- Akonadi
+- KDE
+- KMail
+- PIM
+meta:
+  _edit_last: '1'
+  _aioseop_keywords: KDE, Akonadi, PIM, KMail, threading
+  _aioseop_description: Please help us with a research regarding to threading in KMail.
+  _aioseop_title: 'Email Threading in KMail: Your Help is Needed'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538167696;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:480;}i:1;a:1:{s:2:"id";i:923;}i:2;a:1:{s:2:"id";i:829;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>Hi KMail users,</p>
+<p>we have a little favor to ask from you :-) On the KDE PIM Sprint we discussed how to improve email threading in KMail by using Akonadi to store the information, so that KMail does not have to compute it every time. This would make opening a folder almost instant, all threads would be reconstructed immediately and it would massively improve CPU and memory consumption (so it's totally something worth helping us with ;-)) More details on what else we discussed and implemented will follow in another blog post tomorrow.</p>
+<p>To implement the threading caching, we need to know, whether in these days it still makes sense to support threading by Subject. It's used as a fallback when grouping by standardized email headers (In-Reply-To, References) are missing, which used to be a case with buggy email clients years ago, but hopefully is better now, so we could drop it, which would massively simplify the algorithms.</p>
+<p>So we would like you to disable threading by Subject, observe how much it breaks your threading (and potentially your workflow) and report back to us. To disable it, go to <em>View</em> -&gt;<em>Message List</em> -&gt;<em>Aggregation</em> -&gt; <em>Configure</em>. There go to <em>Groups &amp; Threading</em> tab and in <em>Threading </em>combobox select <em>Perfect and by Reference</em>. If the combo boxes are disabled, you have to click <em>Clone Aggregation</em> to clone the default settings, and use the clone.</p>
+<p>[caption id="attachment_475" align="aligncenter" width="739"]<a href="http://www.progdan.cz/wp-content/uploads/contextmenu1.png"><img class="size-full wp-image-475" alt="View-&gt;Message List-&gt;Aggregation-&gt;Configure..." src="{{ site.baseurl }}/assets/contextmenu1.png" width="739" height="355" /></a> View-&gt;Message List-&gt;Aggregation-&gt;Configure...[/caption]</p>
+<p>[caption id="attachment_476" align="aligncenter" width="500"]<a href="http://www.progdan.cz/wp-content/uploads/configdialog.png"><img class=" wp-image-476" title="Aggregation Configuration" alt="Aggregation Configuration" src="{{ site.baseurl }}/assets/configdialog.png" width="500" height="410" /></a> Aggregation Configuration[/caption]</p>
+<p>If removing threading by subject would break threading and workflow for too many users, we will keep the settings and we will try to figure out another way to do it.</p>
+<p>So please configure your KMails, and let us know in comments below this post, on IRC, kde-pim mailing list or through any other communication means (just please try to avoid using smoke signals and pigeons ;-))</p>
+<p>Thank you for your help!</p>

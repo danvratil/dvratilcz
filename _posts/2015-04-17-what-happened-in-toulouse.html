@@ -1,0 +1,45 @@
+---
+layout: post
+title: What happened in Toulouse?
+date: 2015-04-17 23:54:52.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+tags:
+- Akonadi
+- KDE
+- PIM
+meta:
+  _edit_last: '1'
+  _publicize_facebook_user: https://www.facebook.com/app_scoped_user_id/10206121932430218/
+  _publicize_twitter_user: "@danvratil"
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538151530;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:785;}i:1;a:1:{s:2:"id";i:745;}i:2;a:1:{s:2:"id";i:816;}}}}
+  _wpas_done_all: '1'
+  _aioseop_keywords: KDE,PIM,Akonadi
+  _aioseop_description: A short and wholly incomplete report from the KDE PIM sprint
+    that took place in Toulouse in April this year.
+  _aioseop_title: What happened in Toulouse?
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p style="text-align: justify;">... a KDE PIM sprint happened in Toulouse! And what happened during that sprint? Well, read this wholly incomplete report!</p>
+<p style="text-align: justify;">Let's start with the most important part: we decided what to do next! On the last PIM sprint in Munich in November when Christian and Aaron introduced their new concept for next version of Akonadi, we decided to refocus all our efforts on working on that which meant switching to maintenance mode of KDE PIM for a very long time and then coming back with a big boom. In Toulouse we discussed this plan again and decided that it will be much better for the project and for the users as well if we continue active development of KDE PIM instead of focusing exclusively on the "next big thing" and take the one-step-at-the-time approach. So what does that mean?</p>
+<p style="text-align: justify;"><a href="http://osdir.com/ml/kde-pim/2015-04/msg00135.html">We will aim towards releasing KF5-based KDE PIM in August</a> as part of KDE Applications 15.08. After that we will be working on fixing bugs, improving the current code and adding new features like normally, while at the same time preparing the code base for migration to Akonadi 2 (currently we call it Akonadi Next but I think eventually it will become "2"). I will probably write a separate technical blog post on what those "preparations" mean. In the meantime Christian will be working from the other side on Akonadi 2 and eventually both projects should meet "in the middle", where we simply swap the Akonadi 1 backend with the Akonadi 2 backend and ship next version. So instead of one "big boom" release where we would switch to Qt 5 and Akonadi 2 at the same time we do it step-by-step, causing as little disruption to user experience as possible and allowing for active development of the project. In other words <em>WIN-WIN-WIN</em> situation for users, devs and the KDE PIM project.</p>
+<p style="text-align: justify;">I'm currently running the entire KDE PIM from git master (so KF5-based) and I must say that everything works very well so far. There are <a href="https://bugs.kde.org/show_bug.cgi?id=346175">some regression against the KDE 4 version</a> but nothing we couldn't handle. If you like to use bleeding-edge versions of PIM feel free to update and help us finding (and fixing) regressions (just be careful not to bleed to death ;-)).</p>
+<p style="text-align: justify;">Another discussion we had is closely related to the 15.08 release. KDE PIM is a very huge code base, but the active development team is very small. Even with the incredible Laurent Montel on our side it's still not enough to keep actively maintaining all of the KDE PIM (yes, it's THAT huge ;-)). So we had to make a tough decision: some parts of KDE PIM have to die, at least until a new maintainer steps up, and some will move to extragear and will live their own lives there. What we release as part of KDE Applications 15.08 I call KDE PIM Core and it consists of the core PIM applications: KMail, KOrganizer, KAddressbook, Kleopatra, KNotes and Kontact. If your favorite PIM app is not in the list you can volunteer as a maintainer and help us make it part of the core again. We believe that in this case quality is more important than quantity and this is the trade-off that will allow us to make the next release of PIM the best one to date ;-).</p>
+<p style="text-align: justify;">Still related to the release is also reorganization of our repos, as we have some more splitting and indeed some merging ahead of us but we'll post an announcement once everything is discussed and agreed upon.</p>
+<p style="text-align: justify;">Thanks to Christian's hard work most of the changes that Kolab did in their fork of KDE PIM has been upstreamed during the sprint. There are some very nice optimizations and performance improvements for Akonadi included (among other things), so indeed the next release will be a really shiny one and there's a lot to look forward to.</p>
+<p style="text-align: justify;">Vishesh brought up the topic of our bug count situation. We all realize the sad state of our PIM bugs and we talked a bit about re-organizing and cleaning up our bug tracker. The clean up part has already begun as Laurent with Vishesh have mass-closed over 850 old KMail 1 bugs during the sprint to make it at least a little easier to get through the rest. Regarding the re-organization I still have to send a mail about it but a short summary would be that we want to remove bugzilla components and close bugs for the apps we decided to discontinue and maybe do a few more clean up rounds for the existing bugs.</p>
+<p>I'm sure I've forgotten something because much more happened during the sprint but let's just say I'm leaving some topics for others to blog about ;-).</p>
+<p style="text-align: justify;">Huge thank you to Franck Arrecot and Kevin Ottens for taking care of us and securing the venue for the sprint! All in all it was a great sprint and I'm happy to say that we are back on track to dominate the world of PIM.</p>
+<p style="text-align: justify;">The only disappointment of the entire sprint was my failure to acquire a French beer. I managed to try Belgian, Spanish, Mexican and Argentinian beer but they did not serve any French beer anywhere. Either there's no such thing or it must be really bad...:-)</p>
+<p>[caption id="attachment_682" align="aligncenter" width="687"]<a href="http://www.dvratil.cz/wp-content/uploads/IMG_0071-e1429305989460.jpg"><img class="wp-image-682 size-large" src="{{ site.baseurl }}/assets/IMG_0071-e1429305989460-1024x768.jpg" alt="KDE PIM Sprint in Toulouse" width="687" height="515" /></a> We had a great dinner with the local KDE people on Saturday. Also a prove that Laurent is a real person :-D[/caption]</p>
+<p>&nbsp;</p>

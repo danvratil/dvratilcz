@@ -1,0 +1,37 @@
+---
+layout: post
+title: Akonadi Google 0.3 arrives
+date: 2012-04-01 20:45:08.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Akonadi Google
+- KDE
+tags:
+- Akonadi
+- Google
+- KDE
+- libkgoogle
+- PIM
+meta:
+  _edit_last: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538449506;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:214;}i:1;a:1:{s:2:"id";i:78;}i:2;a:1:{s:2:"id";i:27;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>After many months of "I will release it next week" I finally released libkgoogle 0.3 and new version of Akonadi resources for Google this week.</p>
+<p>So, what's new? I managed to implement everything I described in <a title="Akonadi Google Resource: what’s comming?" href="http://www.progdan.cz/2011/11/akonadi-google-resource-whats-comming/">this post</a> back in November. That's support for multiple Google accounts, and merging the tasks resource into the calendar resource (so now it's called "Calendar and Tasks resource"). The calendar now properly supports events recurrence and partially exceptions in recurrent events (there's still some work to be done). The contacts resource now splits your contacts to "My Contacts" and "Others" groups. I hoped to fully support contact groups, the code was even in place, but I've run to some problems how to store it in Akonadi and unfortunately KAddressBook is not "compatible" with the Google's concept of contact groups, so I decided to stick with the two elementary groups and hopefully I'll get to this later (maybe some PIM dev could help me on Akademy? ;) )</p>
+<p>If you run to any problems or bugs, please report them to the libkgoogle product in bugzilla.</p>
+<p>Finally, I'd like to thank to Jan Grulich and Vojtěch Zeisek for putting their contacts and events at risk to test the pre-release versions and provided valuable feedback.</p>
+<h2>Sources</h2>
+<p><strong>(Updated tarball!)</strong> <a title="akonadi-google-0.3.tar.gz" href="http://www.progdan.cz/wp-content/uploads/akonadi-google-0.3.tar.gz">akonadi-google-0.3.tar.gz</a> (md5: 8c5c1e015068bea90bf25dd7858dc913)</p>
+<p>&nbsp;</p>
+<p>If you want to follow the most recent development, you can use sources from the <em>master</em> branch.</p>
+<p>Have a nice day!</p>

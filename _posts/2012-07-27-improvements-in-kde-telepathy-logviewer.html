@@ -1,0 +1,41 @@
+---
+layout: post
+title: Improvements in KDE Telepathy LogViewer
+date: 2012-07-27 11:39:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+- Telepathy
+tags:
+- KDE
+- LogViewer
+- Telepathy
+meta:
+  _edit_last: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1537886211;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:168;}i:1;a:1:{s:2:"id";i:348;}i:2;a:1:{s:2:"id";i:816;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>On Akademy I made a few patches for KDE Telepathy text-ui and logviewer. I continued even after Akademy, and David though it would be a  good idea to make a maintainer of the KDE Telepathy LogViewer (thank you David! :) ). As a new maintainer I decided to kill all bugs, implement all feature requests and add a few of my own improvements to make the LogViewer rock.</p>
+<p>So let's see how the LogViewer will look like in KTp 0.5 :-)</p>
+<h2>Nicknames and Accounts</h2>
+<p>The logviewer tries to retrieve real names (or nicknames) of the contacts, so that you can easily identify the person (and you don't have to remember who john123456789@gmail.com is). Unfortunately the names can be obtained only when you are online. When you account is disconnected, you will just see the ugly usernames. Also the list was converted into a tree, where contacts are grouped by your accounts.  You can filter the contacts either by their username of display name, too.</p>
+<p>Plan is to have the same (similar) view as in Contact List (with fancy look and avatars).</p>
+<h2> Navigating between Conversations</h2>
+<p><a href="http://www.progdan.cz/wp-content/uploads/conversation_navigation.png"><img class="alignleft size-thumbnail wp-image-286" title="Links for easy navigation between conversations" src="{{ site.baseurl }}/assets/conversation_navigation-150x150.png" alt="" width="150" height="150" /></a>Usually you only remember the contact in whose logs to read, but you don't remember whether you should be looking to logs from yesterday, the day before or last week. Searching for valid dates in the date picker is not always comfortable. So logviewer now automatically inserts a links to previous and next  conversations to the beginning and end of each log to make jumping between them easier.</p>
+<h2>Global Search</h2>
+<p><a href="http://www.progdan.cz/wp-content/uploads/global-search.png"><img class="size-thumbnail wp-image-287 alignright" title="Global Search Example" src="{{ site.baseurl }}/assets/global-search-150x150.png" alt="" width="150" height="150" /></a>If your memory is as bad as mine, you usually just remember a single word or term, but you have no idea who and when sent you it. Then use global search! The contacts view is filtered to contain only contacts that have at least one conversation with matching terms. Only matching conversations are displayed in the date picker and the searched term is highlighted in the message view so that you can spot it more easily.</p>
+<h2>Future?</h2>
+<p>I have some cool plans for future, some of them will make it to 0.5, some will have to wait. Here's what you can be looking forward to:</p>
+<p>- file transfer logging - Alin suggested that file transfers are part of conversation history and thus information about it should be stored in the logs as well., including link to the downloaded file. I agree and if I find out how to do it, I'll add it to the logviewer :-)</p>
+<p>-  better date picker - searching for conversation dates in the date picker can be quite painful if you don't remember the exact date or when you chat with some person only rarely, so I'd like to introduce some better UI for listing past conversations (maybe just a list of dates...)</p>
+<p>- that's all I can remember right now, but there will be more. I  have some ideas for the text-ui as well, so stay tuned ;-)</p>
+<p>Do you have any ideas, suggestions, bug reports? <a href="https://bugs.kde.org/enter_bug.cgi?product=telepathy&amp;format=guided&amp;component=log-viewer">Express your wishes in Bugzilla</a>!</p>

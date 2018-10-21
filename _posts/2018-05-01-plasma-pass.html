@@ -1,0 +1,44 @@
+---
+layout: post
+title: Plasma Pass
+date: 2018-05-01 21:57:12.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+tags:
+- KDE
+- Plasma
+- QML
+meta:
+  _edit_last: '1'
+  _oembed_58709963be9f06d2d7863cbcd434aaed: "{{unknown}}"
+  _publicize_twitter_user: "@danvratil"
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538451720;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:267;}i:1;a:1:{s:2:"id";i:637;}i:2;a:1:{s:2:"id";i:576;}}}}
+  _wpas_mess: Plasma Pass
+  _wpas_skip_11076691: '1'
+  _wpas_skip_10747372: '1'
+  _wpas_skip_10747376: '1'
+  _wpas_done_all: '1'
+  enclosure: |
+    https://www.dvratil.cz/wp-content/uploads/plasma-pass.mp4
+    1224808
+    video/mp4
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>You may have heard about <a href="https://www.passwordstore.org">pass, the standard Unix password manager</a>. I learned about it from Milian Wolf some months ago and I really liked it for its simplicity, respect for privacy and multiplatform support. And so over the past months, I started to slowly change my passwords to randomly generated ones stored in <em>pass.</em></p>
+<p>To get a password from <em>pass</em>, you simply type <code>pass -c SomePath/SomeService</code> into console and <em>pass</em> will copy the password straight to your clipboard. Super simple. Slightly less comfortable when you are dealing with websites though. Luckily there's a wonderful browser extension called <a href="https://github.com/dannyvankooten/browserpass#readme">browserpass</a> that can fill online login forms with a single click and has automatic password matching based on the current domain.</p>
+<p>But sometimes even I am simply too lazy to open Yakuake and type in a command, so I started looking for some GUI. There's <a href="https://qtpass.org">qtpass</a>, but that's not exactly what I was looking for. And so I dusted off my QML knowledge and wrote Plasma Pass: a systray Plasma applet to quickly find your password and copy it into the clipboard with a single mouse click. The applet also takes care of removing the password from the X11 clipboard as well as Klipper after 45 seconds so it won't leak accidentally through your clipboard history.</p>
+<p><video style="max-width: 600px; margin: auto;" controls="controls"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start">﻿</span><br />
+<source src="https://www.dvratil.cz/wp-content/uploads/plasma-pass.mp4" type="video/mp4" /><br />
+</video></p>
+<p>The source code is currently available in my scratch repo: <a href="https://cgit.kde.org/scratch/dvratil/plasma-pass.git/">https://cgit.kde.org/scratch/dvratil/plasma-pass.git/</a></p>
+<p>And now back to fixing Akonadi ;-)</p>

@@ -1,0 +1,52 @@
+---
+layout: post
+title: KDE PIM on Akademy
+date: 2017-07-29 16:07:26.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Akonadi
+- KDE
+tags:
+- Akademy
+- Akonadi
+- KDE
+- KMail
+- PIM
+meta:
+  _edit_last: '1'
+  _publicize_twitter_user: "@danvratil"
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538496579;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:893;}i:1;a:1:{s:2:"id";i:816;}i:2;a:1:{s:2:"id";i:994;}}}}
+  _wpas_skip_11076691: '1'
+  _wpas_skip_10747372: '1'
+  _wpas_skip_10747376: '1'
+  _wpas_done_all: '1'
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>Akademy is over and so here's a short summary of what the PIMsters have worked on during the past week.</p>
+<h2>Wiki Cleanup</h2>
+<p>Me and Volker sat down and went through all KDE PIM wikipages on community.kde.org, userbase.kde.org and techbase.kde.org. Most of our wiki pages are horribly outdated, so we tried to clean them up, remove pages that are no longer relevant or useful. With fewer pages to take care of and better overview of what all content we have, we should be able to keep them more up-to-date than we did in the past years.</p>
+<h2>Developer Story</h2>
+<p>Contributing to KDE PIM is hard and we know that. Getting all the dependencies and environment set up correctly is not trivial, and you can't run stable and development Kontact alongside each other easily.</p>
+<p>We decided to address all those issues and make contributing to KDE PIM substantially easier. We are working on a Docker image that has all the dependencies and environment set up, so developers just need to run a single command to build entire KDE PIM. And thanks to the containerization, it's also possible to use the development version of Kontact in parallel with the stable version.</p>
+<p>We hope that having ready-made development environment it will be easier for new contributors to get involved with KDE PIM. We will post a more details once the Docker image is ready.</p>
+<h2>Kontact Homepage</h2>
+<p>Right now <a href="https://kontact.kde.org">kontact.kde.org</a> and <a href="http://kontact.org">kontact.org</a> just redirect to our page on the Userbase wiki. We decided that we want a simple, but professionally-looking web site to market Kontact as an actual product so that it appears more attractive to new users, especially those who will be coming from Windows in the future and contains comprehensive information for both users and developers.</p>
+<h2>KMail User Survey</h2>
+<p>During QtCon 2016 we started working on KMail user survey to get a better idea of what our user base is like, how they use KMail and what their impressions of it are. And now the survey is finally live, so please <a href="https://survey.kde.org/index.php/852475?lang=en">go and fill it</a> if you haven't done so yet.</p>
+<h2>Wayland Support</h2>
+<p>Volker has finished porting Kontact to Wayland, so if you have Qt 5.9, you can now run Kontact natively on Wayland. Our main limitation was Wayland support in QWebEngine, which we use to render emails, but that has been resolved in Qt 5.9.</p>
+<h2>Merging Exchange Support</h2>
+<p>Krzysztof Nowicki has been working on <a href="https://github.com/KrissN/akonadi-ews">Microsoft Exchange support for Kontact</a> for a while now. We now have plans to merge his code into kdepim-runtime repository, so if everything goes right the Exchange support will be available out-of-the-box to all our users starting with the December release of KDE Applications.</p>
+<h2>Next Sprint</h2>
+<p>We will be meeting soon again in Randa. Our main plan for the sprint is to continue with removal of KDateTime from our code, and thus making KDE PIM free of kdelibs4support.</p>
+<p>&nbsp;</p>
+<p>There's some more that I did not mention here, you can check the <a href="https://community.kde.org/KDE_PIM/Meetings/KDE_PIM_at_Akademy_2017">full notes</a> for details.</p>

@@ -1,0 +1,36 @@
+---
+layout: post
+title: Google support in Akonadi, part I
+date: 2011-05-30 23:20:50.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Akonadi Google
+- KDE
+tags:
+- Akonadi
+- Google
+- KDE
+- PIM
+meta:
+  _edit_last: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1536992933;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:466;}i:1;a:1:{s:2:"id";i:78;}i:2;a:1:{s:2:"id";i:785;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p style="text-align: justify;">My job as a Red Hat internet is development of Evolution, the groupware software. Although I'm using Gnome 3 and all the Gtk stuff in work, I'm still loyal to KDE on my personal laptop. But one thing I really like on Evolution and I really miss in KDE PIM is proper support for Google services. As result of this and after some talking with my flatmate, I started to work on real, fullfeatured Akonadi Resource for Google Services.</p>
+<p style="text-align: justify;"><!--more--></p>
+<p style="text-align: justify;">At this moment, after about week of work I have working Contacts Resource. It can fetch, create, update and remove contacts from Google server using their GData API. The implementation of GData protocol is far from complete, as of now only few basic values are supported (name, emails, phones, addresses, notes).</p>
+<p style="text-align: justify;">Since this implementation is actually "working", I've decided to release it as 0.1.</p>
+<p style="text-align: justify;">Version 0.2 should bring basic support for Google Calendar and most probably some major refactoring of libkgoogle. Following releases will focus on improving support of GData protocol, including fetching of contacts photos.<br />
+I have to mention here, that the code is inspired by code of the great <a href="http://thomasmcguire.wordpress.com/2011/02/27/facebook-support-in-kdepim/">Akonadi Facebook Resource</a>, because this is my first Akonadi-related code and I really need something to learn from :)</p>
+<p style="text-align: justify;">There are no screenshots worth posting at this moment, you rather try checking out the sources, maybe sending some patches back, what do you say? ;)<br />
+<del>Sources are available in Gitorious: <a href="http://www.gitorious.org/akonadi-google">http://www.gitorious.org/akonadi-google</a>, clone URL is git://gitorious.org/akonadi-google/akonadi-google.git.</del></p>
+<p style="text-align: justify;"><strong>UPDATE</strong>: the project is now hosted in KDE Git repo on <a href="https://projects.kde.org/projects/playground/pim/akonadi-google">https://projects.kde.org/projects/playground/pim/akonadi-google</a>.</p>

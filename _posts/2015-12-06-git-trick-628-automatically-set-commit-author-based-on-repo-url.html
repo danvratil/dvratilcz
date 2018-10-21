@@ -1,0 +1,111 @@
+---
+layout: post
+title: 'Git trick #628: automatically set commit author based on repo URL'
+date: 2015-12-06 21:45:56.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- Fedora
+- KDE
+- Random Blurb
+tags:
+- Fedora
+- git
+- identity
+- KDE
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+  _publicize_twitter_user: "@danvratil"
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538558980;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:858;}i:1;a:1:{s:2:"id";i:115;}i:2;a:1:{s:2:"id";i:27;}}}}
+  _wpas_done_all: '1'
+  _wpas_mess: 'Git trick #628: automatically set commit author based on repo URL'
+  _wpas_skip_11076691: '1'
+  _wpas_skip_10747372: '1'
+  _wpas_skip_10747376: '1'
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p style="text-align: justify;">If you have more than one email identity that you use to commit to different projects you have to remember to change it in <code>.git/config</code> every time you git clone a new repository. I suck at remembering things and it's been annoying me for a long time that I kept pushing commits with wrong email addresses to wrong repositories.</p>
+<p style="text-align: justify;">I can't believe I am the only one having this problem, but I could not find anything on the interwebs so I just fixed it myself and I'm posting it here so that maybe hopefuly someone else will find it useful too :).</p>
+<p style="text-align: justify;">The trick is very simple: we create a <code>post-checkout</code> hook that will check the value of <code>user.email</code> in <code>.git/config </code>and set it to whatever we want based on URL of the "origin" remote.  Why <code>post-checkout</code>? Because there's no <code>post-clone</code> hook, but git automatically checkouts master after clone so the hook gets executed. It also gets executed every time you run <code>git checkout</code> by hand but the overhead is minimal and we have a guard against overwriting the identity in case it's already set.</p>
+<p>[python]<br />
+#!/usr/bin/python<br />
+# -*- coding: utf-8 -*-<br />
+#<br />
+# (C) 2015 Daniel Vrátil &lt;dvratil@kde.org&gt;<br />
+# License: GPL<br />
+#<br />
+# Requires: Python 2 or 3 and compatible GitPython<br />
+#</p>
+<p># https://github.com/gitpython-developers/GitPython<br />
+import git<br />
+import ConfigParser<br />
+import os<br />
+import sys</p>
+<p>repo = git.Repo(os.getcwd())</p>
+<p># Don't do anything if an identity is already configured in this<br />
+# repo's .git/config<br />
+config = repo.config_reader(config_level = 'repository')<br />
+try:<br />
+    # The value of user.email is non-empty, stop here<br />
+    if config.get_value('user', 'email'):<br />
+        sys.exit(0)<br />
+except (ConfigParser.NoSectionError, ConfigParser.NoOptionError):<br />
+    # Section or option does not exist, continue<br />
+    pass</p>
+<p>origin = repo.remote('origin')<br />
+if not origin:<br />
+    print('** Failed to detect remote origin, identity not updated! **')<br />
+    sys.exit(0)</p>
+<p># This is where you adjust the code to fit your needs<br />
+if 'kde.org' in origin.url or origin.url.startswith('kde:'):<br />
+    email = 'dvratil@kde.org'<br />
+elif 'fedoraproject.org' in origin.url:<br />
+    email = 'dvratil@fedoraproject.org'<br />
+elif 'kdab.com' in origin.url:<br />
+    email = 'daniel.vratil@kdab.com'<br />
+else:<br />
+    print('** Failed to detect identity! **')<br />
+    sys.exit(0)</p>
+<p># Write the option to .git/config<br />
+config = repo.config_writer()<br />
+config.set_value('user', 'email', email)<br />
+config.release()<br />
+print('** User identity for this repository set to \'%s\' **' % email)<br />
+[/python]</p>
+<p style="text-align: justify;">To install it, just copy the script above to <code>~/.git-templates/hooks/post-checkout</code>, make it executable and run</p>
+<pre style="text-align: justify;">git config --global init.templatedir ~/.git-templates</pre>
+<p style="text-align: justify;">All hooks from templatedir are automatically copied into <code>.git/hooks</code> when a new repository is created (<code>git init</code> or <code>git clone</code>) - this way the hook will get automatically deployed to every new repo.</p>
+<p style="text-align: justify;">And here's a proof that it works :-)</p>
+<p>[text]<br />
+[dvratil@Odin ~/devel/KDE]<br />
+$ git clone kde:kasync<br />
+Cloning into 'kasync'...<br />
+remote: Counting objects: 450, done.<br />
+remote: Compressing objects: 100% (173/173), done.<br />
+remote: Total 450 (delta 285), reused 431 (delta 273)<br />
+Receiving objects: 100% (450/450), 116.44 KiB | 0 bytes/s, done.<br />
+Resolving deltas: 100% (285/285), done.<br />
+Checking connectivity... done.<br />
+** User identity for this repository set to 'dvratil@kde.org' **</p>
+<p>[dvratil@Odin ~/packaging/fedpkg]<br />
+$ git clone ssh://dvratil@pkgs.fedoraproject.org/gammaray<br />
+Cloning into 'gammaray'...<br />
+remote: Counting objects: 287, done.<br />
+remote: Compressing objects: 100% (286/286), done.<br />
+remote: Total 287 (delta 113), reused 0 (delta 0)<br />
+Receiving objects: 100% (287/287), 57.24 KiB | 0 bytes/s, done.<br />
+Resolving deltas: 100% (113/113), done.<br />
+Checking connectivity... done.<br />
+** User identity for this repository set to 'dvratil@fedoraproject.org' **<br />
+[/text]</p>
+<p><b>Update 1:</b> added utf-8 coding (thanks, Andrea)<br />
+<b>Update 2:</b> changed shebang to more common <code>/usr/bin/python</code> (<code>/bin/python</code> is rather Fedora-specific), added "Requires" comment to top of the script (thanks, Derek)</p>

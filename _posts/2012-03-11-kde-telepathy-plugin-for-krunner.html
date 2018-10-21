@@ -1,0 +1,41 @@
+---
+layout: post
+title: KDE Telepathy plugin for KRunner
+date: 2012-03-11 23:11:43.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- KDE
+- Telepathy
+tags:
+- KDE
+- Telepathy
+meta:
+  _edit_last: '1'
+  _aioseop_keywords: KDE,Telepathy,KRunner
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1537047376;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:348;}i:1;a:1:{s:2:"id";i:279;}i:2;a:1:{s:2:"id";i:384;}}}}
+author:
+  login: dvratil
+  email: me@dvratil.cz
+  display_name: Dan Vrátil
+  first_name: Daniel
+  last_name: Vrátil
+---
+<p>Yesterday I have switched from Kopete to KDE Telepathy. At first I only wanted to see what's new, but I was quite impressed and I didn't see any problem that would keep me from using KDE Telepathy instead of Kopete. Except for one -  a contact runner. I'm an incredibly lazy creature and instead of having to remember various shortcuts or even touching mouse, I rather use KRunner for nearly everything, including starting chat with my IM contacts.</p>
+<p>In the true spirit of open source, instead of whining about a missing feature I decided to take an action and write the plugin myself :)</p>
+<p>Same as with Kopete Contacts runner, just by typing name of your contact will display matching contacts in KRunner. If you have one contact in multiple accounts, it will display the contact multiple times, with name of the account as well.</p>
+<p>The results are sorted by presence, e.g. if a person is online on Jabber, but offline on GTalk, the Jabber contact will be listed first.</p>
+<p>If the contact has capabilities for audio or video call, file transfer or desktop sharing, you will see multiple buttons. By default, just by hitting Enter on the selected contact will start text chat, but by clicking on one of the buttons you can start the respective action. If the other side does not have some capability, it's button will not be displayed.</p>
+<p>If you want to explicitly start for example an audio call, typing "audiocall John" will list all contacts named John capable of audio call and clicking on it or hitting Enter will start an audio call immediately. Similarly there are commands "videcall", "sendfile" and "sharedesktop" for respective actions.</p>
+<p>This last feature is untested though, because none of my contacts seem to use KDE Telepathy or have any capability other then text chat :D</p>
+<p>Here is some artificially made screen shot :)</p>
+<p><a href="http://www.progdan.cz/wp-content/uploads/ktp_contacts_runner.png"><img class="aligncenter size-full wp-image-170" title="KDE Telepathy Contact Runner" src="{{ site.baseurl }}/assets/ktp_contacts_runner.png" alt="KDE Telepathy Contact Runner example" width="556" height="154" /></a> (Ignore the KSnapshot icon, I had already removed all the code to generate this preview when I noticed it :D )</p>
+<p>You can get sources from my scratch repo on KDE git:<br />
+<s></s></p>
+<pre>git://anongit.kde.org/scratch/dvratil/ktp-contact-runner.git
+git://anongit.kde.org/ktp-contact-runner.git</pre>
+<p>And finally, big thanks to all our telepathic guys for their great work on the framework :) Keep it up!</p>
+<p>Bye</p>
