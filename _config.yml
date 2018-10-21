@@ -7,12 +7,18 @@ baseurl: ""
 url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
-
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
-# exclude:
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
