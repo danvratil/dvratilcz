@@ -1,0 +1,41 @@
+---
+# front matter for jekyll
+---
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin-ext');
+
+/* Modern box-sizing model */
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+#head {
+    background-color: #e74c3c;
+
+    font-family: 'Montserrat', sans-serif;
+    color: #FFF;
+    text-align: center;
+    padding-top: 40px;
+
+    #branding {
+        margin-bottom: 20px;
+    }
+
+    h1.title {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    h2.subtitle {
+        font-size: 12px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+}

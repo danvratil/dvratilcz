@@ -1,0 +1,11 @@
+---
+layout: home
+---
+
+<div class="article-list">
+{% for post in paginator.posts %}
+    {% include post-preview.html %}
+{% endfor %}
+</div>
+
+{% include pagination.html %}

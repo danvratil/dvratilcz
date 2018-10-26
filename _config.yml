@@ -7,12 +7,18 @@ baseurl: ""
 url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
+paginate: 10
 
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+
+sass:
+    sass_dir: _sass
+    style: compressed
 
 exclude:
   - Gemfile
