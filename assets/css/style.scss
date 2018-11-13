@@ -26,6 +26,51 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #656565;
+
+    background: #fff;
+
+    @media only screen and (min-width: 767px) {
+        background-image: url('/assets/carina_nebula1.jpg');
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #303030;
+    }
+}
+
+body:after,
+body:before {
+    content: '';
+    display: block;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    height: 200%;
+}
+
+body.sidebar-closed:after {
+    left: 0;
+    background: #e74c3c;
+
+    @media only screen and (min-width: 767px) {
+        width: 40px;
+    }
+    @media only screen and (min-width: 959px) {
+        width: 300px;
+    }
+}
+
+body.sidebar-closed:before {
+    width: 100px;
+    background: #303030;
+
+    @media only screen and (min-width: 767px) {
+        left: 40px;
+    }
+    @media only screen and (min-width: 959px) {
+        left: 300px;
+    }
 }
 
 h1 {
@@ -68,6 +113,46 @@ header {
     word-wrap: normal;
 }
 
+#page {
+    width: 100%;
+
+    @media only screen and (min-width: 767px) {
+        width: 680px;
+    }
+    @media only screen and (min-width: 959px) {
+        width: 940px;
+        
+        #sidebar {
+            position: relative;
+            float: left;
+            width: 300px;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+    }
+    @media only screen and (min-width: 1220px) {
+        width: 1200px;
+    }
+}
+
+#page:before {
+    @media only screen and (min-width: 959px) {
+        content: '';
+        width: 540px;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 400px;
+        height: 100%;
+        background: #fff;
+        z-index: -1;
+    }
+    @media only screen and (min-width: 1220px) {
+        width: 800px;
+    }
+}
+
+
 #head {
     background-color: #e74c3c;
     font-family: 'Montserrat', sans-serif;
@@ -76,6 +161,15 @@ header {
     padding-top: 40px;
     margin-top: -40px;
     margin-right: 0;
+
+    @media only screen and (min-width: 767px) {
+        width: 540px;
+        float: right;
+        padding-top: 40px;
+    }
+    @media only screen and (min-width: 959px) {
+        display: none;
+    }
 
     #branding {
         padding-bottom: 20px;
@@ -104,5 +198,14 @@ header {
         width: 100%;
         background-color: #fff;
         box-sizing: border-box;
+
+        @media only screen and (min-width: 767px) {
+            float: right;
+            width: 540px;
+            padding: 0 40px;
+        }
+        @media only screen and (min-width: 1220px) {
+            width: 800px;
+        }
     }
 }
