@@ -1,9 +1,20 @@
-<div class="pagination">
+<nav role="navigation" class="pagination">
+    <h1 class="screen-reader-text">Post navigation</h1>
     {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Older</a>
+    <div class="pagination-next">
+        <a href="{{ paginator.next_page_path }}">
+            <span class="genericon genericon-leftarrow"></span>
+            Older posts
+        </a>
+    </div>
     {% endif %}
 
     {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">Newer</a>
+    <div class="pagination-previous">
+        <a href="{{ paginator.previous_page_path }}">
+            Newer posts
+            <span class="genericon genericon-rightarrow"></span>
+        </a>
+    </div>
     {% endif %}
-</div>
+</nav>

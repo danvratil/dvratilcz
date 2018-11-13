@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'social-logos';
+    src: url(/assets/fonts/social-logos.woff2) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.share-bar {
+
+    .sb-title {
+        color: #303030;
+        font: bold 11px/1.5 Montserrat, sans-serif;
+        text-transform: uppercase;
+        margin: 0 0 1em 0;
+        display: inline-block;
+    }
+
+    .sb-title:before {
+        content: '';
+        display: block;
+        width: 100%;
+        min-width: 30px;
+        border-top: 1px solid #ddd;
+        margin-bottom: 1em;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0 0 .7em 0;
+        list-style: none;
+
+        li {
+            margin: 0 5px 5px 0;
+            padding: 0;
+            display: inline-block;
+
+            a {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 12px;
+                margin-top: 2px;
+                text-indent: 0;
+                border-radius: 50%;
+                border: 0;
+                padding: 7px;
+                position: relative;
+                top: -2px;
+                line-height: 12px;
+                margin-bottom: 0;
+                text-decoration: none;
+                display: inline-block;
+
+                .sharing-screen-reader-text {
+                    clip: rect(1px,1px,1px,1px);
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    overflow: hidden;
+                }
+            }
+
+            a:before {
+                font: normal 18px/1 'social-logos';
+                top: 1px;
+                position: relative;
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+            }
+        }
+    }
+
+    .share-facebook {
+        a {
+            background: #3b5998;
+            color: #fff;
+        }
+        a:before {
+            content: '\f203';
+        }
+    }
+
+    .share-twitter {
+        a {
+            background: #00acee;
+            color: #fff;
+        }
+        a:before {
+            content: '\f202';
+        }
+    }
+    .share-reddit {
+        a {
+            background-color: #cee3f8;
+            color: #555;
+        }
+        a:before {
+            content: '\f222';
+        }
+    }
+}
