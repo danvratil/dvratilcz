@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Kontact ♡ Flatpak
 date: 2018-10-02 23:29:52 +02:00
 thumbnail: kontact-flathub.png

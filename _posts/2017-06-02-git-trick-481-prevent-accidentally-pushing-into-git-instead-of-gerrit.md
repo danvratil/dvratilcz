@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Git trick #481: Prevent accidentally pushing into git instead of Gerrit'
 date: 2017-06-02 23:25:49 +02:00
 categories:

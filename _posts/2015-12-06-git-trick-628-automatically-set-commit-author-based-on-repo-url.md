@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Git trick #628: automatically set commit author based on repo URL'
 date: 2015-12-06 21:45:56 +01:00
 categories:

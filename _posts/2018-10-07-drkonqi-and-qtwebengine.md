@@ -1,4 +1,5 @@
 ---
+layout: post
 title: DrKonqi and QtWebEngine
 date: 2018-10-07 16:23:20 +0200
 categories:

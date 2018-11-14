@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Qt containers and C++11 range-based loops
 date: 2015-06-24 01:32:23 +02:00
 categories:
