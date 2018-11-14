@@ -1,35 +1,20 @@
 ---
-layout: post
 title: KDE 4.6 beta preview
-date: 2010-12-02 23:11:13.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2010-12-02 23:11:13 +01:00
 categories:
 - KDE
 tags:
 - KDE
-meta:
-  _edit_last: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538349329;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:816;}i:1;a:1:{s:2:"id";i:785;}i:2;a:1:{s:2:"id";i:681;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
-<p style="text-align: justify;">Based on <a href="http://www.kde.org/announcements/announce-4.6-beta1.php">KDE 4.6 beta 1</a> release last week, I decidedI to test the latest KDE snapshot 4.5.82 and here are the news I've found in there :) I haven't been using development snapshots <a href="https://bbs.archlinux.org/viewtopic.php?id=76245">I'm creating every week</a> for ArchLinux regularily last few weeks, since I'm mostly on Fedora now, so the changes are now more obvious for me.<!--more--></p>
-<p style="text-align: justify;"><a href="http://progdan.cz/wp-content/uploads/kdm.png"><img class="alignleft size-medium wp-image-15" title="KDM - KDE Plasma Workspace" src="{{ site.baseurl }}/assets/kdm-300x201.png" alt="" width="300" height="201" /></a> First interesting thing I noticed already in KDM. In the list of available desktop environments, there's no longer any "KDE", but it's KDE Plasma Workspace!</p>
+<p style="text-align: justify;">Based on <a href="http://www.kde.org/announcements/announce-4.6-beta1.php">KDE 4.6 beta 1</a> release last week, I decidedI to test the latest KDE snapshot 4.5.82 and here are the news I've found in there :) I haven't been using development snapshots <a href="https://bbs.archlinux.org/viewtopic.php?id=76245">I'm creating every week</a> for ArchLinux regularily last few weeks, since I'm mostly on Fedora now, so the changes are now more obvious for me.</p>
+<p style="text-align: justify;"><img class="alignleft" title="KDM - KDE Plasma Workspace" src="{{ site.baseurl }}/assets/kdm-300x201.png" alt="" width="300" height="201" />First interesting thing I noticed already in KDM. In the list of available desktop environments, there's no longer any "KDE", but it's KDE Plasma Workspace!</p>
 <p style="text-align: justify;">The first thing after login I was going to test was the new, aesome and almighty Akonadi. Well - it's cool, I really like that. On the other hand, I think it's quite slow on my 2x1.5GHz laptop. Loading 6k mails takes considerable amount of time after the KMail starts. I hope this will get fixed soon or later (most probably later :).</p>
 <p style="text-align: justify;">Next think I checked was KAdressBook. I hoped there will be an Akonadi Resource for something like sync with GMail contacts and calendar, but I haven't find anything, so I will probably have to write something myself :)</p>
 <p style="text-align: justify;">Unfortunatelly, Akregator does not store feeds and their content in Akonadi database, which was something I hoped for since I first heard about KDE PIM2 migrating to Akonadi. It's not a great feature, not definetelly usefull for any resource integrations (you really don't need to access your feeds from other apps, unless you are writing something better then Akregator), but I'd like to see all the PIM stuff stored in one DB, which would really simplify backups and improve portability (when you are migrating between more PCs, possibility to simply take with you just one DB file would be a nice feature).</p>
-<p style="text-align: justify;"><a href="http://progdan.cz/wp-content/uploads/plasma_grid1.png"><img class="alignright size-medium wp-image-17" title="Plasma Grid Desktop" src="{{ site.baseurl }}/assets/plasma_grid1-300x226.png" alt="" width="300" height="226" /></a>A really great feature, a very appreciated one is the "Grid desktop" (Desktop Settings -&gt; View -&gt; Layout -&gt; Grid Desktop). When you are dragging an applet on you desktop, a grid is displayed allowing you to position the applet and after you drop it, the applet is automatically aligned to grid.</p>
+<p style="text-align: justify;"><img class="alignright" title="Plasma Grid Desktop" src="{{ site.baseurl }}/assets/plasma_grid1-300x226.png" alt="" width="300" height="226" />A really great feature, a very appreciated one is the "Grid desktop" (Desktop Settings -&gt; View -&gt; Layout -&gt; Grid Desktop). When you are dragging an applet on you desktop, a grid is displayed allowing you to position the applet and after you drop it, the applet is automatically aligned to grid.</p>
 <p style="text-align: justify;">When you move mouse to a screenedge, a bar with + and - buttons appears allowing you to change the density of the grid.</p>
 <p style="text-align: justify;">The new grid functionallity is further extended by applets groups. You can create widget which contains tabs. In each tab there is a grid and you can put multiple applets into the grid. Another cool feature, don't you think? I wish there were more usefull applets like this, instead of something like KDE Observatory.</p>
-<p style="text-align: justify;"><a href="http://progdan.cz/wp-content/uploads/applet_groups.png"><img class="alignleft size-medium wp-image-18" title="Applet Groups" src="{{ site.baseurl }}/assets/applet_groups-300x188.png" alt="" width="300" height="188" /></a> However I still found some issues with this applet, mostly when you try to insert a widget which is bigger then the Group widget, it somehow overflows.</p>
+<p style="text-align: justify;"><img class="alignleft size-medium wp-image-18" title="Applet Groups" src="{{ site.baseurl }}/assets/applet_groups-300x188.png" alt="" width="300" height="188" />However I still found some issues with this applet, mostly when you try to insert a widget which is bigger then the Group widget, it somehow overflows.</p>
 <p style="text-align: justify;">When we are talking about Plasma, I must mention Activities. It's a very cool feature, but it's not used a lot. Probably because they still were unperfect, I personally for example really minded that the activities were all named like Activity #1, Activity #2...now finally you can finally name your activities as you wish and they are more stable.</p>
 <p style="text-align: justify;">KDE 4.6 is also a great step toward HAL-less KDE. The PowerDevil has UPower backend now, but it's not yet enabled by default, HAL is still preferred, because it provides more features, but it's possible to already use it for watching battery/AC state and scaling CPU, but some features are slower then with HAL. UDisk was also implemented in 4.5.73 bringing support for mounting devices without HAL.</p>
 <p style="text-align: justify;">KDE 4.6 will be another great release in the KDE4 series, I'm happy to see KDE still evolving and moving towards modern and fast desktop environment.</p>

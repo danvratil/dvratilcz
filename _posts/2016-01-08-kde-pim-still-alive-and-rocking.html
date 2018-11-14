@@ -1,12 +1,7 @@
 ---
-layout: post
 title: Akonadi - still alive and rocking
-date: 2016-01-08 03:39:54.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2016-01-08 03:39:54 +01:00
+thumbnail: akonadi-logo1.png
 categories:
 - Akonadi
 - KDE
@@ -16,22 +11,6 @@ tags:
 - Frameworks
 - KDE
 - PIM
-meta:
-  _edit_last: '1'
-  _thumbnail_id: '444'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538554494;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:745;}i:1;a:1:{s:2:"id";i:681;}i:2;a:1:{s:2:"id";i:480;}}}}
-  _wpas_mess: Akonadi - still alive and rocking
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p style="text-align: justify;">It's been a while since I wrote anything about Akonadi but that does not mean I was slacking all the time ;) The KDE PIM team has ported PIM to KDE Frameworks 5 and Qt 5 and released the first KF5-based version in August 2015 and even before that we already did some major changes under the hood that were not possible in the KDE4 version due to API and ABI freezes of kdepimlibs. The KF5-based version of Akonadi libraries (and all the other KDE PIM libraries for that matter) have no guarantees of stable API yet, so we can bend and twist the libraries to our needs to improve stability and performance. Here's an overview of what has happened (mostly in Akonadi) since we started porting to KDE Frameworks 5. It is slightly more technical than I originally intended to, sorry about that.</p>
 <h2 style="text-align: justify;">Human-readable formats are overrated</h2>
@@ -47,10 +26,10 @@ author:
 <p style="text-align: justify;">To finally get to the point: today I took the Akonadi client libraries (that lived in kdepimlibs.git) and merged them to akonadi.git repository, where the Akonadi server is - at least locally on my machine, still need to fix some build issues before actually pushing this, but I expect to do it tomorrow. In other words the entire Akonadi Framework now lives in a single self-contained git repository. This brings even more benefits, mostly from maintainer point of view. For instance we can now share more code between the server and the libraries that we previously had to duplicate or expose via some private shared library.</p>
 <p style="text-align: justify;">The kdepimlibs.git will still contain some libraries for now that we yet have to figure out what to do with, but I guess that eventually kdepimlibs.git will meet the same fate as kdelibs.git - being locked down and preserved only for historical reference.</p>
 <h2 style="text-align: justify;">The Cheese Dependency</h2>
-<p style="text-align: justify;">In September last year the <a href="http://www.dvratil.cz/2015/08/kde-pim-in-randa/">KDE PIM team also met in Randa</a> in Swiss Alps. I was totally going to blog about it, but then other things got into way and I kept delaying it further and further until now. So with an awkward 5 months delay: huge thanks and hugs to the entire Randa meetings staff and one more hug to Mario just for being Mario. In Randa we met to discuss where KDE PIM should go next and how to get there. After several days on intensive talking we outlined the path into future - you probably read about it already in some of the blogs about AkonadiNext from Christian and Aaron, so I won't go much into that.</p>
+<p style="text-align: justify;">In September last year the <a href="{% post_url 2015-08-13-kde-pim-in-randa %}">KDE PIM team also met in Randa</a> in Swiss Alps. I was totally going to blog about it, but then other things got into way and I kept delaying it further and further until now. So with an awkward 5 months delay: huge thanks and hugs to the entire Randa meetings staff and one more hug to Mario just for being Mario. In Randa we met to discuss where KDE PIM should go next and how to get there. After several days on intensive talking we outlined the path into future - you probably read about it already in some of the blogs about AkonadiNext from Christian and Aaron, so I won't go much into that.</p>
 <p style="text-align: justify;">To list some of the visible and practical results - we now use <a href="https://phabricator.kde.org/project/board/34/">Phabricator</a> to coordinate the work in the PIM team and to better communicate what is happening and who's working on what. There's a nice backlog of tasks waiting to be done, so if you want to help us make PIM better feel free to pick up some task and get to work! Furthermore we looked into cleaning up some of the old code and optimizing some critical code-paths - basically a continuation of an effort that started already during Akademy in A Coruña. Some of the changes were already implemented, some are still pending.</p>
 <h2 style="text-align: justify;">Lord of the PIM: The Return of The KJots</h2>
-<p style="text-align: justify;">One of the major complaints we heard about the new KF5-based KDE PIM was the disappearance of KJots, our note-taking app. Earlier last year, on a <a href="http://www.dvratil.cz/2015/04/what-happened-in-toulouse/">PIM sprint in Toulouse</a>, we decided that we need to reduce the size of the code base to keep it maintainable given the current manpower (or rather lack thereof). KJots was one of the projects we decided to kill. What we did not realize back then was that we will effectively prevent people from accessing their notes, since we don't have any other app for that! I apologize for that to all our users, and to restore the balance in the Force I decided to bring KJots back. Not as a part of the main KDE PIM suite but as a standalone app. I have yet to make a first release that packagers can package, but it already builds and is reasonably usable. I'm not planning on developing the application very actively - I'll keep it breathing, but that's about it. That's all I can afford. If there's anyone who would be interesting in maintaining the application and developing it further (it's a rather small and simple application), feel free to step up! When the app reaches certain quality level, we can start thinking about merging it back to KDE PIM.</p>
+<p style="text-align: justify;">One of the major complaints we heard about the new KF5-based KDE PIM was the disappearance of KJots, our note-taking app. Earlier last year, on a <a href="{% post_url 2015-04-17-what-happened-in-toulouse %}">PIM sprint in Toulouse</a>, we decided that we need to reduce the size of the code base to keep it maintainable given the current manpower (or rather lack thereof). KJots was one of the projects we decided to kill. What we did not realize back then was that we will effectively prevent people from accessing their notes, since we don't have any other app for that! I apologize for that to all our users, and to restore the balance in the Force I decided to bring KJots back. Not as a part of the main KDE PIM suite but as a standalone app. I have yet to make a first release that packagers can package, but it already builds and is reasonably usable. I'm not planning on developing the application very actively - I'll keep it breathing, but that's about it. That's all I can afford. If there's anyone who would be interesting in maintaining the application and developing it further (it's a rather small and simple application), feel free to step up! When the app reaches certain quality level, we can start thinking about merging it back to KDE PIM.</p>
 <h2 style="text-align: justify;">Is that all?</h2>
 <p style="text-align: justify;">Yes. No. Well, it's all for today. There is much much more happening in KDE PIM - Laurent did tons of work on of refactoring and splitting the monolithic kdepim.git repository into smaller, better reusable pieces and now seems to be messing around Akregator, and Sandro is actively working on refactoring the email rendering code and calendaring. But I'll leave it up to them to report on their work :) And of course there's much more planned for the future (as always), but this blog post already got a bit out of hand, I'll report on the rest maybe next time I "accidentally" have an energy drink at 11 PM.</p>
 <p style="text-align: justify;">And as always: we need help. Like, lots of it. KDE PIM might look huge and scary and hard to work on, but in fact it's all rainbows and unicorns. Hacking on PIM is fun (and we are fun too sometimes!), so if you like KDE (PIM) and would like to help us, let's talk!</p>

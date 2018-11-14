@@ -1,12 +1,6 @@
 ---
-layout: post
 title: KDE PIM in Randa
-date: 2015-08-13 21:51:00.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2015-08-13 21:51:00 +02:00
 categories:
 - KDE
 tags:
@@ -15,27 +9,10 @@ tags:
 - PIM
 - Randa
 - Sprint
-meta:
-  _publicize_twitter_user: "@danvratil"
-  _edit_last: '1'
-  _oembed_92cb226dd1c253138acf81c5c982475a: "{{unknown}}"
-  _wpas_done_all: '1'
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538530599;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:785;}i:1;a:1:{s:2:"id";i:681;}i:2;a:1:{s:2:"id";i:480;}}}}
-  _aioseop_keywords: KDE,PIM,Randa,sprints,Akonadi
-  _aioseop_title: KDE PIM in Randa
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p style="text-align: justify;">The first release of KDE PIM based on KDE Frameworks 5 and Qt 5, which will be part of the KDE Applications 15.08 release, is <a href="https://techbase.kde.org/Schedules/Applications/15.08_Release_Schedule">getting closer and closer</a>. Except for porting the entire suite from Qt 4 to Qt 5 the team also managed to fix many bugs, add a few new features and do some pretty big performance and memory optimizations. And we already have some new improvements and optimizations stacked in the development branch which will be released in December!</p>
 <p style="text-align: justify;">The biggest performance improvement is thanks to switching to a faster implementation of the communication protocol used by applications to talk to the Akonadi server. We also extended the protocol and we can now use it to send change notifications from the Akonadi server to clients much more effectively than previously. Additionally we started cleaning up API of our libraries and improving it in a way that allows for safer and more effective use. None of this was possible in the KDE 4 version of KDE PIM, where we promised API and ABI compatibility with previous releases. For now we decided not to give any such promises for several more releases, so that we can tune the API and functionality even more.</p>
 <p style="text-align: justify;">During Akademy the KDE PIM team had a very long session where we analyzed where the project currently stands and we created a vision of where we want KDE PIM to be in the future. We know what parts we want to focus on more now and which parts are less relevant to us. KDE PIM is a huge and rather complicated project, unfortunately the development team is very small and so we have to make the hard and painful decision to lay off some of the features and functionality in exchange for improvement in reliability and user experience of the core parts of the product.</p>
 <p style="text-align: justify;">In order to make these decisions the team is going to meet again in couple weeks in Randa alongside many other KDE contributors and projects and will spend there a whole week. During the sprint we want to take a close look at all the parts and evaluate what to do with them as well as plan how to proceed towards Akonadi Next - the new version of Akonadi, which has some major changes in architecture and overall design (see the <a href="https://conf.kde.org/en/akademy2015/public/events/259">Christian's talk from Akademy about Akonadi Next</a>).</p>
 <p style="text-align: justify;">However organizing such sprint is not easy and so we would like to ask for your support by donating to the <a href="https://www.kde.org/fundraisers/kdesprints2015/">KDE Sprints Fundraiser</a>. Although the attendees cover some of the costs themselves, there are still expenses like travel and accommodation that need to be covered. This year the Fundraiser has been extended so that the collected money will also be used to support additional KDE sprints throughout the year.</p>
-<p style="text-align: justify;"><a href="https://www.kde.org/fundraisers/kdesprints2015/"><img class="aligncenter" src="{{ site.baseurl }}/assets/cropped-web2.png" alt="" width="940" height="198" /></a></p>
+<p style="text-align: justify;"><a href="https://www.kde.org/fundraisers/kdesprints2015/"><img class="aligncenter large" src="{{ site.baseurl }}/assets/cropped-web2.png" alt=""/></a></p>

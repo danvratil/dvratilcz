@@ -1,12 +1,6 @@
 ---
-layout: post
 title: Facebook Events in KOrganizer
-date: 2017-06-21 19:44:56.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2017-06-21 19:44:56 +02:00
 categories:
 - Akonadi
 - KDE
@@ -16,25 +10,17 @@ tags:
 - KDE
 - KOrganizer
 - PIM
-meta:
-  _edit_last: '1'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538092692;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:27;}i:1;a:1:{s:2:"id";i:65;}i:2;a:1:{s:2:"id";i:115;}}}}
-  _wpas_mess: Facebook Events in KOrganizer
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>Sounds like déjà vu? You are right! We used to have Facebook Event sync in KOrganizer back in KDE 4 days thanks to Martin Klapetek. The Facebook Akonadi resource, unfortunately, did not survive through Facebook API changes and our switch to KF5/Qt5.</p>
 <p>I'm using a Facebook event sync app on my Android phone, which is very convenient as I get to see all events I am attending, interested in or just invited to directly in my phone's calendar and I can schedule my other events with those in mind. Now I finally grew tired of having to check my phone or Facebook whenever I wanted to schedule event through KOrganizer and I spent a few evenings writing a brand new Facebook Event resource.</p>
 <p>Inspired by the Android app the new resource creates several calendars - for events you are attending, events you are interested in, events you have declined and invitations you have not responded to yet. You can configure if you want to receive reminders for each of those.</p>
 <p>Additionally, the resource fetches a list of all your friend's birthdays (at least of those who have their birthday visible to their friends) and puts them into a Birthday calendar. You can also configure reminders for those separately.</p>
-<p>[gallery columns="2" ids="874,875"]</p>
-<p>The Facebook Sync resource will be available in the next KDE Applications feature release in August.</p>
+<p>
+  <a href="{{ site.baseurl }}/assets/fb1.png">
+    <img src="{{ site.baseurl }}/assets/fb1-150x150.png" class="small alignleft" alt="Facebook Resource Configuration dialog">
+  </a>
+  <a href="{{ site.baseurl }}/assets/fb2.png">
+    <img src="{{ site.baseurl }}/assets/fb2-150x150.png" class="small alignleft" alt="Facebook events in KOrganizer">
+  </a>
+</p>
+<p style="clear: both">The Facebook Sync resource will be available in the next KDE Applications feature release in August.</p>

@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'KDE PIM Sprint Report: Day -2'
-date: 2013-11-13 11:40:17.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2013-11-13 11:40:17 +01:00
 categories:
 - KDE
 tags:
@@ -17,25 +11,12 @@ tags:
 - PIM
 - Solid
 - Sprint
-meta:
-  _edit_last: '1'
-  _aioseop_keywords: KDE, Akonadi, PIM, sprint, hackfest
-  _aioseop_description: First from the series of short blog posts about what's happening
-    on the autumn KDE PIM sprint in Brno, Czech republic.
-  _aioseop_title: 'KDE PIM Sprint Report: Day -2'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538355578;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:681;}i:1;a:1:{s:2:"id";i:785;}i:2;a:1:{s:2:"id";i:816;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>The KDE PIM sprint in Brno, Czech republic starts this Friday, but some KDE developers just <a title="Àlex Fiestas: Going to Brno for a week of awesome" href="http://www.afiestas.org/going-to-brno-for-a-week-of-awesome">could not wait</a> and decided to come to Brno already on Monday to work with the Red Hat KDE Team. Some of the stuff we are hacking right now is PIM related, but we also want to use this few days to work on other projects that we are involved in, but that are not strictly related to KDE PIM.</p>
 <p>So I'm just sitting right now in the office with Àlex Fiestas, David Edmundson, Vishesh Handa, Martin Klapetek and my colleagues Jan Grulich and Lukáš Tinkl. I'm waiting for Àlex to finish polishing his port of BlueDevil to BlueZ5, so that we can start hacking on KScreen - there are far too many bugs that need our attention and we've been neglecting KScreen quite a lot in the past few months. We want to fix the annoying crash in our KDED module, solve a regression that my bold attempt to fix an another crash in KDED caused and discuss the future direction of KScreen - me and Àlex have different opinions on where we should go next with KScreen so this is a great opportunity to find a common path :-)</p>
 <p>Vishesh has been relentlessly working  on improving the semantic technologies in KDE and from what I've seen, it's something to really look forward to ;-)</p>
 <p>Yesterday, me and Vishesh discussed the possibility of using Akonadi for handling tags of PIM data (emails, contacts, events, ...) and I implemented the feature into Akonadi and the Akonadi client libraries - only as a proof of concept though, I have no intention of shipping it at this point - much more work and discussion is needed about this. I also made further progress with implementing the IDLE extension to the Akonadi protocol. It allows the Akonadi server to send notifications about changes to clients using the Akonadi protocol, instead of D-Bus (performance++)</p>
-<p>[caption id="attachment_468" align="aligncenter" width="500"]<a href="http://www.progdan.cz/wp-content/uploads/IMG_00000562.jpg"><img class="size-large wp-image-468" alt="KDE hackers fighting bugs and bringing the awesome to our users" src="{{ site.baseurl }}/assets/IMG_00000562-1024x576.jpg" width="500" height="281" /></a> KDE hackers fighting bugs and bringing the awesome to our users[/caption]</p>
+<p><a href="{{ site.baseurl }}/assets/IMG_00000562.jpg"><img class="large aligncenter" alt="KDE hackers fighting bugs and bringing the awesome to our users" src="{{ site.baseurl }}/assets/IMG_00000562-1024x576.jpg" title="KDE hackers fighting bugs and bringing the awesome to our users"/></a></p>
 <p>David Edmundson and Martin Klapetek have been working on creating Plasma theme for SDDM (a new display manager that for example Fedora intends to ship instead of KDM), and today they've been improving KPeople, the meta-contact library used by KDE Telepathy and that they will also integrate with KDE PIM.</p>
 <p>My colleagues Lukáš Tinkl and Jan Grulich are working on plasma-nm, the new Plasma applet for network management in KDE.</p>
 <p>More people will arrive to Brno tomorrow and the rest of KDE PIM sprint attendees will arrive during Friday, when the real sprint begins. Stay tuned for more news (not just) from the PIM world ;-)</p>

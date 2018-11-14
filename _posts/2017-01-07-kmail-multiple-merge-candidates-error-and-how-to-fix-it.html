@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'KMail: "Multiple Merge Candidates" error and how to fix it'
-date: 2017-01-07 12:39:42.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2017-01-07 12:39:42 +01:00
 categories:
 - Akonadi
 - KDE
@@ -16,29 +10,10 @@ tags:
 - KDE
 - KMail
 - PIM
-meta:
-  _edit_last: '1'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538517204;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:480;}i:1;a:1:{s:2:"id";i:923;}i:2;a:1:{s:2:"id";i:547;}}}}
-  _aioseop_keywords: KDE, PIM, Akonadi, bug
-  _aioseop_description: If KMail/Akonadi  shows "Multiple Merge Candidates" error
-    and you can't synchronize a folder, here's how to fix the problem.
-  _aioseop_title: 'KMail: "Multiple Merge Candidates" error'
-  _wpas_mess: 'KMail: "Multiple Merge Candidates" error and how to fix it'
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>If you can't synchronize a folder in KMail and you are seeing "<a href="https://bugs.kde.org/show_bug.cgi?id=338658"><em>Multiple Merge Candidates</em></a>" error after the synchronization fails, here's a how to fix the folder to make it synchronize again - basically you force KMail to forget and re-sync the folder again.</p>
 <p>&nbsp;</p>
-<p><img class="alignright size-medium wp-image-830" src="{{ site.baseurl }}/assets/x1-275x300.png" alt="" width="275" height="300" /></p>
+<p><img class="alignright small" src="{{ site.baseurl }}/assets/x1-275x300.png" alt="" width="275" height="300" /></p>
 <ol>
 <li>Open Akonadi Console.</li>
 <li>Go to the <em>Browser</em> tab.</li>
@@ -46,7 +21,7 @@ author:
 <li>Akonadi Console will freeze for a while, wait until it unfreezes (sorry, it's just a developer tool, we don't have a very good UX there :-)).</li>
 <li>Logout and login to make sure all PIM components are restarted.</li>
 </ol>
-<p>&nbsp;</p>
+
 <p>After login start KMail (or Kontact) and hit "<em>Check mail</em>". KMail will now re-download all emails from the previously broken folder. This may take a while depending on how large the folder is and how fast your internet connection is. After that the synchronization should work as expected.</p>
-<p>&nbsp;</p>
+
 <p>In the upcoming KDE Applications 16.12.1 release Akonadi will have a fix that fixes the reason why the "<em>Multiple Merge Candidates</em>" error occurs, so hopefully in the future you should not see this error anymore.</p>

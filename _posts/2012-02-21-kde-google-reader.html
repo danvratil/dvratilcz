@@ -1,39 +1,22 @@
 ---
-layout: post
 title: KDE Google Reader
-date: 2012-02-21 21:01:36.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2012-02-21 21:01:36 +01:00
 categories:
 - KDE
 tags:
 - Google Reader
 - KDE
 - libkgoogle
-meta:
-  _edit_last: '1'
-  _wp_old_slug: kde-google-reade
-  _aioseop_title: KDE Google Reader
-  _jetpack_related_posts_cache: a:1:{s:32:"c6e15ecb44d9fa34d7f78ab5704cf4f8";a:2:{s:7:"expires";i:1538560764;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:466;}i:1;a:1:{s:2:"id";i:404;}i:2;a:1:{s:2:"id";i:785;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>I've made a big progress with the upcoming libkgoogle 0.3 last weekend on the Fedora KDE SIG meetings which took place in Brno. I then decided to take some rest from all this Google things and wanted to relax by working on something else. But then I remembered that some time ago I experimentally implemented the Google Reader API and...well, see for yourself.</p>
 <p><!--more--></p>
-<p><a href="http://www.progdan.cz/wp-content/uploads/kgooglereader_standalone.png"><img class="aligncenter size-large wp-image-158" title="Standalone KGoogleReader" src="{{ site.baseurl }}/assets/kgooglereader_standalone-1024x660.png" alt="" width="500" height="322" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/kgooglereader_standalone-1024x660.png"><img class="aligncenter large" title="Standalone KGoogleReader" src="{{ site.baseurl }}/assets/kgooglereader_standalone-1024x660.png" alt="Standalone KGoogleReader"/></a></p>
 <p>Originally I wanted to implement my own caching mechanism for the feeds, but I soon realized that I would be just wasting my time when there already is something as cool as  Akonadi.</p>
 <p>I have written a simple Akonadi serializer for the data (took me about 20 minutes) and an Akonadi resource (that took me about 40 minutes to write). Finally I begun to write the client.</p>
 <p>The client itself is very simple, it essentially only fetches list of streams (for those unfamiliar with Google's terminology, stream == RSS feed) and their content from Google Reader and is able to update 'read' flag of one or more items. You can't add or remove streams (maybe later).</p>
 <p><strong>Note</strong>: Do not try to "mark all as read" if you have too many unread items. The resource is sending a HTTP request for every single item (will be fix later, maybe...).</p>
 <p>But hey, what's the difference between reading your feeds in a browser window or in a silly desktop client. To increase the level of (my) awesomeness I've made a Kontact plugin as well:</p>
-<p><a href="http://www.progdan.cz/wp-content/uploads/kgooglereader_kontact.png"><img class="aligncenter size-large wp-image-159" title="KGoogleReader integration with Kontact" src="{{ site.baseurl }}/assets/kgooglereader_kontact-1024x660.png" alt="" width="500" height="322" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/kgooglereader_kontact-1024x660.png"><img class="aligncenter large" title="KGoogleReader integration with Kontact" src="{{ site.baseurl }}/assets/kgooglereader_kontact-1024x660.png" alt="KGoogleReader integration with Kontact"/></a></p>
 <p>Btw, does anyone know how to change order of the items in the left pane? I'd like to have the reader where Akregator usually is :)</p>
 <p>In the first sync, the resource fetches up to 200 latest items form each feed (I think that's a reasonable amount), then the updates are incremental. There is no progress indication, so just be patient.</p>
 <p>In a way it is a "replacement" for Akregator  (but it lacks almost all of it's features :-), so actually it's not...). I suppose you don't need to have local feeds in an RSS client when you can interact with feeds on Google Reader directly. On the other hand, it's not a serious project, more like a preview or demonstration of power and awesomeness of the KDE technologies  (it's <em>so</em> simple to use Akonadi!) and all the people behind it. When libkgoogle 0.3 is out and stable, I'd like to dedicate some time to help with the Akregator port (if it's not finished until then), so this project will just rot in git, forgotten.</p>

@@ -1,43 +1,22 @@
 ---
-layout: post
 title: Randa Report Part 2
-date: 2017-09-16 22:50:23.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2017-09-16 22:50:23 +02:00
 categories:
 - KDE
 tags:
 - KDE
 - Randa
 - Sprint
-meta:
-  _edit_last: '1'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538330378;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:896;}i:1;a:1:{s:2:"id";i:576;}i:2;a:1:{s:2:"id";i:785;}}}}
-  _wpas_mess: Randa Report Part 2
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>Let me start by annoying you with some pictures:</p>
-<p>[caption id="attachment_918" align="alignnone" width="300"]<a href="http://www.dvratil.cz/wp-content/uploads/20170912_164055-e1505594646710.jpg"><img class="wp-image-918 size-medium" src="{{ site.baseurl }}/assets/20170912_164055-e1505594646710-300x225.jpg" alt="" width="300" height="225" /></a> &lt;3 Randa[/caption]</p>
-<p>[caption id="attachment_919" align="alignnone" width="300"]<a href="http://www.dvratil.cz/wp-content/uploads/20170916_080143-e1505594738988.jpg"><img class="wp-image-919 size-medium" src="{{ site.baseurl }}/assets/20170916_080143-e1505594738988-300x169.jpg" alt="" width="300" height="169" /></a> The misty mountains below which the coders dwell.[/caption]</p>
-<p>[caption id="attachment_920" align="alignnone" width="300"]<a href="http://www.dvratil.cz/wp-content/uploads/20170910_123000-e1505594792144.jpg"><img class="wp-image-920 size-medium" src="{{ site.baseurl }}/assets/20170910_123000-e1505594792144-300x169.jpg" alt="" width="300" height="169" /></a> We totally had snow in September. Well, not in Randa, but in the valley next to it, but still. SNOW![/caption]</p>
-<p>And now for the serious part: in my <a href="http://www.dvratil.cz/2017/09/randa-report-the-fall-of-kdatetime/">last blog post</a>, I talked about achieving our main goal for this year's Randa meetings - we successfully ported the entire Kontact away from the obsoleted KDateTime class. Since we finished this on Thursday, there was still enough time left to start working on something new and exciting.</p>
+<p><a href="{{ site.baseurl }}/assets/20170912_164055-e1505594646710.jpg"><img class="wp-image-918 size-medium" src="{{ site.baseurl }}/assets/20170912_164055-e1505594646710-300x225.jpg" alt="&lt;3 Randa" width="300" height="225" title="&lt;3 Randa" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/20170916_080143-e1505594738988.jpg"><img class="wp-image-919 size-medium" src="{{ site.baseurl }}/assets/20170916_080143-e1505594738988-300x169.jpg" alt="The misty mountains below which the coders dwell." width="300" height="169" title="The misty mountains below which the coders dwell." /></a></p>
+<p><a href="{{ site.baseurl }}/assets/20170910_123000-e1505594792144.jpg"><img class="wp-image-920 size-medium" src="{{ site.baseurl }}/assets/20170910_123000-e1505594792144-300x169.jpg" alt="We totally had snow in September. Well, not in Randa, but in the valley next to it, but still. SNOW!" width="300" height="169" title="We totally had snow in September. Well, not in Randa, but in the valley next to it, but still. SNOW!" /></a></p>
+<p>And now for the serious part: in my <a href="{% post_url 2017-09-14-randa-report-the-fall-of-kdatetime %}">last blog post</a>, I talked about achieving our main goal for this year's Randa meetings - we successfully ported the entire Kontact away from the obsoleted KDateTime class. Since we finished this on Thursday, there was still enough time left to start working on something new and exciting.</p>
 <p>Volker and Frederik went on to work on a <a href="https://blog.qt.io/blog/2017/09/15/testing-applications-color-blindness/">KWin plugin to simulate various kinds of color blindness</a> which will help developers to see how visually impaired users see their software, I did a bit more code clean-up after the porting and a bit of code-review.</p>
 <p>On Friday morning Volker and I discussed search in KDE PIM. Broken and unreliable search was one of the most often mentioned issues in the KMail User Survey, which we ran for the past month and a half, so I decided to tackle the problem and make our indexing and searching infrastructure fast and reliable.</p>
 <p>The final plan consists of several phases - starting with reorganizing our current code to put related pieces of code (like email indexing and querying code) into a single place to make the code easier to maintain. This phase is already progressing and I hope to finish it within the next week. The second phase will involve moving the code that is responsible for indexing data into the backend Resources - whenever a backend retrieves an email from an IMAP server or an event from Google Calendar it will also index it and will send the index data alongside the raw data to Akonadi. Akonadi will then take care for just writing the data into the Xapian database. This will speed up indexing, reduce the IO load and will ensure that all data are reliably indexed and stored before they are presented in Kontact. The third phase will involve changing Kontact to query the index database directly, instead of asking Akonadi to do it for us. This will speed up the search and provide results faster. The final phase will focus on which data we are actually indexing. As they say - less is sometimes more - so having fewer, but better-defined data will allow us to provide better and more exact search results to the user.</p>
 <p>Once this is settled, we can make applications to depend on the search index - for example KOrganizer will be able to query the index to only get events from e.g. December 2017 instead of fetching all events from the calendar and then figuring out if they should be displayed or not, making calendars of even the busiest people to load instantaneously.</p>
 <p>All in all, it was an extremely productive hackfest for the PIM team and I'd again like to thank Mario, Christian and the rest of the Randa team for organizing the hackfest. You guys rock!</p>
 <p>And remember, you can still donate to the <a href="https://www.kde.org/fundraisers/randameetings2017/">Randa fundraiser</a> to make future productive sprints possible!</p>
-<p><a href="https://www.kde.org/fundraisers/randameetings2017/"><img class="aligncenter wp-image-917 size-full" src="{{ site.baseurl }}/assets/banner-fundraising2017.jpg" alt="" width="1400" height="200" /></a></p>
+<p><a href="https://www.kde.org/fundraisers/randameetings2017/"><img class="aligncenter large" src="{{ site.baseurl }}/assets/banner-fundraising2017.jpg" alt=""/></a></p>

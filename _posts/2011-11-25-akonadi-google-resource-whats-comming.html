@@ -1,12 +1,7 @@
 ---
-layout: post
 title: 'Akonadi Google Resource: what''s comming?'
-date: 2011-11-25 00:36:04.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2011-11-25 00:36:04 +01:00
+thumbnail: akonadi-g-logo.png
 categories:
 - Akonadi Google
 - KDE
@@ -15,23 +10,22 @@ tags:
 - Google
 - KDE
 - PIM
-meta:
-  _edit_last: '1'
-  _thumbnail_id: '138'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538497017;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:65;}i:1;a:1:{s:2:"id";i:205;}i:2;a:1:{s:2:"id";i:404;}}}}
-  _jetpack_dont_email_post_to_subs: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>It's been a while since my last blog about the Akonadi Google resources and since my last contribution to the project (except for a few minor bug fixes lately). Today I decided to change it (at least the former) and show you that the project is still active (I just don't have much time to work on it) and reveal to you what big changes I plan to do in the near future.</p>
 <p><!--more--></p>
 <p>There are two questions people are often asking me: if it is possible to support multiple Google accounts and why are calendars and tasks split to two resources. If you are one of those people, I have good news for you: next release will support multiple Google accounts and the Tasks resource will be merged to the Calendars resource.</p>
 <p>Because words are plain, I will rather show you some pictures of how I imagine the resources could look like.</p>
-<p>[gallery link="file"]</p>
+<p>
+  <a href="{{ site.baseurl }}/assets/calendar_preferences.png">
+  <img src="{{ site.baseurl }}/assets/calendar_preferences.png" class="alignleft" width="150">
+  </a>
+  <a href="{{ site.baseurl }}/assets/calendar_editor.png">
+  <img src="{{ site.baseurl }}/assets/calendar_editor.png" class="alignleft" width="150">
+  </a>
+  <a href="{{ site.baseurl }}/assets/calendar_korganizer.png">
+  <img src="{{ site.baseurl }}/assets/calendar_korganizer.png" class="alignleft" width="150">
+  </a>
+</p>
 <p>The first image is the new preferences dialog for Calendar resource. In the first list, there will be list of all accounts. The list will be common for all resources, so you will see the same accounts in the Contacts resource as well. Below is the list of calendars for the selected account (the list will auto-update itself when you choose another account + there will be something like "Reload" button to update the list by hand) with possibility to create, modify or remove existing calendars not just from Akonadi, but from Google server as well. The last list view is for task lists.</p>
 <p>The second image shows how the calendar editor could look like. The are two things I want to change yet: replacing the wide color combo box by a single button which will popup another dialog with list of colors to pick from (according to docs Google supports only limited set of colors for calendars) and I'd like to have the timezone list displayed as a combobox instead of a tree view. The editor for task lists will look similar.</p>
 <p>Regarding editor of accounts, clicking on "Create" will simply display the Google login page, same as it does now when you click on "Authenticate" in the resource preferences dialog. Given second thought, the "Edit" button does not make much sense since you can't change anything (maybe just the name of the account), "Remove" will just revoke the authentication.</p>

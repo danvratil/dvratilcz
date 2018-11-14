@@ -1,12 +1,6 @@
 ---
-layout: post
 title: My KDE PIM Update
-date: 2018-04-25 22:40:26.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2018-04-25 22:40:26 +02:00
 categories:
 - Akonadi
 - KDE
@@ -15,21 +9,6 @@ tags:
 - KDE
 - PIM
 - Sprint
-meta:
-  _edit_last: '1'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538542762;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:438;}i:1;a:1:{s:2:"id";i:785;}i:2;a:1:{s:2:"id";i:404;}}}}
-  _wpas_mess: My KDE PIM Update
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>This blog post is long overdue, but now that I'm back home from the KDE PIM Sprint in Toulouse, which took place last weekend, there's some more news to report.</p>
 <h2>Akonadi Improvements</h2>
@@ -38,8 +17,15 @@ shut down Akonadi Resources when they are not needed and start them on-demand, t
 <p>As I was touching the internal notification system in Akonadi I also improved the relevant debugging tools in Akonadi Console, our developer and debugging tool for Akonadi. Based on input from Sandro I also added Logs view. Thanks to that it's now possible to see debug output from all running Akonadi applications straight in the Akonadi Console without the need to restart Akonadi or the application from the terminal to see the debug output. This will make it easier for users to provide us with relevant information to help us debug and solve their Akonadi issues.</p>
 <h2>Kontact Improvements</h2>
 <p>This was just a minor change, but it finally solved my long-standing issue with Kontact and Breeze: the side-pane icons to choose between different Kontact modules were colorful - the only non-monochromatic part of Kontact which was so obviously not fitting into the rest of the UI. With a tiny change, the icons are now also monochromatic, making the Kontact window look more uniform.</p>
-<p>[gallery columns="2" size="large" ids="963,962"]</p>
-<p>&nbsp;</p>
+<p>
+  <a href="{{ site.baseurl }}/assets/kontact-old.png">
+  <img src="{{ site.baseurl }}/assets/kontact-old-1024x612.png" alt="Before" title="Before" class="alignleft small">
+  </a>
+  <a href="{{ site.baseurl }}/assets/kontact-new.png">
+  <img src="{{ site.baseurl }}/assets/kontact-new-1024x625.png" alt="After" title="After" class="alignright small">
+  </a>
+</p>
+<p style="clear: both;"></p>
 <h2>Native Gmail authentication for IMAP and SMTP</h2>
 <p>For a while now the IMAP resource supports logging into Gmail accounts using the so-called OAuth method, where you provide your credentials into the Gmail login window which also supports two-factor authentication. The IMAP Resources was forcing the OAuth method with Gmail for everyone, but this requirement has now been relaxed. Although the IMAP resource will choose this method by default it's possible now to also choose the traditional authentication methods like with any other email provider.</p>
 <p>Secondly, the OAuth support has finally landed also into our SMTP module which is used for sending emails, so if you select this method in your Outgoing account configuration with Gmail, you no longer need to use "App-specific passwords" from Gmail.</p>

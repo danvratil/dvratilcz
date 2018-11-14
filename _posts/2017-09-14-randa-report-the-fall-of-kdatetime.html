@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'Randa Report: The Fall of KDateTime'
-date: 2017-09-14 17:29:31.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2017-09-14 17:29:31 +02:00
 categories:
 - KDE
 tags:
@@ -14,17 +8,6 @@ tags:
 - KDE
 - PIM
 - Randa
-meta:
-  _edit_last: '1'
-  _publicize_twitter_user: "@danvratil"
-  _wpas_done_all: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538253329;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:576;}i:1;a:1:{s:2:"id";i:896;}i:2;a:1:{s:2:"id";i:745;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p>The main goal for me and Volker for this year Randa Meeting was to port KCalCore, our calendaring library, away from KDateTime. KDateTime/KTimeZone are classes for handling date, time and time zones which were used back in the KDE4 (and earlier) days&nbsp;when Qt's QDateTime wasn't good enough for us, mainly due to missing time zone support.</p>
 <p>In Qt5 QDateTime finally gained all the necessary features we need which made&nbsp;it possible for us to leave KDateTime behind. But we couldn't just go and replace "K" with "Q" everywhere - there are many subtle (and not-so-subtle) differences in API, behavior and some missing features of QDateTime that required us to carefully consider each step. The fact that we started working on this over 2 years ago shows how challenging task this was.</p>

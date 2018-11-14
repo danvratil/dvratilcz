@@ -1,12 +1,6 @@
 ---
-layout: post
 title: KDE PIM, Google Integration & more
-date: 2013-03-14 22:12:13.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2013-03-14 22:12:13 +01:00
 categories:
 - Akonadi Google
 - KDE
@@ -17,21 +11,11 @@ tags:
 - KDE
 - libkgapi
 - PIM
-meta:
-  _edit_last: '1'
-  _wp_old_slug: kde-pim-and-not-just-google-integration
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1537995921;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:785;}i:1;a:1:{s:2:"id";i:14;}i:2;a:1:{s:2:"id";i:547;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p style="text-align: justify;">I haven't blogged about my involvement in KDE PIM in a while, so let's see what's new there, especially in the Google integration part....</p>
 <h2 style="text-align: justify;">Reborn Google Resources</h2>
 <p style="text-align: justify;">Just before the KDE PIM sprint in Berlin this month, I've sat down and written completely new API for LibKGAPI (the library that implements Google API and is used by the Akonadi resources for Google services). The new API is job-based, and therefore much more awesome than the old one (which is known to suck). Anyway - what does this mean? It means that the new resources are awesome as well!</p>
-<p style="text-align: justify;">Google Contacts r<a href="http://www.progdan.cz/wp-content/uploads/google-contacts-groups.png"><img class="alignright size-full wp-image-405" alt="Google Contacts resource &amp; contacts groups" src="{{ site.baseurl }}/assets/google-contacts-groups.png" width="248" height="184" /></a>esource now has a full support for contacts groups. All contacts are stored in the top-level collection and are linked to the respective groups, so it does not matter where you edit the contact, you are still modifying the same instance. Like in the web interface.</p>
+<p style="text-align: justify;">Google Contacts <a href="{{ site.baseurl }}/assets/google-contacts-groups.png"><img class="alignright large" alt="Google Contacts resource &amp; contacts groups" src="{{ site.baseurl }}/assets/google-contacts-groups.png" title="Google Contacts resource &amp; contacts groups" /></a>resource now has a full support for contacts groups. All contacts are stored in the top-level collection and are linked to the respective groups, so it does not matter where you edit the contact, you are still modifying the same instance. Like in the web interface.</p>
 <p style="text-align: justify;">Google Calendar now supports limited sync, so you can choose to only sync events from last year, or last two years (the default is last 3 years) instead of the full history.</p>
 <p style="text-align: justify;">Both resources have improved status reporting, error handling, are more stable (no more mystery crashes due to unhandled exceptions thrown from LibKGAPI) and subjectively synchronization is faster too.</p>
 <h2 style="text-align: justify;">Murdered Google Resources</h2>
@@ -43,5 +27,5 @@ author:
 <p style="text-align: justify;">I have talked to Volker Krause during the KDE PIM sprint about how to effectively handle "Mark feed as read" in the Google Reader resource. Currently, Akonadi creates a new notification for every change, therefore marking 300 items as read generates 300 notifications, which are delivered to the Akonadi resource, which should then create 300 HTTP request to store 300 changes. You probably agree that this slightly suboptimal. (I temporarily solved the problem by caching the notifications in the resource itself and then sending a big request to Google Reader at once). The solution that Volker suggested sounds fairly simple (it's not) - batch notifications - i.e. a single notification about single change involving multiple items. The supported changes can be flags change, deleting or linking of items. By being able to deliver single notification about mass-change to Akonadi clients and to Akonadi resources represents new possibilities for optimizations. For instance the IMAP resource could simply send a single command to add a flag to multiple emails at once, instead of doing it one by one. The same goes for other operations and other resources that are dealing regularly with operations on larger sets of items. The obvious result: <em>performance boost</em>! After two weeks the work is in semi-working state - it works, but it goes nuts if more than 5 items are involved. The cause is known, but solution not (but I'll get there eventually :-) )</p>
 <h2 style="text-align: justify;">Akregator 2</h2>
 <p style="text-align: justify;">I'm occasionally helping with Akregator2 (Akonadi port of Akregator). Recently (ok, it was two months ago... ) I've written Akonadi Nepomuk Feeder plugin that is feeding RSS Articles into Nepomuk and a Search window (slightly inspired by the one in KMail) in Akregator2 where you can do full-text search (+ search via other criteria, including author's name and date of publishing) based on data indexed in Nepomuk. Obviously, when I wanted to demo that on the KDE PIM sprint I found out that it's not working as good as I thought, so there's still some work to be done. But in general I'm happy to say, that from time to time it finds something :-).</p>
-<p style="text-align: justify;"><a href="http://www.progdan.cz/wp-content/uploads/akregator2-search.png"><img class="aligncenter size-medium wp-image-406" alt="Akregator 2 Search Window" src="{{ site.baseurl }}/assets/akregator2-search-300x219.png" width="300" height="219" /></a></p>
+<p style="text-align: justify;"><a href="{{ site.baseurl }}/ assets/akregator2-search.png"><img class="aligncenter large" alt="Akregator 2 Search Window" title="Akregator 2 Search Window" src="{{ site.baseurl }}/assets/akregator2-search-300x219.png"/></a></p>
 <p style="text-align: justify;">Ok, so that's about what I was, am and will be working on in KDE PIM. Here I'd like to say big thank you to all KDE PIM devs, because they are doing an <em>incredible</em> job. Thank you!</p>

@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'Akonadi Google Resource: complete rewrite'
-date: 2011-08-21 00:39:18.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2011-08-21 00:39:18 +02:00
 categories:
 - Akonadi Google
 - KDE
@@ -15,23 +9,13 @@ tags:
 - Google
 - KDE
 - PIM
-meta:
-  _edit_last: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538495704;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:205;}i:1;a:1:{s:2:"id";i:147;}i:2;a:1:{s:2:"id";i:65;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
----
 <p>Hi there,</p>
 <p>today I finally pushed a completely new version of the Akonadi Google Resource. Since last update cca 2 months ago I've completely rewritten the resources, moving most of the functionality into libKGoogle . The library now provides access to Google services and can be easily used by any other project. <!--more-->So what's new? A lot of things changed for programmers. I've begun to fulfill my threats about providing a C++/Qt library for accessing Google Services. It's not pure Qt, I'm using some KDE stuff in there, but that will change :)</p>
 <p>LibKGoogle now provides API similar to QNetworkAccessManager (KGoogleAccessManager) through which you can send KGoogleRequest and if it works, you'll receive a KGoogleReply. Each Google Service is represented by a KGoogleService subclass, implementing XML and/or JSON parser and serializer and providing informations about fetch/create/update URLs. Each object (contact, event, calendar) is represented by KGoogleObject subclass. For now, Event class is implements KCalCore::Event as well,  the Calendar and Contact classes provide their own implementation of everything. Porting it to KABC/KCalCore is on TODO.</p>
-<p>libKGoogle provides unified authentication  framework and stores the tokens in KWallet. For now, you can only use one account per service (means that you can't have two calendars from two different Google accounts), but this is on my TODO as well. The framework is also able to automatically refresh the tokens when they expire, so that should fix the problem with "<a href="http://progdan.cz/2011/06/akonadi-google-resource-part-iii/#comment-52">resources forgeting the authentication</a>".</p>
+<p>libKGoogle provides unified authentication  framework and stores the tokens in KWallet. For now, you can only use one account per service (means that you can't have two calendars from two different Google accounts), but this is on my TODO as well. The framework is also able to automatically refresh the tokens when they expire, so that should fix the problem with "<a href="{% post_url 2011-06-27-akonadi-google-resource-part-iii %}">resources forgeting the authentication</a>".</p>
 <p>The API needs some more polishing and I must somehow force myself to write documentation, but the I think the libKGoogle can provide a solid base for any Google-related services.</p>
 <p>The library is still in the same git repository with the Resources. I will try to move it to it's own repo when it gets support for more services and the API will really stabilize.</p>
-<p><a href="http://progdan.cz/wp-content/uploads/contacts_resource_settings_authenticate.png"><img class="alignright size-full wp-image-79" title="Contacts Resource new Settings Dialog" src="{{ site.baseurl }}/assets/contacts_resource_settings_authenticate.png" alt="Contacts Resource new Settings Dialog" width="357" height="152" /></a><a href="http://progdan.cz/wp-content/uploads/contacts_resource_settings_revoke.png"><img class="alignright size-full wp-image-80" title="Contacts Resource new Settings Dialog 2" src="{{ site.baseurl }}/assets/contacts_resource_settings_revoke.png" alt="Contacts Resource new Settings Dialog 2" width="357" height="152" /></a>From users' point of view, there is just a very slight change in Contact Resource settings dialog. There are no new features in any resource. Though there are probably many new bugs :F So please try it out and don't be afraid to spam me with any issue, idea, problem, comment, invitations to a beer etc...:)</p>
+<p><img class="alignright" title="Contacts Resource new Settings Dialog" src="{{ site.baseurl }}/assets/contacts_resource_settings_authenticate.png" alt="Contacts Resource new Settings Dialog" width="357" height="152" /><img class="alignright" title="Contacts Resource new Settings Dialog 2" src="{{ site.baseurl }}/assets/contacts_resource_settings_revoke.png" alt="Contacts Resource new Settings Dialog 2" width="357" height="152" />From users' point of view, there is just a very slight change in Contact Resource settings dialog. There are no new features in any resource. Though there are probably many new bugs :F So please try it out and don't be afraid to spam me with any issue, idea, problem, comment, invitations to a beer etc...:)</p>
 <p>With libKGoogle I hope more developers will begin to create Google-related applications for Qt and KDE. This library could one day be a good start-point for them.</p>
 <p><strong>Plans for future versions:</strong></p>
 <ul>

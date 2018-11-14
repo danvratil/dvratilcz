@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'Fedora RPM: Automatic "Provides" for CMake projects packages'
-date: 2015-03-19 18:25:42.000000000 +01:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2015-03-19 18:25:42 +01:00
 categories:
 - Fedora
 - KDE
@@ -15,63 +9,51 @@ tags:
 - Fedora
 - KDE
 - RPM
-meta:
-  _edit_last: '1'
-  _syntaxhighlighter_encoded: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538533600;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:504;}i:1;a:1:{s:2:"id";i:520;}i:2;a:1:{s:2:"id";i:147;}}}}
-  _wpas_mess: '#Fedora #RPM: Automatic "Provides" for #CMake projects packages: http://wp.me/p57hpV-aF'
-  _publicize_facebook_user: https://www.facebook.com/app_scoped_user_id/10206121932430218/
-  _publicize_twitter_user: "@danvratil"
-  _wpas_done_all: '1'
-  _wp_old_slug: rpm-automatic-provides-entries-for-cmake-projects
-  _wpas_skip_10747368: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
 <p style="text-align: justify;">If you ever did any RPM packaging (not just on Fedora) you probably noticed that some SPEC files don't use package names in <code>BuildRequires</code> fields but instead they refer to pkg-config module names, like this:</p>
-<p>[code]<br />
-Name:           qt5-qtbase<br />
-Version:        5.4.1<br />
-Release:        1%{?dist}<br />
-...<br />
-BuildRequires:  pkgconfig(dbus-1)<br />
-BuildRequires:  pkgconfig(fontconfig)<br />
-BuildRequires:  pkgconfig(gl)<br />
-BuildRequires:  pkgconfig(glib-2.0)<br />
-BuildRequires:  pkgconfig(gtk+-2.0)<br />
-...<br />
-[/code]</p>
+<p>
+<pre>
+Name:           qt5-qtbase
+Version:        5.4.1
+Release:        1%{?dist}
+...
+BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  pkgconfig(fontconfig)
+BuildRequires:  pkgconfig(gl)
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(gtk+-2.0)
+...
+</pre>
+</p>
 <p style="text-align: justify;">This is achieved by the respective packages simply having these aliases as their <em>Provides</em> (for example <code>dbus-devel</code> package <code>Provides: pkgconfig(dbus-1)</code>). The <em>Provides</em> are extracted automatically by an RPM script when the package is being built which gave me an idea...what if we could do the same for CMake modules?</p>
 <p style="text-align: justify;">And so I've written a simple script for RPM which extracts CMake package name and version from the package config files installed to /usr/lib/cmake. Simply put it means that <code>kf5-kcoreaddons-devel</code> will have</p>
-<p>[code]<br />
-Provides:       cmake(KF5CoreAddons) = 5.8.0<br />
-[/code]</p>
+<p>
+<pre>
+Provides:       cmake(KF5CoreAddons) = 5.8.0
+</pre>
+</p>
 <p>and <code>qt5-qtdeclarative-devel</code> will have</p>
-<p>[code]<br />
-Provides:       cmake(Qt5Qml) = 5.4.1<br />
-Provides:       cmake(Qt5Quick) = 5.4.1<br />
-Provides:       cmake(Qt5QuickTest) = 5.4.1<br />
-Provides:       cmake(Qt5QuickWidgets) = 5.4.1<br />
-[/code]</p>
+<p>
+<pre>
+Provides:       cmake(Qt5Qml) = 5.4.1
+Provides:       cmake(Qt5Quick) = 5.4.1
+Provides:       cmake(Qt5QuickTest) = 5.4.1
+Provides:       cmake(Qt5QuickWidgets) = 5.4.1
+</pre>
 <p style="text-align: justify;">...and all this happens automatically :-)</p>
 <p style="text-align: justify;">So, if you are packaging a CMake-based projects for Fedora you don't have to wonder which package provides the needed dependencies but you can just use the name from <code>find_package()</code> in <code>BuildRequires</code> and be done with it.</p>
-<p>[code]<br />
-Name:           plasma-workspace<br />
-Version:        5.2.1<br />
-Release:        6%{?dist}<br />
-Summary:        Plasma workspace, applications and applets<br />
-...<br />
-BuildRequires:  cmake(Qt5Widgets) cmake(Qt5Quick) cmake(Qt5QuickWidgets) cmake(Qt5Concurrent) cmake(Qt5Test) cmake(Qt5Script) cmake(Qt5Network) cmake(Qt5WebKitWidgets)<br />
-BuildRequires:  cmake(Phonon4Qt5)<br />
-BuildRequires:  cmake(KF5Plasma) cmake(KF5DocTools) cmake(KF5Runner) ...<br />
-...<br />
-[/code]</p>
+<p>
+<pre>
+Name:           plasma-workspace
+Version:        5.2.1
+Release:        6%{?dist}
+Summary:        Plasma workspace, applications and applets
+...
+BuildRequires:  cmake(Qt5Widgets) cmake(Qt5Quick) cmake(Qt5QuickWidgets) cmake(Qt5Concurrent) cmake(Qt5Test) cmake(Qt5Script) cmake(Qt5Network) cmake(Qt5WebKitWidgets)
+BuildRequires:  cmake(Phonon4Qt5)
+BuildRequires:  cmake(KF5Plasma) cmake(KF5DocTools) cmake(KF5Runner) ...
+...
+</pre></p>
 <p style="text-align: justify;">Another advantage is that this makes it easier to automate dependencies extraction from CMakeLists because we will no longer have to bother with mapping the CMake names to package names (for reference I have wrote <a href="https://github.com/FedoraKDE/fedora-kde-frameworks/blob/master/scripts/cmake-to-rpm-deps.py">a script</a> to mass-update dependencies of all our KDE Frameworks 5 packages in Fedora).</p>
 <p style="text-align: justify;">We have pushed the script into Fedora's cmake package (currently in rawhide and (soon) in F22 but eventually I'd like to have it in F20 and F21 too) so all packages that will be rebuilt after this will get the automatic <em>Provides</em>.</p>
 <p style="text-align: justify;">In the long-term we would like to try to get the script to upstream RPM so that other distributions can use this too. For now the script is available in <a href=" http://pkgs.fedoraproject.org/cgit/cmake.git/commit/?id=de493a3f7706deb7b5b914b579fb8966607bc8b6">cmake package distgit</a>.</p>

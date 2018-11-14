@@ -4,7 +4,7 @@
         {% if post.thumbnail %}
         <div class="thumbnail">
             <a href="{{post.url}}" title="{{post.title}}">
-            <img src="assets/{{post.thumbnail}}" alt="Post thumbnail">
+            <img src="{{ site.baseurl }}/assets/{{post.thumbnail}}" alt="Post thumbnail">
             </a>
         </div>
         {% endif %}

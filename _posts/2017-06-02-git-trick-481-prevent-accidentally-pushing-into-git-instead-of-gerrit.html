@@ -1,12 +1,6 @@
 ---
-layout: post
 title: 'Git trick #481: Prevent accidentally pushing into git instead of Gerrit'
-date: 2017-06-02 23:25:49.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2017-06-02 23:25:49 +02:00
 categories:
 - Fedora
 - KDE
@@ -19,69 +13,57 @@ tags:
 - hook
 - KDE
 - push
-meta:
-  _edit_last: '1'
-  _syntaxhighlighter_encoded: '1'
-  _publicize_twitter_user: "@danvratil"
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538532814;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:767;}i:1;a:1:{s:2:"id";i:27;}i:2;a:1:{s:2:"id";i:147;}}}}
-  _wpas_mess: 'Git trick #481: Confirmation when pushing directly into git instead
-    of Gerrit'
-  _wpas_skip_11076691: '1'
-  _wpas_skip_10747372: '1'
-  _wpas_skip_10747376: '1'
-  _wpas_done_all: '1'
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
-<p>Some while ago I wrote about a little <a href="http://www.dvratil.cz/2015/12/git-trick-628-automatically-set-commit-author-based-on-repo-url/">git hook that automatically sets up your commit author identity</a> after <code>git clone</code> based on the remote origin address. Recently I learned that in git 2.8 a new pre-push hook was introduced, and I immediately knew it will fix my second biggest pain point: accidentally pushing directly into git instead of Gerrit.</p>
+<p>Some while ago I wrote about a little <a href="{% post_url 2015-12-06-git-trick-628-automatically-set-commit-author-based-on-repo-url %}">git hook that automatically sets up your commit author identity</a> after <code>git clone</code> based on the remote origin address. Recently I learned that in git 2.8 a new pre-push hook was introduced, and I immediately knew it will fix my second biggest pain point: accidentally pushing directly into git instead of Gerrit.</p>
 <p>If you often switch between different projects where some use Gerrit for code review and some don't, it's very easy to just mistakenly do</p>
 <pre>git push master</pre>
 <p>when in fact you wanted to</p>
 <pre>git push HEAD:refs/for/master</pre>
 <p>There are some tricks how to make it harder for you to accidentally do this, like creating a "gpush" alias that pushes to <code>refs/for/master</code> and disabling pushing into the 'origin' remote by changing the push URL to something invalid. That, however, is not perfect because there are still ways how to by-pass it. And it becomes complicated if you use more than one remote and it's clumsy if you sometimes <em>do</em> want to push directly into git (for example to submit a large patch series).</p>
 <p>With a custom pre-push hook, we can check if the remote that we are pushing into is a Gerrit instance and then check if the remote ref that we are pushing into is a "Gerrit ref" (<code>refs/for/foo</code>) instead of a regular branch and we can have a nice "Are you sure you want to do this?" prompt:</p>
-<p>[python]<br />
-#!/usr/bin/python3<br />
-# -*- coding: utf-8 -*-<br />
-#<br />
-# (C) 2017 Daniel Vrátil &lt;dvratil@kde.org&gt;<br />
-# License: GPL</p>
-<p>import os<br />
-import sys</p>
-<p>def remoteIsGerrit(remoteName, remoteUrl):<br />
-    # if the remote is called &quot;gerrit&quot;, assume it's Gerrit<br />
-    if 'gerrit' in remoteName:<br />
-        return True<br />
-    # if the remote URL contains the default Gerrit port, assume it's Gerrit<br />
-    if ':29418/' in remoteUrl:<br />
-        return True</p>
-<p>    # TODO: Add custom checks to match your non-standard Gerrit configuration</p>
-<p>    return False</p>
-<p>def main():<br />
-    # name and URL of the remote we are pushing into is passed as arguments<br />
-    if not remoteIsGerrit(sys.argv[1], sys.argv[2]):<br />
-        # If we are not pushing into gerrit, then simply allow the push<br />
-        return</p>
-<p>    # The pushed refs are passed in via stdin<br />
-    for line in sys.stdin:<br />
-        # line = &quot;localRef localRev remoteRef remoteRev&quot;<br />
-        remoteRef = line.split(' ')[2]<br />
-        # Check if the remoteRef contains the typical Gerrit 'refs/for/foo'.<br />
-        if not remoteRef.startswith('refs/for/'):<br />
-            print('!!')<br />
-            print('!! You are pushing directly into git instead of Gerrit !!')<br />
-            print('!! Do you want to continue? [y/N] ', end = '', flush = True)<br />
-            if open('/dev/tty', 'rb').readline().decode().strip().lower() == 'y':<br />
-                return<br />
-            else:<br />
-                sys.exit(1)</p>
-<p>if __name__ == &quot;__main__&quot;:<br />
-    main()<br />
-[/python]</p>
+<p><pre>
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+#
+# (C) 2017 Daniel Vrátil &lt;dvratil@kde.org&gt;
+# License: GPL
+
+import os
+import sys
+
+def remoteIsGerrit(remoteName, remoteUrl):
+    # if the remote is called &quot;gerrit&quot;, assume it's Gerrit
+    if 'gerrit' in remoteName:
+        return True
+    # if the remote URL contains the default Gerrit port, assume it's Gerrit
+    if ':29418/' in remoteUrl:
+        return True
+
+    # TODO: Add custom checks to match your non-standard Gerrit configuration
+    return False
+def main():
+    # name and URL of the remote we are pushing into is passed as arguments
+    if not remoteIsGerrit(sys.argv[1], sys.argv[2]):
+        # If we are not pushing into gerrit, then simply allow the push
+        return
+    # The pushed refs are passed in via stdin
+    for line in sys.stdin:
+        # line = &quot;localRef localRev remoteRef remoteRev&quot;
+        remoteRef = line.split(' ')[2]
+        # Check if the remoteRef contains the typical Gerrit 'refs/for/foo'.
+        if not remoteRef.startswith('refs/for/'):
+            print('!!')
+            print('!! You are pushing directly into git instead of Gerrit !!')
+            print('!! Do you want to continue? [y/N] ', end = '', flush = True)
+            if open('/dev/tty', 'rb').readline().decode().strip().lower() == 'y':
+                return
+            else:
+                sys.exit(1)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre></p>
+
 <p>Save this a file as "<code>pre-push</code>" and move it into <code>.git/hooks/</code> folder in your local repository clone. Remember to make the script executable.</p>
 <p>Here is how it works: trying to push into "gerrit" remote to branch "5.9" directly gets intercepted by our new hook and if you press 'n' the push gets aborted. If I would've pressed 'y', then the push would proceed.</p>
 <pre>$ git push gerrit 5.9

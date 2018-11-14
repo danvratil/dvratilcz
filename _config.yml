@@ -8,6 +8,7 @@ url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
 paginate: 10
+permalink: /:year/:month/:title
 
 # Build settings
 markdown: kramdown
@@ -28,4 +29,3 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-

@@ -1,12 +1,6 @@
 ---
-layout: post
 title: Akonadi Google 0.3.1
-date: 2012-04-27 15:01:00.000000000 +02:00
-type: post
-parent_id: '0'
-published: true
-password: ''
-status: publish
+date: 2012-04-27 15:01:00 +02:00
 categories:
 - Akonadi Google
 - KDE
@@ -16,17 +10,8 @@ tags:
 - KDE
 - libkgoogle
 - PIM
-meta:
-  _edit_last: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1538233601;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:205;}i:1;a:1:{s:2:"id";i:115;}i:2;a:1:{s:2:"id";i:65;}}}}
-author:
-  login: dvratil
-  email: me@dvratil.cz
-  display_name: Dan Vrátil
-  first_name: Daniel
-  last_name: Vrátil
 ---
-<p>Hi! Nearly four weeks after the <a title="Akonadi Google 0.3 arrives" href="http://www.progdan.cz/2012/04/akonadi-google-0-3-arrives/">0.3</a> release of Akonadi resources for Google there's a new version with just a few, but important bug fixes and improvements.</p>
+<p>Hi! Nearly four weeks after the <a title="Akonadi Google 0.3 arrives" href="{% post_url 2012-04-01-akonadi-google-0-3-arrives %}">0.3</a> release of Akonadi resources for Google there's a new version with just a few, but important bug fixes and improvements.</p>
 <p><strong>UPDATE: </strong>In order to use the Google resources, you either need KDE 4.9 (which the resources are part of), or you need to install LibKGAPI 0.4.1 (or newer) and Akonadi resources from git://anongit.kde.org/scratch/dvratil/akonadi-google-resources. See <a href="https://bugs.kde.org/show_bug.cgi?id=301240#c3">this discussion</a> for details.</p>
 <p>Fixed bugs and crashes:</p>
 <ul>
@@ -40,7 +25,7 @@ author:
 </ul>
 <p>The first two bugs were especially tricky as I couldn't reproduce them, but many  users were affected by ugly and repeating crashes. But now the "Google experience" is much much better :).</p>
 <p>Big thanks go to Alex Fiestas who has contributed various improvements to libkgoogle to better work with 3rd party apps (so now we can be looking forward to his web-accounts wizard :) ).</p>
-<p><strong>Sources:</strong> <a href="http://www.progdan.cz/wp-content/uploads/akonadi-google-0.3.1.tar.gz">akonadi-google-0.3.1.tar.gz</a> (MD5:  fed8d9082547835ab916edd219831cf6)</p>
+<p><strong>Sources:</strong> <a href="{{ site.baseurl }}/assets/akonadi-google-0.3.1.tar.gz">akonadi-google-0.3.1.tar.gz</a> (MD5:  fed8d9082547835ab916edd219831cf6)</p>
 <p>Bye!</p>
 <p>PS: I found this on Akademy wiki, so:</p>
 <p><img class="alignnone" title="I'm going to Akademy 2012!" src="{{ site.baseurl }}/assets/Ak2012_imgoing2.png" alt="" width="400" height="178" /></p>
