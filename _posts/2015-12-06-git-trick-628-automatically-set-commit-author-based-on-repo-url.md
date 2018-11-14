@@ -11,10 +11,13 @@ tags:
 - identity
 - KDE
 ---
-<p style="text-align: justify;">If you have more than one email identity that you use to commit to different projects you have to remember to change it in <code>.git/config</code> every time you git clone a new repository. I suck at remembering things and it's been annoying me for a long time that I kept pushing commits with wrong email addresses to wrong repositories.</p>
-<p style="text-align: justify;">I can't believe I am the only one having this problem, but I could not find anything on the interwebs so I just fixed it myself and I'm posting it here so that maybe hopefuly someone else will find it useful too :).</p>
-<p style="text-align: justify;">The trick is very simple: we create a <code>post-checkout</code> hook that will check the value of <code>user.email</code> in <code>.git/config </code>and set it to whatever we want based on URL of the "origin" remote.  Why <code>post-checkout</code>? Because there's no <code>post-clone</code> hook, but git automatically checkouts master after clone so the hook gets executed. It also gets executed every time you run <code>git checkout</code> by hand but the overhead is minimal and we have a guard against overwriting the identity in case it's already set.</p>
-<p><pre>
+If you have more than one email identity that you use to commit to different projects you have to remember to change it in `.git/config` every time you git clone a new repository. I suck at remembering things and it's been annoying me for a long time that I kept pushing commits with wrong email addresses to wrong repositories.
+
+I can't believe I am the only one having this problem, but I could not find anything on the interwebs so I just fixed it myself and I'm posting it here so that maybe hopefuly someone else will find it useful too :).
+
+The trick is very simple: we create a `post-checkout` hook that will check the value of `user.email` in `.git/config `and set it to whatever we want based on URL of the "origin" remote.  Why `post-checkout`? Because there's no `post-clone` hook, but git automatically checkouts master after clone so the hook gets executed. It also gets executed every time you run `git checkout` by hand but the overhead is minimal and we have a guard against overwriting the identity in case it's already set.
+
+```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
@@ -60,12 +63,17 @@ config = repo.config_writer()
 config.set_value('user', 'email', email)
 config.release()
 print('** User identity for this repository set to \'%s\' **' % email)
-</pre></p>
-<p style="text-align: justify;">To install it, just copy the script above to <code>~/.git-templates/hooks/post-checkout</code>, make it executable and run</p>
-<pre style="text-align: justify;">git config --global init.templatedir ~/.git-templates</pre>
-<p style="text-align: justify;">All hooks from templatedir are automatically copied into <code>.git/hooks</code> when a new repository is created (<code>git init</code> or <code>git clone</code>) - this way the hook will get automatically deployed to every new repo.</p>
-<p style="text-align: justify;">And here's a proof that it works :-)</p>
-<p><pre>
+```
+
+To install it, just copy the script above to `~/.git-templates/hooks/post-checkout`, make it executable and run
+
+    git config --global init.templatedir ~/.git-templates
+
+All hooks from templatedir are automatically copied into `.git/hooks` when a new repository is created (`git init` or `git clone`) - this way the hook will get automatically deployed to every new repo.
+
+And here's a proof that it works :-)
+
+```shell
 [dvratil@Odin ~/devel/KDE]
 $ git clone kde:kasync
 Cloning into 'kasync'...
@@ -87,6 +95,7 @@ Receiving objects: 100% (287/287), 57.24 KiB | 0 bytes/s, done.
 Resolving deltas: 100% (113/113), done.
 Checking connectivity... done.
 ** User identity for this repository set to 'dvratil@fedoraproject.org' **
-</pre></p>
-<p><b>Update 1:</b> added utf-8 coding (thanks, Andrea)
-<b>Update 2:</b> changed shebang to more common <code>/usr/bin/python</code> (<code>/bin/python</code> is rather Fedora-specific), added "Requires" comment to top of the script (thanks, Derek)</p>
+```
+
+**Update 1:** added utf-8 coding (thanks, Andrea)
+**Update 2:** changed shebang to more common `/usr/bin/python` (`/bin/python` is rather Fedora-specific), added "Requires" comment to top of the script (thanks, Derek)
