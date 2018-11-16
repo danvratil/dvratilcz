@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{site.title}}</title>
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="sidebar-closed">
+<div id="page">
+    <!-- header -->
+    <header id="head">
+        <div id="branding">
+            <h1 class="title">{{site.title}}</h1>
+            <h2 class="subtitle">{{site.subtitle}}</h2>
+        </div>
+        <nav id="sitenav">
+            <h1 class="menu-toggle genericon genericon-menu">
+                <span class="screen-reader-text">Menu</span>
+            </h1>
+            <div class="screen-reader-text skip-link">
+                <a href="#content" title="Skip to content">Skip to content</a>
+            </div>
+            <div class="main-menu-container">
+                
+            </div>
+        {% for category in site.categories %}
+        
+        {% endfor %}
+        </nav>
+    </header>
+    <!-- end of header -->
+
+    <!-- sidebar -->
+    <div id="sidebar">
+        <aside id="sociallinks">
+
+        </aside>
+        <aside id="links">
+
+        </aside>
+    </div>
+    <!-- end of sidebar -->
+
+    <!-- page content -->
+    <div id="content">
+        <div id="primary">
+            <main id="main">
+                <!-- content -->
+                {{ content }}
+                <!-- end of content -->
+            </main>
+        </div>
+    </div>
+    <!-- end of page content -->
+
+    <!-- footer -->
+    <footer id="footer">
+
+    </footer>
+    <!-- end of footer -->
+</div>
+</body>
+</html>
