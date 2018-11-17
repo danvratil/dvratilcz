@@ -2,10 +2,12 @@
 # front matter for jekyll 
 --- 
 
+@import 'social-logos';
 @import 'social';
 @import 'pagination';
 @import 'post-preview';
 @import 'menu';
+@import 'sidebar';
 
 @import "/assets/fonts/genericons/genericons/genericons.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin-ext');
@@ -50,10 +52,18 @@ body:before {
     height: 200%;
 }
 
+body:after {
+    left: 0;
+    width: 300px;
+    background: #e74c3c;
+}
+
 body.sidebar-closed:after {
     left: 0;
-    background: #e74c3c;
 
+    @media only screen and (max-width: 767px) {
+        content: unset;
+    }
     @media only screen and (min-width: 767px) {
         width: 40px;
     }
@@ -117,62 +127,57 @@ header {
     word-wrap: normal;
 }
 
-#page {
-    width: 100%;
 
-    @media only screen and (min-width: 767px) {
-        width: 680px;
-    }
-    @media only screen and (min-width: 959px) {
-        width: 940px;
-        
-        #sidebar {
-            position: relative;
-            float: left;
-            width: 300px;
-            padding: 0 40px;
-            box-sizing: border-box;
+.sidebar-closed {
+    #page {
+        width: 100%;
+
+        @media only screen and (min-width: 767px) {
+            width: 680px;
+        }
+        @media only screen and (min-width: 959px) {
+            width: 940px;
+            
+            #sidebar {
+                position: relative;
+                float: left;
+                width: 300px;
+                padding: 0 40px;
+                box-sizing: border-box;
+            }
+        }
+        @media only screen and (min-width: 1220px) {
+            width: 1200px;
         }
     }
-    @media only screen and (min-width: 1220px) {
-        width: 1200px;
+
+    #head {
+        margin-right: 0;
+        width: 100%;
     }
+    
 }
 
-#page:before {
-    @media only screen and (min-width: 959px) {
-        content: '';
-        width: 540px;
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 400px;
-        height: 100%;
-        background: #fff;
-        z-index: -1;
-    }
-    @media only screen and (min-width: 1220px) {
-        width: 800px;
-    }
+#page {
+    z-index: 1;
+    margin: 0;
+    width: 940px;
 }
-
 
 #head {
     background-color: #e74c3c;
     font-family: 'Montserrat', sans-serif;
     color: #FFF;
     text-align: center;
-    padding-top: 40px;
-    margin-top: -40px;
-    margin-right: 0;
 
-    @media only screen and (min-width: 767px) {
-        width: 540px;
+    @media only screen and (max-width: 959px) {
         float: right;
         padding-top: 40px;
+        margin-top: -40px;
+        width: 540px;
     }
-    @media only screen and (min-width: 959px) {
-        display: none;
+    @media only screen and (max-width: 767px) {
+        width: 640px;
     }
 
     #branding {
@@ -195,22 +200,39 @@ header {
     }
 }
 
+
+
+#page:before {
+    @media only screen and (min-width: 959px) {
+        content: '';
+        width: 540px;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 400px;
+        height: 100%;
+        background: #fff;
+        z-index: -1;
+    }
+    @media only screen and (min-width: 1220px) {
+        width: 800px;
+    }
+}
+
+
 #content {
     background-color: #fff;
 
     #primary {
         padding: 0 40px;
-        width: 100%;
         background-color: #fff;
         box-sizing: border-box;
+        float: right;
+        width: 540px;
 
-        @media only screen and (min-width: 767px) {
-            float: right;
-            width: 540px;
-            padding: 0 40px;
-        }
-        @media only screen and (min-width: 1220px) {
-            width: 800px;
+        @media only screen and (max-width: 767px) {
+            padding-left: 0;
+            width: 600px;
         }
     }
 
@@ -224,6 +246,19 @@ header {
         font-size: 25px;
         text-transform: uppercase;
         font-weight: bold;
+    }
+}
+
+.sidebar-closed {
+    #content {
+        #primary {
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                height: auto;
+                padding: 0 40px;
+                box-sizing: border-box;
+            }
+        }
     }
 }
 

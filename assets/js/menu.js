@@ -6,7 +6,12 @@ dropdowns.forEach(function(dropdown) {
     });
 });
 
-var menutoggle = document.querySelector("#sitenav .menu-toggle");
-menutoggle.addEventListener("click", function(event) {
+var menuToggle = document.querySelector("#sitenav .menu-toggle");
+menuToggle.addEventListener("click", function(event) {
     this.parentElement.classList.toggle("open");
+});
+
+var sidebarToggle = document.querySelector("#sidebar .sidebar-toggle");
+sidebarToggle.addEventListener("click", function(event) {
+    document.getElementsByTagName("body")[0].classList.toggle("sidebar-closed");
 });

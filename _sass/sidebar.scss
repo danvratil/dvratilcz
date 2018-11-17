@@ -1,0 +1,115 @@
+#sidebar {
+    width: 300px;
+    float: left;
+    padding: 0 40px;
+    box-sizing: border-box;
+    color: #FFF;
+
+    .sidebar-toggle {
+        background: #c0392b;
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 0px;
+        left: 0;
+        height: 40px;
+        width: 40px;
+        color: #FFF;
+        line-height: 40px;
+        text-align: center;
+        text-decoration: none;
+
+        .genericon {
+            margin-top: 5px;
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+    }
+    .sidebar-toggle:before,
+    .sidebar-toggle:after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-top: 40px solid #c0392b;
+        border-right: 40px solid transparent;
+    }
+    .sidebar-toggle:before {
+        top: 40px;
+    }
+    .sidebar-toggle:after {
+        top: 0;
+        left: 40px;
+    }
+
+    .widget {
+        margin: 0 0 20px;
+        border-bottom: 15px double #c0392b;
+        font-size: 14px;
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: #FFF;
+    }
+    a:hover {
+        color: #FFF;
+    }
+
+    #sociallinks {
+        ul {
+            display: block;
+            margin: 0 0 1.5em;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                line-height: 1;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    width: 24px;
+                    height: 24px;
+                    font-size: 24px;
+                    display: block;
+                    text-decoration: none;
+                    border: 0;
+                }
+
+                .social-logo:before {
+                    font: normal 24px 'social-logos';
+                    top: 1px;
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: top;
+                    text-align: center;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+
+}
+
+.sidebar-closed {
+    #sidebar {
+        .sidebar-toggle {
+            .genericon {
+                transform: rotate(45deg);
+            }
+        }
+        .sidebar-content {
+            display: none;
+        }
+    }
+}
