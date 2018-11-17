@@ -212,6 +212,18 @@ header {
             width: 800px;
         }
     }
+
+    .page-header h1 {
+        padding: 15px 40px;
+        margin: 0 0 40px -40px;
+        background: #202020;
+        width: 100%;
+        display: block;
+        color: #FFF;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
 }
 
 #sitenav {
