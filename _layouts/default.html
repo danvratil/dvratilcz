@@ -26,9 +26,11 @@
             <div class="main-menu-container">
                 
             </div>
+            <ul>
         {% for category in site.categories %}
-        
+            <li>{{ category[0] }}</li>
         {% endfor %}
+        </ul>
         </nav>
     </header>
     <!-- end of header -->

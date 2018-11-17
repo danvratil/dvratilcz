@@ -2,4 +2,15 @@
 layout: default
 ---
 
-{{ content }}
+{% if page.paginator %}
+    {% assign paginator = page.paginator %}
+{% endif %}
+
+<div class="article-list">
+    {% for post in paginator.posts %}
+        {% include post-preview.html %}
+    {% endfor %}
+</div>
+    
+{% include pagination.html %}
+    

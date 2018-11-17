@@ -7,8 +7,18 @@ baseurl: ""
 url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
-paginate: 10
+
+
 permalink: /:year/:month/:title
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Categories
+category_dir: "category"
+category_layout: "_layouts/home.html"
+
 
 # Build settings
 markdown: kramdown
@@ -16,6 +26,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-paginate-category
 
 sass:
     sass_dir: _sass
