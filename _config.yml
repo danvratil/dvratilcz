@@ -8,20 +8,16 @@ url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
 
-
 permalink: /:year/:month/:title
 
 # Pagination
 paginate: 10
-paginate_path: "/page/:num/"
+paginate_path: /page/:num/
 
-# Categories
-category_dir: "category"
-category_layout: "_layouts/home.html"
-
+# Taxonomy
 taxonomy:
-  paginate_root: "/:txtype/:taxon/"
-  paginate_path: "page/:num/"
+  paginate_root: /:txtype/:taxon/
+  paginate_path: page/:num/
 
 # Build settings
 markdown: kramdown
