@@ -19,14 +19,16 @@ paginate_path: "/page/:num/"
 category_dir: "category"
 category_layout: "_layouts/home.html"
 
+taxonomy:
+  paginate_root: "/:txtype/:taxon/"
+  paginate_path: "page/:num/"
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-paginate-category
 
 sass:
     sass_dir: _sass
