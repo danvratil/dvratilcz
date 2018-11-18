@@ -1,0 +1,17 @@
+# Block .git in case it gets deployed
+<Directory .git>
+    order allow,deny
+    deny from all
+</Directory>
+
+RewriteEngine On 
+RewriteCond ^category/kde/akonadi(.*)$ /category/akonadi$1 [L]
+RewriteRule ^category/kde/telepathy(.*)$ /category/telepathy$1 [L]
+RewriteRule ^category/kde/akonadi-google(.*)$ /category/akonadi-google$1 [L]
+RewriteRule ^category/gnome/evolution(.*)$ /category/evolution/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [L]
+
+ErrorDocument 404 /404.html
