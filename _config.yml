@@ -7,6 +7,8 @@ baseurl: ""
 url: "https://dvratil.cz"
 twitter_username: danvratil
 github_username:  danvratil
+author:
+  name: Daniel Vrátil
 
 permalink: /:year/:month/:title
 
@@ -25,6 +27,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
 
 sass:
     sass_dir: _sass
