@@ -1,6 +1,6 @@
 RV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
 
-checkout_dir=$(mktemp)
+checkout_dir=$(mktemp -d)
 
 pushd ${checkout_dir}
 
