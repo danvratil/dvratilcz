@@ -7,6 +7,13 @@
     <title>{{site.title}}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
+
+    {% if page.tags %}
+    <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">
+    {% endif %}
+    {% feed_meta %}
+    {% taxon_feed_meta %}
+
 </head>
 <body class="sidebar-closed" onLoad="responsiveDOM()">
 <div id="page">

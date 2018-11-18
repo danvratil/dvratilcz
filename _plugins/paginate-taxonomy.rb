@@ -29,6 +29,7 @@ module Jekyll
 
         txns.each do |txn|
           paginate(site, taxons_type, lyout, txn)
+          site.pages << TaxonAtom.new(site, site.source, taxons_type, txn, lyout)
         end
       end
     end
@@ -60,8 +61,70 @@ module Jekyll
       self.data['taxon_type'] = txtype.singularize
       self.data['taxons_type'] = txtype
       self.data['taxon'] = taxon
+      self.data['taxon_id'] = Utils.slugify(taxon)
     end
   end
+
+  class TaxonFeedMeta < Liquid::Tag
+    # Use Jekyll's native relative_url filter
+    include Jekyll::Filters::URLFilters
+
+    def render(context)
+      @context = context
+      attrs    = attributes.map { |k, v| %(#{k}="#{v}") }.join(" ")
+      if @context.registers[:page].include?('taxon')
+        "<link #{attrs} />"
+      else
+        ""
+      end
+    end
+
+    private
+
+    def config
+      @config ||= @context.registers[:site].config
+    end
+
+    def attributes
+      {
+        :type  => "application/atom+xml",
+        :rel   => "alternate",
+        :href  => absolute_url(path),
+        :title => title,
+      }.keep_if { |_, v| v }
+    end
+
+    def path
+      taxon_id = @context.registers[:page]['taxon_id']
+      txtype = @context.registers[:page]['taxon_type']
+      "/#{txtype}/#{taxon_id}/feed"
+    end
+
+    def title
+      site_title = @context.registers[:site].config['title']
+      taxon = @context.registers[:page]['taxon']
+      txtype = @context.registers[:page]['taxon_type']
+      "#{site_title} - #{taxon} #{txtype} feed"
+    end
+
+  end
+
+  class TaxonAtom < Page
+    def initialize(site, base, txtype, taxon, layout)
+      @site = site
+      @base = base
+      @dir = File.join(txtype.singularize, Utils.slugify(taxon), "feed")
+      @name = "feed.xml"
+
+      process(@name)
+      read_yaml(File.join(base, '_layouts'), "atom.html")
+      self.data['taxon_type'] = txtype.singularize
+      self.data['taxons_type'] = txtype
+      self.data['taxon'] = taxon
+      self.data['taxon_id'] = Utils.slugify(taxon)
+    end
+  end
+
 
   class TaxonPager < Jekyll::Paginate::Pager 
     attr_reader :tag, :taxon_type
@@ -112,3 +175,5 @@ module Jekyll
     end
   end
 end
+
+Liquid::Template.register_tag "taxon_feed_meta", Jekyll::TaxonFeedMeta
