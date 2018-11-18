@@ -42,7 +42,7 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - venv
-  - docker
+  - build
 
 include:
   - .htaccess

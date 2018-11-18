@@ -1,0 +1,25 @@
+RV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
+
+checkout_dir=$(mktemp)
+
+pushd ${checkout_dir}
+
+# Create a checkout from the worktree
+git init --bare .
+git config core.bare false
+git config core.worktree ${GIT_DIR}
+git checkout -f
+
+sudo docker run \
+        --rm \
+        -v $checkout_dir:/srv/jekyll \
+        -v ${SRV_DIR}:/srv/jekyll/_site \
+        -it \
+        jekyll/jekyll \
+        jekyll build
+
+sudo chown -R apache:apache ${SRV_DIR}
+
+popd
+rm -rf ${checkout_dir}
+
