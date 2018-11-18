@@ -3,31 +3,31 @@ items:
    link: /
 
  - title: KDE
-   link: /category/kde
+   link: /category/kde/
    subitems:
     - title: Akonadi
-      link: /category/kde/akonadi
+      link: /category/kde/akonadi/
 
     - title: Telepathy
-      link: /category/kde/telepathy
+      link: /category/kde/telepathy/
 
     - title: Akonadi Google
-      link: /category/kde/akonadi-google
+      link: /category/kde/akonadi-google/
 
  - title: Fedora
-   link: /category/fedora
+   link: /category/fedora/
 
  - title: Gnome
-   link: /category/gnome
+   link: /category/gnome/
    subitems:
     - title: Evolution
-      link: /category/gnome/evolution
+      link: /category/gnome/evolution/
 
  - title: Linux Stuff
-   link: /category/linux-stuff
+   link: /category/linux-stuff/
 
  - title: Random Blurb
-   link: /category/random-blurb
+   link: /category/random-blurb/ 
 
  - title: About Me
    link: /about-me

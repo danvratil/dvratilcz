@@ -107,9 +107,14 @@
             .genericon {
                 transform: rotate(45deg);
             }
+            @media only screen and (min-width: 959px) {
+                display: none;
+            }
         }
         .sidebar-content {
-            display: none;
+            @media only screen and (max-width: 959px) {
+                display: none;
+            }
         }
     }
 }
