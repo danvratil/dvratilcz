@@ -7,8 +7,6 @@
         width: 300px;
         padding-top: 10px;
         margin-left: -40px;
-        font-weight: bold;
-        text-transform: uppercase;
         border-bottom: none;
     }
 
@@ -29,6 +27,8 @@
 
     .main-menu-container {
         text-align: left;
+        text-transform: uppercase;
+        font-weight: bold;
 
         ul {
             list-style: none;
