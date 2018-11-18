@@ -1,3 +1,4 @@
+{%if paginator.total_pages > 1 %}
 <nav role="navigation" class="pagination">
     <h1 class="screen-reader-text">Post navigation</h1>
     {% if paginator.next_page %}
@@ -18,3 +19,4 @@
     </div>
     {% endif %}
 </nav>
+{% endif %}
