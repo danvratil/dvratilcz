@@ -287,3 +287,23 @@ header {
         }
     }
 }
+
+
+.image {
+    margin: 0;
+    figcaption {
+        text-align: center;
+        width: 100%;
+    }
+
+}
+.image.left{
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.image.right {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
