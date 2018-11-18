@@ -2,6 +2,12 @@
 layout: default
 ---
 
+{% if page.taxon %}
+<header class="page-header">
+    <h1>{{ page.taxon }}</h1>
+</header>
+{% endif %}
+
 {% if page.paginator %}
     {% assign paginator = page.paginator %}
 {% endif %}
@@ -13,4 +19,3 @@ layout: default
 </div>
     
 {% include pagination.html %}
-    
