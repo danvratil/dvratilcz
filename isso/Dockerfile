@@ -3,7 +3,8 @@ FROM alpine:3.7
 RUN apk add --update \
     python3 \
     libffi \
-    uwsgi-python3
+    uwsgi-python3 \
+    uwsgi-spooler
 
 RUN apk add --update \
     --virtual build-dependencies \
