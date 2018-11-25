@@ -7,8 +7,10 @@ if [ -z "${_checkout_dir}" ]; then
     exit 1
 fi
 
-git clone -b master --recursive ${GIT_DIR} ${_checkout_dir} || exit 1
+echo "** Cloning sources..."
+git clone -b master --recursive ${GIT_DIR} ${_checkout_dir}
 
+echo "** Building website..."
 sudo docker run \
         --rm \
         --net host \
@@ -17,9 +19,19 @@ sudo docker run \
         -e JEKYLL_UID=$(id -u) \
         -e JEKYLL_GID=$(id -g) \
         jekyll/jekyll \
-        jekyll build || exit 1
+        jekyll build
 
+echo "** Fixing privileges..."
 sudo chown -R apache:apache ${SRV_DIR}
+
+echo "** Building Isso Docker image..."
+sudo docker build \
+        --tag isso:latest \
+        ${_checkout_dir}/isso
+
+echo "** Restarting Isso Docker image..."
+sudo docker restart isso
 
 rm -rf ${_checkout_dir}
 
+echo "** Done."
