@@ -35,8 +35,19 @@ sudo docker build \
         --tag isso:latest \
         ${_checkout_dir}/isso
 
-echo "** Restarting Isso Docker image..."
-sudo docker restart isso
+# TODO: Newer docker can update image on stopped container,
+# but I'm stuck to Docker 1.10 for now :(
+echo "** Updating Isso container..."
+sudo docker stop isso
+sudo docker rm isso
+sudo docker create \
+        --net host \
+        -v $SRV_DIR/isso:/var/lib/isso \
+        -v /var/log/isso:/var/log/isso \
+        --restart always \
+        --name isso \
+        isso:latest
+sudo docker start isso
 
 rm -rf ${_checkout_dir}
 
