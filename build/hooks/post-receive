@@ -1,14 +1,9 @@
-RV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
+SRV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
 
-checkout_dir=$(mktemp -d)
+_checkout_dir=$(mktemp -d)
 
-pushd ${checkout_dir}
-
-# Create a checkout from the worktree
-git init --bare .
-git config core.bare false
-git config core.worktree ${GIT_DIR}
-git checkout -f
+git clone -b master --depth 1 --recursive ${GIT_DIR} ${_checkout_dir}
+pushd ${_checkout_dir}
 
 sudo docker run \
         --rm \
@@ -20,5 +15,5 @@ sudo docker run \
 sudo chown -R apache:apache ${SRV_DIR}
 
 popd
-rm -rf ${checkout_dir}
+rm -rf ${_checkout_dir}
 
