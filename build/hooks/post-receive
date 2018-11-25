@@ -7,7 +7,7 @@ pushd ${_checkout_dir}
 
 sudo docker run \
         --rm \
-        -v $checkout_dir:/srv/jekyll \
+        -v $_checkout_dir:/srv/jekyll \
         -v ${SRV_DIR}:/srv/jekyll/_site \
         jekyll/jekyll \
         jekyll build
