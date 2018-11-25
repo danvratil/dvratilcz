@@ -7,8 +7,11 @@ pushd ${_checkout_dir}
 
 sudo docker run \
         --rm \
+        --net host \
         -v $_checkout_dir:/srv/jekyll \
         -v ${SRV_DIR}:/srv/jekyll/_site \
+        -e JEKYLL_UID=$(id -u) \
+        -e JEKYLL_GID=$(id -g) \
         jekyll/jekyll \
         jekyll build
 
