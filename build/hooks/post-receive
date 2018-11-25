@@ -3,7 +3,7 @@ set -e
 SRV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
 
 _checkout_dir=$(mktemp -d)
-if [ ! -z "${_checkout_dir}" ]; then
+if [ -z "${_checkout_dir}" ]; then
     exit 1
 fi
 
