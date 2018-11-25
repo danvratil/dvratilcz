@@ -1,8 +1,13 @@
+set -e
+
 SRV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
 
 _checkout_dir=$(mktemp -d)
+if [ ! -z "${_checkout_dir}" ]; then
+    exit 1
+fi
 
-git clone -b master --depth 1 --recursive ${GIT_DIR} ${_checkout_dir}
+git clone -b master --depth 1 --recursive ${GIT_DIR} ${_checkout_dir} || exit 1
 
 sudo docker run \
         --rm \
@@ -12,7 +17,7 @@ sudo docker run \
         -e JEKYLL_UID=$(id -u) \
         -e JEKYLL_GID=$(id -g) \
         jekyll/jekyll \
-        jekyll build
+        jekyll build || exit 1
 
 sudo chown -R apache:apache ${SRV_DIR}
 
