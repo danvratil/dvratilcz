@@ -41,8 +41,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - venv
-  - build
+  - isso
 
 include:
   - .htaccess
