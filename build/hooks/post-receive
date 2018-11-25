@@ -3,7 +3,6 @@ SRV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
 _checkout_dir=$(mktemp -d)
 
 git clone -b master --depth 1 --recursive ${GIT_DIR} ${_checkout_dir}
-pushd ${_checkout_dir}
 
 sudo docker run \
         --rm \
@@ -17,6 +16,5 @@ sudo docker run \
 
 sudo chown -R apache:apache ${SRV_DIR}
 
-popd
 rm -rf ${_checkout_dir}
 
