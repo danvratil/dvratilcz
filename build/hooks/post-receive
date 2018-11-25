@@ -1,10 +1,15 @@
 set -e
 
 SRV_DIR=/srv/http/www/d/dvratil.cz/www.dvratil.cz
+JEKYLL_CACHE=/tmp/dvratilcz-jekyllcache
 
 _checkout_dir=$(mktemp -d)
 if [ -z "${_checkout_dir}" ]; then
     exit 1
+fi
+
+if [ ! -d ${JEKYLL_CACHE} ]; then
+    mkdir -p ${JEKYLL_CACHE}
 fi
 
 echo "** Cloning sources..."
@@ -16,6 +21,7 @@ sudo docker run \
         --net host \
         -v $_checkout_dir:/srv/jekyll \
         -v ${SRV_DIR}:/srv/jekyll/_site \
+        -v ${JEKYLL_CACHE}:/usr/local/bundle \
         -e JEKYLL_UID=$(id -u) \
         -e JEKYLL_GID=$(id -g) \
         jekyll/jekyll \
