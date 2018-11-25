@@ -8,6 +8,9 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^(.*)$ - [L]
 
+# Don't rewrite the /isso path, it's passed through to reverse proxy
+RewriteRule ^/isso(.*)$ - [QSA,L]
+
 # Redirect old nested Wordpress categories to their new URLs
 RewriteRule ^category/kde/akonadi(.*)$ /category/akonadi$1 [L]
 RewriteRule ^category/kde/telepathy(.*)$ /category/telepathy$1 [L]
