@@ -21,6 +21,15 @@ EXPOSE 3032
 
 COPY isso.cfg /etc/isso.cfg
 
+# Hack: disable use of uwsgi spooler to send email notifications from Isso,
+# because the current version of uwsgi that we have doesn't work. Instead,
+# force Isso to behave as if used in some other way than through uwsgi
+COPY disable-spooler.patch /root/disable-spooler.patch
+WORKDIR /usr/lib/python3.6/site-packages/isso/ext/
+RUN patch -p1 -i /root/disable-spooler.patch
+
+WORKDIR /root
+
 RUN mkdir -p /var/spool/uwsgi
 
 CMD [ "uwsgi", "--socket", "0.0.0.0:3032", \
