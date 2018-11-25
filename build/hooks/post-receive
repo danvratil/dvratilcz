@@ -14,7 +14,6 @@ sudo docker run \
         --rm \
         -v $checkout_dir:/srv/jekyll \
         -v ${SRV_DIR}:/srv/jekyll/_site \
-        -it \
         jekyll/jekyll \
         jekyll build
 
