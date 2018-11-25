@@ -16,12 +16,11 @@ RUN pip3 install isso
 
 RUN apk del build-dependencies && rm -rf /var/cache/apk/*
 
-EXPOSE 3031
+EXPOSE 3032
 
-COPY uwsgi.ini /etc/uwsgi.ini
 COPY isso.cfg /etc/isso.cfg
 
-CMD [ "uwsgi", "--socket", "0.0.0.0:3031", \
+CMD [ "uwsgi", "--socket", "0.0.0.0:3032", \
                "--uid", "uwsgi", \
                "--plugins", "python3", \
                "--protocol", "uwsgi", \
