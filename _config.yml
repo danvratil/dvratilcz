@@ -44,5 +44,8 @@ exclude:
   - vendor/ruby/
   - isso
 
+keep_files:
+  - isso
+
 include:
   - .htaccess
