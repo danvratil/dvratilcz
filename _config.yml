@@ -9,6 +9,7 @@ twitter_username: danvratil
 github_username:  danvratil
 author:
   name: Daniel Vrátil
+show_drafts: false
 
 permalink: /:year/:month/:title
 
@@ -31,7 +32,7 @@ plugins:
 
 sass:
     sass_dir: _sass
-#    style: compressed
+    style: compressed
 
 exclude:
   - Gemfile
