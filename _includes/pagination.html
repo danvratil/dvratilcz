@@ -3,7 +3,7 @@
     <h1 class="screen-reader-text">Post navigation</h1>
     {% if paginator.next_page %}
     <div class="pagination-next">
-        <a href="{{ paginator.next_page_path }}/">
+        <a href="{{ paginator.next_page_path }}">
             <span class="genericon genericon-leftarrow"></span>
             Older posts
         </a>
@@ -12,7 +12,7 @@
 
     {% if paginator.previous_page %}
     <div class="pagination-previous">
-        <a href="{{ paginator.previous_page_path }}/">
+        <a href="{{ paginator.previous_page_path }}">
             Newer posts
             <span class="genericon genericon-rightarrow"></span>
         </a>

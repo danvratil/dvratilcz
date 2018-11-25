@@ -5,18 +5,17 @@
     <div class="screen-reader-text skip-link">
         <a href="#content" title="Skip to content">Skip to content</a>
     </div>
-        
     <div class="main-menu-container">
         <ul class="main-menu">
             {% for item in site.data.menu.items %}
             <li {% if page.url == item.link %}class="active"{% endif %}>
-                <a href="{{ item.link }}/">{{ item.title }}
+                <a href="{{ item.link }}">{{ item.title }}
                    {% if item.subitems %}<span class="dropdown-icon"></span>{% endif %}
                 </a>
                 {% if item.subitems %}
                 <ul>
                     {% for subitem in item.subitems %}
-                    <li><a href="{{ subitem.link }}/">{{ subitem.title }}</a></li>
+                    <li><a href="{{ subitem.link }}">{{ subitem.title }}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
