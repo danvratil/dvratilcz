@@ -3,6 +3,9 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 RewriteBase /
 
+# Opening .../feed/ should load feed.xml (as it did with wordpress)
+DirectoryIndex index.html feed.xml
+
 # Allow existing files and directories ight awawy
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -24,6 +27,10 @@ RewriteRule ^(.*).html$ - [L]
 # (this is needed for ISSO to correctly detect URLs)
 RewriteCond %{REQUEST_URI} !^(.*)/$
 RewriteRule ^(.*)$ $1/ [R=301,L]
+
+# Rewrite /some/path/feed to /some/path/feed.xml
+RewriteCond %{REQUEST_URI} ^(.*)/feed$
+RewriteRule ^(.*)/$ $1.xml [L]
 
 # If path ends with "/", replace the slash with .html
 RewriteCond %{REQUEST_URI} ^(.*)/$
