@@ -12,14 +12,14 @@ tags:
 ---
 <p>While <a title="Evolution meets WebKit" href="{% post_url 2012-03-28-evolution-meets-webkit %}">porting  Evolution to WebKit</a>, I have made some major changes in how formatting emails in Evo works. But lately I've been more and more aware, that it's not flexible enough and that there is a lot of space for improvement.</p>
 <p>With Milan Crha we designed a proper, object-oriented (within the limits of C and GLib) parser and formatter. They are now both very flexible, easily extensible and displaying e-mails is a bit faster thanks to more asynchronous approach.</p>
-<p><a href="{{ site.baseurl }}/assets/evo-patch-formatting.png"><img class="alignleft tiny" title="Example of automated part formatting" src="{{ site.baseurl }}/assets/evo-patch-formatting-150x150.png" alt="" width="150" height="150" /></a></p>
+<p><a href="{{ site.url }}/assets/evo-patch-formatting.png"><img class="alignleft tiny" title="Example of automated part formatting" src="{{ site.url }}/assets/evo-patch-formatting-150x150.png" alt="" width="150" height="150" /></a></p>
 <p>The main feature that comes out of this redesign is an extension we call text-highlighter. It uses the <a href="http://www.andre-simon.de/zip/download.html">highlight</a> utility to format text parts. For now we only highlight diffs and patches, but the list can easily be extended by all formats supported by <code>highlight</code>.</p>
 <p>But we intend to go a bit further. We want to allow users to choose how each part should be formatted! The popup menu on each part of the email will contain a list of available (and compatible) formatters. Selecting one will reload the given part (each parts is in an &lt;iframe&gt; ) and render it again using specified formatter.</p>
 <table border="0">
 <tbody>
 <tr>
-<td><a href="{{ site.baseurl }}/assets/evo-formatting-1.png"><img class="tiny aligncenter" title="Example of the context menu with available formats" src="{{ site.baseurl }}/assets/evo-formatting-1-150x150.png" alt="" width="150" height="150" /></a></td>
-<td><a href="{{ site.baseurl }}/assets/evo-formatting-2.png"><img class="tiny aligncenter" title="Evolution will format the part using selected formatter" src="{{ site.baseurl }}/assets/evo-formatting-2-150x150.png" alt="" width="150" height="150" /></a></td>
+<td><a href="{{ site.url }}/assets/evo-formatting-1.png"><img class="tiny aligncenter" title="Example of the context menu with available formats" src="{{ site.url }}/assets/evo-formatting-1-150x150.png" alt="" width="150" height="150" /></a></td>
+<td><a href="{{ site.url }}/assets/evo-formatting-2.png"><img class="tiny aligncenter" title="Evolution will format the part using selected formatter" src="{{ site.url }}/assets/evo-formatting-2-150x150.png" alt="" width="150" height="150" /></a></td>
 </tr>
 </tbody>
 </table>

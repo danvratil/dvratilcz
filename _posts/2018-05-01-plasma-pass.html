@@ -13,7 +13,7 @@ tags:
 <p>To get a password from <em>pass</em>, you simply type <code>pass -c SomePath/SomeService</code> into console and <em>pass</em> will copy the password straight to your clipboard. Super simple. Slightly less comfortable when you are dealing with websites though. Luckily there's a wonderful browser extension called <a href="https://github.com/dannyvankooten/browserpass#readme">browserpass</a> that can fill online login forms with a single click and has automatic password matching based on the current domain.</p>
 <p>But sometimes even I am simply too lazy to open Yakuake and type in a command, so I started looking for some GUI. There's <a href="https://qtpass.org">qtpass</a>, but that's not exactly what I was looking for. And so I dusted off my QML knowledge and wrote Plasma Pass: a systray Plasma applet to quickly find your password and copy it into the clipboard with a single mouse click. The applet also takes care of removing the password from the X11 clipboard as well as Klipper after 45 seconds so it won't leak accidentally through your clipboard history.</p>
 <p><video style="max-width: 600px; margin: auto;" controls="controls">
-<source src="{{ site.baseurl }}/assets/plasma-pass.mp4" type="video/mp4" /><br />
+<source src="{{ site.url }}/assets/plasma-pass.mp4" type="video/mp4" /><br />
 </video></p>
 <p>The source code is currently available in <del>my scratch repo: <a href="https://cgit.kde.org/scratch/dvratil/plasma-pass.git/">https://cgit.kde.org/scratch/dvratil/plasma-pass.git/</a></del>
 plasma-pass.git repo: <a href="https://cgit.kde.org/plasma-pass.git">https://cgit.kde.org/plasma-pass.git</a>.</p>
