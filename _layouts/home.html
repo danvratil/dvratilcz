@@ -14,8 +14,9 @@ layout: default
 
 <div class="article-list">
     {% for post in paginator.posts %}
-        {% include post-preview.html %}
+        {% unless post.draft %}
+            {% include post-preview.html %}
+        {% endunless %}
     {% endfor %}
 </div>
-    
 {% include pagination.html %}
