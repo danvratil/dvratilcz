@@ -10,7 +10,6 @@ tags:
  - PIM
  - Akonadi
  - Sprint
-draft: true
 ---
 The KDE PIM community has been working hard in March and April to fix various
 bugs and bring new features and improvements to Kontact, Itinerary and other
