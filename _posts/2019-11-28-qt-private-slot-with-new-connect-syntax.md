@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Q_PRIVATE_SLOT with new connect syntax
-date: 2019-09-28 18:55:00
+date: 2019-11-28 18:55:00
 categories:
  - KDE
 tags:
