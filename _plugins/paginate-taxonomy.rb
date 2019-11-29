@@ -12,16 +12,16 @@ module Jekyll
 
   class TaxonGenerator < Generator
     safe true
-    
+
     def generate(site)
       ['tags', 'categories'].each do |taxons_type|
         taxon_type = taxons_type.singularize
 
         #TODO: This should happen in TaxonPage.
         #TODO: We could also look for a special layout for certain categories/tags.
-        if site.layouts.key? "#{taxon_type}_index" 
-            lyout = "#{taxon_type}_index" 
-        else 
+        if site.layouts.key? "#{taxon_type}_index"
+            lyout = "#{taxon_type}_index"
+        else
             lyout = 'taxon_index'
         end
 
@@ -126,7 +126,7 @@ module Jekyll
   end
 
 
-  class TaxonPager < Jekyll::Paginate::Pager 
+  class TaxonPager < Jekyll::Paginate::Pager
     attr_reader :tag, :taxon_type
 
     def initialize(site, page, all_posts, taxon, txtype, num_pages = nil)
@@ -150,7 +150,7 @@ module Jekyll
         else
             raise ArgumentError.new("Invalid taxonomy pagination root: '#{pag_root}'. It must include ':taxon'.")
         end
-        
+
         if num_page != 1
           format = site.config['taxonomy']['paginate_path']
           if format.include?(":num")
