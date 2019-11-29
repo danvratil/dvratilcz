@@ -4,7 +4,7 @@ RewriteEngine On
 RewriteBase /
 
 # Opening .../feed/ should load feed.xml (as it did with wordpress)
-DirectoryIndex index.html
+DirectoryIndex index.html feed.xml
 DirectorySlash off
 
 RewriteCond %{REQUEST_URI} ^/2019/11/qt-private-slot-with-new-connect-syntax [OR]
