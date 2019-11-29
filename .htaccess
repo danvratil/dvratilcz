@@ -28,6 +28,10 @@ RewriteRule ^(.*).html$ - [L]
 RewriteCond %{REQUEST_URI} !^(.*)/$
 RewriteRule ^(.*)$ $1/ [R=301,L]
 
+# Rewrite /feed/ to /feed.xml to keep compat with WordPress
+RewriteCond %{REQUEST_URI} ^/feed/$
+RewriteRule ^(.*)$ /feed.xml [L]
+
 # Rewrite /some/path/feed to /some/path/feed.xml
 RewriteCond %{REQUEST_URI} ^(.*)/feed$
 RewriteRule ^(.*)/$ $1.xml [L]
