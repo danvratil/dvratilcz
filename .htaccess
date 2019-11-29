@@ -7,8 +7,13 @@ RewriteBase /
 DirectoryIndex index.html
 DirectorySlash off
 
+RewriteCond %{REQUEST_URI} ^/2019/11/qt-private-slot-with-new-connect-syntax [OR]
+RewriteCond %{REQUEST_URI} ^/2019/09/qt-private-slot-with-new-connect-syntax
+RewriteRule ^(.*)$ /2019/11/q-private-slot-with-new-connect-syntax/ [R=301,L]
+
+
 # Allow existing files right awawy
-RewriteCond %{REQUEST_FILENAME} -f 
+RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^(.*)$ - [L]
 
 # Don't rewrite the /isso path, it's passed through to reverse proxy
