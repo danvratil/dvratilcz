@@ -30,4 +30,6 @@ function responsiveDOM() {
         page.insertBefore(head, headPlaceholder);
     }
 }
+
 window.addEventListener("resize", responsiveDOM);
+window.addEventListener("load", responsiveDOM);
