@@ -14,7 +14,7 @@ draft: true
 ---
 Following the post about [what happened in KDE PIM in November and December][volker-blog]
 by Volker, let's look into what the KDE PIM community has been up to in the
-first two months of the new year. So far 23 contributors have made 740 changes.
+first two months of the new year. In total 23 contributors have made 740 changes.
 
 ## KMail
 
