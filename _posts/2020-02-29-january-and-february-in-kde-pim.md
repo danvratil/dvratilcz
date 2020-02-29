@@ -2,7 +2,7 @@
 layout: post
 title: January and February in KDE PIM
 thumbnail: kontact.png
-date: 2020-02-28 20:00:00 +01:00
+date: 2020-02-29 12:40:00 +01:00
 categories:
  - KDE
 tags:
@@ -10,7 +10,6 @@ tags:
  - PIM
  - Akonadi
  - Sprint
-draft: true
 ---
 Following the post about [what happened in KDE PIM in November and December][volker-blog]
 by Volker, let's look into what the KDE PIM community has been up to in the
