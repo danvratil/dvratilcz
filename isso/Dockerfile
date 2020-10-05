@@ -13,7 +13,7 @@ RUN apk add --update \
     build-base \
     libffi-dev
 
-RUN pip3 install isso
+RUN pip3 install werkzeug==0.16.1 isso
 
 RUN apk del build-dependencies && rm -rf /var/cache/apk/*
 
