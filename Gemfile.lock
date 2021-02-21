@@ -80,6 +80,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux-musl
 
 DEPENDENCIES
   activesupport
@@ -91,4 +92,4 @@ DEPENDENCIES
   minima (~> 2.0)
 
 BUNDLED WITH
-   1.17.1
+   2.2.2
