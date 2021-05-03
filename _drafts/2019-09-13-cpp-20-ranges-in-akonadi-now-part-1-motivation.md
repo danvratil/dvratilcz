@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++20 Ranges in Akonadi right now - Part 1: Motivation
+title: C++20 Ranges in Akonadi right now - Part 1 - Motivation
 date: 2019-09-13 11:00:00 +02:00
 categories:
  - KDE

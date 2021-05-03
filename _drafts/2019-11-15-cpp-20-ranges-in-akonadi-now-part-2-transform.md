@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++20 Ranges in Akonadi right now - Part 2: Transform
+title: C++20 Ranges in Akonadi right now - Part 2 - Transform
 date: 2019-11-15 17:00:00 +01:00
 categories:
  - KDE
