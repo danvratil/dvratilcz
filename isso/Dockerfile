@@ -19,7 +19,7 @@ RUN apk del build-dependencies && rm -rf /var/cache/apk/*
 
 EXPOSE 3032
 
-COPY isso.cfg /etc/isso.cfg
+COPY isso.conf /etc/isso.conf
 
 # Hack: disable use of uwsgi spooler to send email notifications from Isso,
 # because the current version of uwsgi that we have doesn't work. Instead,
@@ -37,5 +37,6 @@ CMD [ "uwsgi", "--socket", "0.0.0.0:3032", \
                "--plugins", "python3", \
                "--protocol", "uwsgi", \
                "--spooler", "/var/spool/uwsgi", \
-               "--env", "ISSO_SETTINGS=/etc/isso.cfg", \
+	       "--logto", "/var/log/isso/uwsgi.log", \
+               "--env", "ISSO_SETTINGS=/etc/isso.conf", \
                "--wsgi", "isso.run" ]
