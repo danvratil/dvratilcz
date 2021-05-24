@@ -13,7 +13,7 @@ RUN apk add --update \
     build-base \
     libffi-dev
 
-RUN pip3 install werkzeug==0.16.1 isso
+RUN pip3 install flask==1 werkzeug==0.16.1 isso
 
 RUN apk del build-dependencies && rm -rf /var/cache/apk/*
 
@@ -39,4 +39,4 @@ CMD [ "uwsgi", "--socket", "0.0.0.0:3032", \
                "--spooler", "/var/spool/uwsgi", \
 	       "--logto", "/var/log/isso/uwsgi.log", \
                "--env", "ISSO_SETTINGS=/etc/isso.conf", \
-               "--wsgi", "isso.run" ]
+               "--module", "isso.run" ]
