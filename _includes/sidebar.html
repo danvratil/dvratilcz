@@ -4,7 +4,17 @@
         <span class="screen-reader-text">Sidebar</span>
     </a>
     <div class="sidebar-content">
+        <!-- header -->
+        <header id="head">
+            <div id="branding">
+                <h1 class="title"><a href="/" class="site-title">{{site.title}}</a></h1>
+                <h2 class="subtitle">{{site.subtitle}}</h2>
+            </div>
+
+            {% include menu.html %}
+        </header>
         <div class="head-placeholder"></div>
+        <!-- end of header -->
 
         <aside id="sociallinks" class="widget">
             <h1>Social</h1>
