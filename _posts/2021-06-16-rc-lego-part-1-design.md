@@ -5,7 +5,10 @@ date: 2021-06-16 15:00:00 +0100
 categories:
 - KDE
 tags:
-- KDE, Qt, Arduino, LEGO
+- KDE
+- Qt
+- Arduino
+- LEGO
 ---
 
 Recently my 4 year-old stepson saw a kid with an RC racing car in a park. He really wanted
