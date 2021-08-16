@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Initial release of QCoro
-date: 2021-08-15 12:00:00
+date: 2021-08-16 10:00:00
 categories:
 - KDE
 - Qt
