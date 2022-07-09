@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  workflow_dispatch
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+    - name: Deploy to Valhalla
+      run: |
+        PRIVATE_KEY_FILE=$(mktemp)
+        echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > "$PRIVATE_KEY_FILE"
+        SSH_CMD="ssh -p ${{ secrets.DEPLOY_PORT }} -i "$PRIVATE_KEY_FILE" -o StrictHostKeyChecking=no"
+        rsync -e "$SSH_CMD" -avr ${{ github.workspace}}/_site/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+        rm "$PRIVATE_KEY_FILE"
+      
