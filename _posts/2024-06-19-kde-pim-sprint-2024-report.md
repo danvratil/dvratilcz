@@ -1,7 +1,7 @@
 ---
 layout: post
 title: KDE PIM Sprint 2024 Report
-date: 2024-06-19 20:00:00
+date: 2024-06-19 20:00:00 +0200
 categories:
  - KDE
 tags:
