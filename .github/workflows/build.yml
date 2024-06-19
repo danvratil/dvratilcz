@@ -17,3 +17,8 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future --drafts"
+    - uses: actions/upload-artifact@v4
+      name: Upload artifact
+      with:
+        name: site
+        path: ${{ github.workspace }}/_site
