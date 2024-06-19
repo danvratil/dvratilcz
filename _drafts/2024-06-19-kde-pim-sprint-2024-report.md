@@ -115,7 +115,7 @@ your favorite software, please consider [making a tax-deductible donation][kde-d
 to the [KDE e.V. foundation][kde-ev].
 
 
-[blog-taking-break]: {% post_url 2021-06-17-taking-a-break-from-kde %}
+[blog-taking-break]: {% post_url 2021-05-03-taking-a-break %}
 [pim-milestones-board]: https://invent.kde.org/groups/pim/-/milestones
 [matrix-channel]: https://matrix.to/#/#kontact:kde.org
 [etincelle-coworking]: https://www.etincelle-coworking.com/
