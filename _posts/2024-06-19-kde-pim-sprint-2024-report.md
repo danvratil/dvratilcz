@@ -27,7 +27,7 @@ The sprint was officially supposed to start on Saturday, but everyone arrived al
 on Friday, so why wait? We wrote down the topics to discuss, put them on a whiteboard
 and got to it.
 
-![Whiteboard with all discussion topics](2024-06-19-kde-pim-sprint-2024-report/whiteboard.png)
+![Whiteboard with all discussion topics](assets/2024-06-19-kde-pim-sprint-2024-report/whiteboard.png)
 
 We've managed to discuss some pretty important topics - how we want to proceed with
 deprecation and removal of some components, how to improve our test coverage or how
@@ -79,7 +79,7 @@ the Akonadi Server. To get some data out of it, I shoved Prometheus exporter int
 Akonadi, hooked it up to a local Prometheus service, thrown together a Grafana 
 dashboard, and here we are:
 
-![Grafana dashboard](2024-06-19-kde-pim-sprint-2024-report/grafana.png)
+![Grafana dashboard](assets/2024-06-19-kde-pim-sprint-2024-report/grafana.png)
 
 We decided to order some pizzas for dinner and stayed at the venue hacking until
 nearly 11 o'clock.
