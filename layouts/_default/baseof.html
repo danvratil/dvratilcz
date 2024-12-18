@@ -17,7 +17,7 @@
     {{ $style := resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
-    {{ with .OutputFormats.Get "rss" -}}
+    {{ with .OutputFormats.Get "atom" -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
     {{ end }}
 
