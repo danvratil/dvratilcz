@@ -8,6 +8,9 @@ tags:
 - Akonadi
 - c++
 title: Q_PRIVATE_SLOT with new connect syntax
+aliases:
+ - /2019/09/qt-private-slot-with-new-connect-syntax
+ - /2019/11/qt-private-slot-with-new-connect-syntax
 ---
 
 When using PIMPL, we sometimes want to move implementation of slots into
