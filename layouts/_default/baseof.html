@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{ block "title" . }}
+    {{- block "title" . }}
     <title>{{ .Site.Title }}</title>
-    {{ end}}
+    {{ end }}
+
+    {{ $fonts := resources.Match "fonts/**/*.ttf" }}
+    {{ range $fonts }}
+    <link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/ttf" crossorigin />
+    {{- end }}
 
     {{ $style := resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 
     {{ with .OutputFormats.Get "rss" -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
