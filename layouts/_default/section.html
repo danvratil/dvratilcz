@@ -3,18 +3,15 @@
         <h1>{{ .Params.taxon }}</h1>
     </header>
 
-    {{ if .Paginator }}
-        {{ $paginator := .Paginator }}
-    {{ end }}
-
+    {{ $pages := where .Site.RegularPages "Type" "post" }}
+    {{ $pages := $pages.ByDate.Reverse }}
+    {{ $paginator := .Paginate $pages }}
     <div class="article-list">
-        {{ range .Paginator.Pages }}
+        {{ range $paginator.Pages }}
             {{ if not .Draft }}
                 {{ partial "post-preview.html" . }}
             {{ end }}
         {{ end }}
     </div>
-    {{ partial "pagination.html" . }}
-
-
+    {{ partial "pagination.html" $paginator }}
 {{ end }}

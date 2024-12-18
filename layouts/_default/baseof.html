@@ -16,7 +16,6 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
     {{ end }}
 
-
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/schema.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
@@ -47,4 +46,9 @@
 {{ with resources.Get "js/menu.js" | resources.Minify | resources.Fingerprint }}
 <script src="{{ .RelPermalink }}"></script>
 {{ end }}
+<!--
+{{- with .GitInfo -}}
+Built on {{ time.Now }} from {{ .AbbreviatedHash }}
+{{- end -}}
+//-->
 </html>

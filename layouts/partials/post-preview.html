@@ -4,7 +4,7 @@
         {{ if .Params.thumbnail }}
         <div class="thumbnail">
             <a href="{{ .Permalink }}" title="{{ .Title }}">
-            <img src="{{ resources.Get .Params.thumbnail }}" alt="Post thumbnail">
+            <img src="/{{ .Params.thumbnail }}" alt="Post thumbnail">
             </a>
         </div>
         {{ end }}
