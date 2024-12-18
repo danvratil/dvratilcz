@@ -1,0 +1,29 @@
+<nav id="sitenav">
+    <h1 class="menu-toggle genericon genericon-menu">
+        <span class="screen-reader-text">Menu</span>
+    </h1>
+    <div class="screen-reader-text skip-link">
+        <a href="#content" title="Skip to content">Skip to content</a>
+    </div>
+    <div class="main-menu-container">
+        <ul class="main-menu">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            <li {{ if $currentPage.IsMenuCurrent .Menu . }}class="active"{{ end }}>
+                <a href="{{ .URL }}">{{ .Name }}
+                    {{ if .HasChildren }}<span class="dropdown-icon"></span>{{ end }}
+                </a>
+                {{ if .HasChildren }}
+                <ul>
+                    {{ range .Children }}
+                    <li><a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent .Menu . }}class="active"{{ end }}>{{ .Name }}</a></li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+
+    <div class="menu-bottom"></div>
+</nav>

@@ -1,0 +1,14 @@
+{{ define "main" }}
+    {{ if .Paginator }}
+        {{ $paginator := .Paginator }}
+    {{ end }}
+
+    <div class="article-list">
+        {{ range .Paginator.Pages }}
+            {{ if not .Draft }}
+                {{ partial "post-preview.html" . }}
+            {{ end }}
+        {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+{{ end }}

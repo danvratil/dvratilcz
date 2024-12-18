@@ -1,0 +1,73 @@
+baseURL: https://dvratil.cz
+languageCode: en-us
+params:
+  author: Daniel Vrátil
+  email: me@dvratil.cz
+  subtitle: Because opensource matters.
+title: Daniel Vrátil's blog
+capitalizeListTitles: false
+pluralizeListTitles: false
+
+disableKinds:
+  - RSS
+  - taxonomy
+
+permalinks:
+  term:
+    tags: /tag/:slug/
+    categories: /category/:slug/
+  post: /:year/:month/:title/
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputFormats:
+  atom:
+    mediaType: application/atom
+    # Puts feed.xml into feed subdirectory for backwards compat with the original Wordpress blog
+    # that produced feed on dvratil.cz/category/foo/feed/ - using special nginx rule we effectively
+    # set feed.xml as an index file for the feed directory.
+    baseName: feed/feed
+    isPlainText: false
+
+mediaTypes:
+  application/atom:
+    suffixes:
+      - xml
+
+outputs:
+  home:
+    - html
+    - atom
+  section:
+    - html
+    - atom
+  term:
+    - html
+    - atom
+
+menu:
+  main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: KDE
+    url: /category/kde
+    weight: 20
+  - name: Fedora
+    url: /category/fedora
+    weight: 30
+  - name: Gnome
+    url: /category/gnome
+    weight: 40
+  - name: Linux Stuff
+    url: /category/linux-stuff
+    weight: 50
+  - name: Random Blurb
+    url: /category/random-blurb
+    weight: 60
+  - name: About Me
+    url: /about-me
+    weight: 70

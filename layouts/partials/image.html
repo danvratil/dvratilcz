@@ -1,0 +1,9 @@
+<figure class="image {{ .align }}">
+    <img src="{{ .src }}" alt="{{ .alt }}" 
+        {{ with .title }}title="{{ . }}"{{ end }}
+        {{ with .width }}style="width: {{ . }};"{{ end }}
+    >
+    {{ with .caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{ end }}
+</figure></figure>

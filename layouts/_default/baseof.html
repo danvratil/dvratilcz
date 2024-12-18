@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ block "title" . }}
+    <title>{{ .Site.Title }}</title>
+    {{ end}}
+
+    {{ $style := resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+    {{ with .OutputFormats.Get "rss" -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
+    {{ end }}
+
+
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    {{ partial "matomo.html" . }}
+</head>
+
+<body class="sidebar-closed" onLoad="responsiveDOM()">
+    <div id="page">
+        {{ partial "sidebar.html" . }}
+
+        <div class="head-placeholder"></div>
+
+        <div id="content">
+            <div id="primary">
+                <main id="main">
+                    {{ block "main" . }}
+                    {{ end }}
+                </main>
+            </div>
+        </div>
+
+        <footer id="footer">
+
+        </footer>
+    </div>
+</body>
+{{ with resources.Get "js/menu.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ .RelPermalink }}"></script>
+{{ end }}
+</html>

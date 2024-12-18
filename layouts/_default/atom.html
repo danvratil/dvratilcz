@@ -1,0 +1,39 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xml:lang="en-US">
+    <link href="{{ .Site.BaseURL }}/{{ .Params.taxon_type }}/{{ .Params.taxon_id }}/feed/" rel="self" type="application/atom+xml" />
+    <link href="{{ .Site.BaseURL }}/{{ .Params.taxon_type }}/{{ .Params.taxon_id }}" rel="alternate" type="text/html" />
+    <id>{{ .Site.BaseURL }}/{{ .Params.taxon_type }}/{{ .Params.taxon_id }}/feed</id>
+
+    <updated>{{ .Site.LastChange | safeHTML }}</updated>
+
+    <title>{{ .Site.Title }} - {{ .Params.taxon }} {{ .Params.taxon_type }} feed</title>
+    <subtitle>{{ .Site.Params.description }}</subtitle>
+
+    <author>
+        <name>{{ .Site.Params.author.name | safeHTML }}</name>
+    </author>
+
+    {{ range .Site.RegularPages }}
+      {{ if not .Draft }}
+        {{ range .Params.tags }}
+          {{ if eq . $.Params.taxon }}
+    <entry>
+        <title>{{ .Title | safeHTML }}</title>
+        <link rel="alternate" type="text/html" href="{{ .Permalink }}" />
+        <id>{{ .Permalink }}</id>
+        <published>{{ .Date | safeHTML }}</published>
+        <updated>{{ .Date | safeHTML }}</updated>
+        {{ range .Params.tags }}
+        <category scheme="{{ $.Site.BaseURL }}" term="{{ . }}"/>
+        {{ end }}
+        <content type="html" xml:base="{{ $.Site.BaseURL }}{{ .Permalink }}">{{ .Content | safeHTML }}</content>
+    </entry>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+</feed>

@@ -1,0 +1,20 @@
+{{- $icon := . -}}
+<span class="genericon">
+    {{- if eq $icon "close" -}}
+    {{ partial "genericons/close.html" . }}
+    {{- else if eq $icon "comment" -}}
+    {{ partial "genericons/comment.html" . }}
+    {{- else if eq $icon "leftarrow" -}}
+    {{ partial "genericons/leftarrow.html" . }}
+    {{- else if eq $icon "menu" -}}
+    {{ partial "genericons/menu.html" . }}
+    {{- else if eq $icon "month" -}}
+    {{ partial "genericons/month.html" . }}
+    {{- else if eq $icon "rightarrow" -}}
+    {{ partial "genericons/rightarrow.html" . }}
+    {{- else if eq $icon "standard" -}}
+    {{ partial "genericons/standard.html" . }}
+    {{- else if eq $icon "tag" -}}
+    {{ partial "genericons/tag.html" . }}
+    {{- end -}}
+</span>

@@ -1,0 +1,22 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<nav role="navigation" class="pagination">
+    <h1 class="screen-reader-text">Post navigation</h1>
+    {{ if .Paginator.HasNext }}
+    <div class="pagination-next">
+        <a href="{{ .Paginator.Next.URL }}">
+            {{ partial "genericon" "leftarrow"}}
+            Older posts
+        </a>
+    </div>
+    {{ end }}
+
+    {{ if .Paginator.HasPrev }}
+    <div class="pagination-previous">
+        <a href="{{ .Paginator.Prev.URL }}">
+            Newer posts
+            {{ partial "genericon" "rightarrow" }}
+        </a>
+    </div>
+    {{ end }}
+</nav>
+{{ end }}
