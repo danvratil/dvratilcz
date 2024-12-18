@@ -65,7 +65,7 @@ topic they will look at is to add [Autocrypt support for KMail][T8408].
 Volker has [improved the look and feel of the "HTML Content" and "External References" warnings
 in emails][D27761].
 
-![Improved look and feel of the "HTML Content" and "External References" warnings][img-kmail-improved-warnings-look]
+{{< figure src="images/kmail-improved-warnings.png" alt="Improved look and feel of the 'HTML Content' and 'External References' warnings" >}}
 
 As the [Libre Avatar service has come back from the dead a while ago][libravatar-fedora], so did now
 the support for it in KMail. The 'Export to PDF' feature which we introduced in the previous report
@@ -101,7 +101,7 @@ has been simplified by removing the "Disable Color" action.
 It is now easier to recognize and set the default calendar and the event editor now respects the
 settings correctly.
 
-![It is now easier to see the default calendar in KOrganizer][img-korganizer-default-calendar]
+{{< figure src="images/korganizer-default-calendar.png" alt="It is now easier to see the default calendar in KOrganizer" >}}
 
 ## KJots
 
@@ -223,7 +223,4 @@ to guide you and answer all your questions. [Read more here…][junior-jobs-blog
 [junior-jobs-blog]: /2018/08/kde-pim-junior-jobs-are-opened
 
 [libravatar-fedora]: https://fedoramagazine.org/libravatar-has-a-new-home/
-
-[img-kmail-improved-warnings-look]: images/kmail-improved-warnings.png
-[img-korganizer-default-calendar]: images/korganizer-default-calendar.png
 

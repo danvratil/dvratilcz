@@ -30,7 +30,7 @@ better then Akregator), but I'd like to see all the PIM stuff stored in one DB, 
 improve portability (when you are migrating between more PCs, possibility to simply take with you just one DB file would
 be a nice feature).
 
-{{< figure class="alignright" src="imagees/plasma_grid1-300x226.png" alt="Plasma Grid Desktop" width="300" height="226" >}}
+{{< figure class="alignright" src="images/plasma_grid1-300x226.png" alt="Plasma Grid Desktop" width="300" height="226" >}}
 
 A really great feature, a very appreciated one is the "Grid desktop" (Desktop Settings -> View -> Layout -> Grid
 Desktop).  When you are dragging an applet on you desktop, a grid is displayed allowing you to position the applet and

@@ -26,7 +26,7 @@ The sprint was officially supposed to start on Saturday, but everyone arrived al
 on Friday, so why wait? We wrote down the topics to discuss, put them on a whiteboard
 and got to it.
 
-![Whiteboard with all discussion topics](images/whiteboard.png)
+{{< figure src="images/whiteboard.png" alt="Whiteboard with all discussion topics" >}}
 
 We've managed to discuss some pretty important topics - how we want to proceed with
 deprecation and removal of some components, how to improve our test coverage or how
@@ -78,7 +78,7 @@ the Akonadi Server. To get some data out of it, I shoved Prometheus exporter int
 Akonadi, hooked it up to a local Prometheus service, thrown together a Grafana 
 dashboard, and here we are:
 
-![Grafana dashboard](images/grafana.png)
+{{< figure src="images/grafana.png" alt="Grafana dashboard" >}}
 
 We decided to order some pizzas for dinner and stayed at the venue hacking until
 nearly 11 o'clock.

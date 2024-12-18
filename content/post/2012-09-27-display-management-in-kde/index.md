@@ -20,11 +20,11 @@ This also requires a new UI in System Settings which is the part I'm working on.
 
 It's written in QML and allows you to configure your displays by dragging them around rather than configuring them through combo boxes. Picture is worth a thousand words, and when it's a moving picture, well.....
 
-<video width="480" height="384" controls="controls" src="displayconfiguration.ogv">
+<video width="480" height="384" controls="controls" src="/assets/videos/displayconfiguration.ogv">
 Your browser does not support the video tag.
 </video>
 
-[Download OGV (1.8 MB)](displayconfiguration.ogv) _(in real time the animations are faster and smoother of course)_
+[Download OGV (1.8 MB)](/assets/videos/displayconfiguration.ogv) _(in real time the animations are faster and smoother of course)_
 
 The best part of all this is that users won't be exposed to the KCM very often, because connecting an already-known monitor will configure it and place it automatically depending on the last configuration. Connecting a previously unknown output should pop up a simple window/dialog where user can quickly select whether the display should be left/right/clone of the active screen or open the KCM and perform more advanced configuration.
 

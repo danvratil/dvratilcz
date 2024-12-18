@@ -19,11 +19,11 @@ first two months of the new year. In total 23 contributors have made 740 changes
 
 * A warning is shown when message composer is opened by clicking on a URL that asks for a file to be attached
 
-![Files attached by clicking on a mailto URL][img-kmail-mailto]
+{{< figure src="images/kmail-mailto.png" alt="Files attached by clicking on a mailto URL" >}}
 
 * DKIM validation support is enabled by default now  
 
-![DKIM validation information][img-kmail-dkim]
+{{< figure src="images/kmail-dkim.png" alt="DKIM validation information" >}}
 
 * The email can now be easily exported to PDF
 * Improved support for rendering markdown in emails
@@ -80,6 +80,3 @@ to guide you and answer all your questions. [Read more here…][junior-jobs-blog
 [bug416369]: https://bugs.kde.org/show_bug.cgi?id=416369
 [bug416983]: https://bugs.kde.org/show_bug.cgi?id=416983
 [bug417794]: https://bugs.kde.org/show_bug.cgi?id=417794
-
-[img-kmail-mailto]: images/kmail-mailto.png
-[img-kmail-dkim]: images/kmail-dkim.png

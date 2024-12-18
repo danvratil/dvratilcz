@@ -14,7 +14,7 @@ title: KDE PIM Sprint Report
 ---
 The KDE PIM Sprint is over (unfortunately...I could do this every day :-)), so now it's time for some recap of what has been done. I'll try to cover the Akonadi side, and leave the rest up to others to cover their projects ;-)
 
-{{< figure src="images/kdepim-sprint-510x510.jpg" link="images/kdepim-sprint.jpg" alt="Hacking time! (Photo by Martin Klapetek)" >}}
+{{< figure src="images/kdepim-sprint-510x150.jpg" link="images/kdepim-sprint.jpg" alt="Hacking time! (Photo by Martin Klapetek)" >}}
 
 ## Akonadi Server optimizations
 
