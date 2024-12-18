@@ -7,6 +7,7 @@ params:
 title: Daniel Vrátil's blog
 capitalizeListTitles: false
 pluralizeListTitles: false
+enableGitInfo: true
 
 disableKinds:
   - RSS
@@ -56,18 +57,25 @@ menu:
   - name: KDE
     url: /category/kde
     weight: 20
+  - name: Projects 
+    url: '#'
+    weight: 30
+  - name: QCoro
+    url: /category/qcoro
+    parent: Projects
+    weight: 1
   - name: Fedora
     url: /category/fedora
-    weight: 30
+    weight: 40
   - name: Gnome
     url: /category/gnome
-    weight: 40
+    weight: 50
   - name: Linux Stuff
     url: /category/linux-stuff
-    weight: 50
+    weight: 60
   - name: Random Blurb
     url: /category/random-blurb
-    weight: 60
+    weight: 70
   - name: About Me
     url: /about-me
-    weight: 70
+    weight: 80
