@@ -1,0 +1,5 @@
+{{- $icon := . }}
+<span class="fa fa-{{ $icon }}">
+    {{- $partial := printf "font-awesome/%s.html" $icon -}}
+    {{- partial $partial -}}
+</span>

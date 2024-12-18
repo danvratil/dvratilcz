@@ -21,26 +21,20 @@
         padding: 0;
         margin: 0 0 .7em 0;
         list-style: none;
+        display: flex;
 
         li {
             margin: 0 5px 5px 0;
             padding: 0;
-            display: inline-block;
 
             a {
-                font-family: 'Open Sans', sans-serif;
-                font-size: 12px;
-                margin-top: 2px;
-                text-indent: 0;
                 border-radius: 50%;
                 border: 0;
                 padding: 7px;
-                position: relative;
-                top: -2px;
-                line-height: 12px;
-                margin-bottom: 0;
                 text-decoration: none;
-                display: inline-block;
+                display: block;
+                width: 20px;
+                height: 20px;
 
                 .sharing-screen-reader-text {
                     clip: rect(1px,1px,1px,1px);
@@ -49,15 +43,6 @@
                     height: 1px;
                     overflow: hidden;
                 }
-            }
-
-            a:before {
-                font: normal 18px/1 'social-logos';
-                top: 1px;
-                position: relative;
-                display: inline-block;
-                vertical-align: top;
-                text-align: center;
             }
         }
     }
@@ -68,7 +53,6 @@
             color: #fff;
         }
     }
-
     .share-twitter {
         a {
             background: #00acee;
@@ -79,6 +63,12 @@
         a {
             background-color: #cee3f8;
             color: #555;
+        }
+    }
+    .share-mastodon {
+        a {
+            background-color: #6364ff;
+            color: #fff;
         }
     }
 }

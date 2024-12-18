@@ -1,6 +1,4 @@
 @import '../fonts/montserrat/montserrat.scss';
-
-@import 'social-logos';
 @import 'social';
 @import 'pagination';
 @import 'post-preview';
@@ -119,11 +117,6 @@ a.post-title:hover,
 #head h1.title a.site-title:hover {
     color: #c0392b;
     outline: 0;
-
-    svg path,
-    svg polygon {
-        fill: #c0392b;
-    }
 }
 
 article,

@@ -78,21 +78,16 @@
                 padding: 0;
 
                 a {
-                    width: 24px;
-                    height: 24px;
-                    font-size: 24px;
+                    width: 20px;
+                    height: 20px;
                     display: block;
                     text-decoration: none;
                     border: 0;
                 }
 
-                .social-logo:before {
-                    font: normal 24px 'social-logos';
-                    top: 1px;
-                    position: relative;
+                svg {
                     display: inline-block;
                     vertical-align: top;
-                    text-align: center;
                     color: #FFF;
                 }
             }
