@@ -5,7 +5,7 @@
             <a href="{{ .Permalink }}" rel="bookmark">{{ .Date.Format "January 2, 2006" }}</a>
         </li>
         {{ if .Params.Tags }}
-        <li aria-label="Tagss">
+        <li aria-label="Tags">
             {{ partial "genericon" "tag" }}
             {{ $numTags := len .Params.Tags }}
             {{ range $index, $tag := .Params.Tags }}

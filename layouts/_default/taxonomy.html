@@ -6,12 +6,12 @@
     {{ $pages := .Pages }}
     {{ $pages = $pages.ByDate.Reverse }}
     {{ $paginator := .Paginate $pages }}
-    <div class="article-list">
+    <section class="article-list">
         {{ range $paginator.Pages }}
             {{ if not .Draft }}
                 {{ partial "post-preview.html" . }}
             {{ end }}
         {{ end }}
-    </div>
+    </section>
     {{ partial "components/pagination.html" $paginator }}
 {{ end }}

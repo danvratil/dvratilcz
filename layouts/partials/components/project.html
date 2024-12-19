@@ -1,0 +1,29 @@
+<article class="project">
+    <header>
+        <a href="/category/qcoro">
+        {{ with resources.Get .Params.icon }}
+            <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="{{ .Title }} logo" />
+        {{ end}}
+        <h3>{{ .Title }}</h3>
+        </a>
+    </header>
+    {{ .Content }}
+
+    <footer>
+        <ul>
+            {{ $project := .Title }}
+            {{ with .Params.homepage }}
+            <li aria-label="{{ $project }} homepage">
+                {{ partial "genericon" "website" }}
+                <a href="{{ . }}" target="_blank" rel="noopener">Homepage</a>
+            </li>
+            {{ end }}
+            {{ with .Params.github }}
+            <li aria-label="{{ $project }} GitHub">
+                {{ partial "font-awesome" "github" }}
+                <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+            </li>
+            {{ end }}
+        </ul>
+    </footer>
+</article>
