@@ -1,17 +1,2 @@
 {{ define "main" }}
-    <header class="section-header">
-        <h1>{{ .Params.taxon }}</h1>
-    </header>
-
-    {{ $pages := where .Site.RegularPages "Type" "post" }}
-    {{ $pages := $pages.ByDate.Reverse }}
-    {{ $paginator := .Paginate $pages }}
-    <div class="article-list">
-        {{ range $paginator.Pages }}
-            {{ if not .Draft }}
-                {{ partial "post-preview.html" . }}
-            {{ end }}
-        {{ end }}
-    </div>
-    {{ partial "pagination.html" $paginator }}
 {{ end }}

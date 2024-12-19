@@ -3,8 +3,8 @@
         <h1>{{ .Title }}</h1>
     </header>
 
-    {{ $pages := where .Site.RegularPages "Type" "post" }}
-    {{ $pages := $pages.ByDate.Reverse }}
+    {{ $pages := .Pages }}
+    {{ $pages = $pages.ByDate.Reverse }}
     {{ $paginator := .Paginate $pages }}
     <div class="article-list">
         {{ range $paginator.Pages }}
