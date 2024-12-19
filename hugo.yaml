@@ -6,10 +6,19 @@ params:
   subtitle: Because opensource matters.
   mainSections:
     - post
-  comments:
-    host: fosstodon.org
-    username: danvratil
-    id: 109324408262930398
+  social:
+    - name: GitHub
+      url: https://github.com/danvratil
+      icon: github
+    - name: Fosstodon
+      url: https://fosstodon.org/@danvratil
+      icon: mastodon
+    - name: Twitter
+      url: https://twitter.com/danvratil
+      icon: x-twitter
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/danielvratil
+      icon: linkedin
 
 title: Daniel Vrátil's blog
 capitalizeListTitles: false

@@ -8,26 +8,13 @@
         <aside id="social-links" class="widget">
             <h1>Social</h1>
             <ul>
+                {{ range .Site.Params.social }}
                 <li>
-                    <a href="https://fostoddon.org/@danvratil" aria-label="Dan's Mastodon profile">
-                        {{ partial "font-awesome" "mastodon" }}
+                    <a href="{{ .url }}" aria-label="Dan's {{ .name }} profile" title="{{ .name }}">
+                        {{ partial "font-awesome" .icon }}
                     </a>
                 </li>
-                <li>
-                    <a href="https://twitter.com/danvratil" aria-label="Dan's Twitter profile">
-                        {{ partial "font-awesome" "x-twitter" }}
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/danvratil" aria-label="Dan's Github profile">
-                        {{ partial "font-awesome" "github" }}
-                    </a>
-                </li>
-                <li>
-                    <a href="https://linkedin.com/in/danielvratil" aria-label="Dan's LinkedIn profile">
-                        {{ partial "font-awesome" "linkedin" }}
-                    </a>
-                </li>
+                {{ end }}
             </ul>
         </aside>
         <aside id="about" class="widget">
