@@ -31,26 +31,19 @@
 
 <body class="sidebar-closed" onLoad="responsiveDOM()">
     <div id="page">
+        {{ partial "header.html" . }}
+
         {{ partial "sidebar.html" . }}
 
-        <div class="head-placeholder"></div>
+        <div id="separator"></div>
 
-        <div id="content">
-            <div id="primary">
-                <main id="main">
-                    {{ block "main" . }}
-                    {{ end }}
-                </main>
-            </div>
-        </div>
+        <main id="main">
+            {{ block "main" . }}
+            {{ end }}
+        </main>
 
-        <footer id="footer">
-
-        </footer>
+        <div id="nebula"></div>
     </div>
-    {{ with resources.Get "js/menu.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ .RelPermalink }}"></script>
-    {{ end }}
 </body>
 <!--
 {{- with .GitInfo -}}

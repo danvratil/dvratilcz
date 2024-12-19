@@ -1,4 +1,27 @@
-@import '../fonts/montserrat/montserrat.scss';
+@import 'defaults';
+@import 'layout';
+@import 'header';
+@import 'menu';
+@import 'sidebar';
+
+@import 'content';
+@import 'pagination';
+
+@import 'components/post-social';
+@import 'components/post-metadata';
+
+.genericon {
+    display: flex;
+    justify-content: center;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/*
 @import 'social';
 @import 'pagination';
 @import 'post-preview';
@@ -6,38 +29,9 @@
 @import 'sidebar';
 @import 'comments';
 
-html {
-    font-size: 62.5%;
-    overflow-y: scroll;
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    margin: 0;
-    padding: 40px 0 0;
-    overflow-x: hidden;
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #656565;
 
-    background: #fff;
 
-    @media only screen and (min-width: 767px) {
-        background-image: url('/background/carina-nebula-webb-1024.jpg');
-        background-position: right center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: contain;
-        background-color: #303030;
-    }
-
-    @media only screen and (min-width: 1670px) {
-        background-image: url('/background/carina-nebula-webb-2048.jpg');
-    }
-}
 
 body:after,
 body:before {
@@ -177,50 +171,7 @@ header {
     width: 940px;
 }
 
-#head {
-    background-color: #e74c3c;
-    font-family: 'Montserrat', sans-serif;
-    color: #FFF;
-    text-align: center;
 
-    @media only screen and (max-width: 959px) {
-        float: right;
-        padding-top: 40px;
-        margin-top: -40px;
-        width: 540px;
-    }
-    @media only screen and (max-width: 767px) {
-        width: 640px;
-    }
-
-    #branding {
-        padding-bottom: 20px;
-
-        @media only screen and (min-width: 959px) {
-            border-bottom: 15px double #c0392b;
-        }
-    }
-    h1.title {
-        font-size: 20px;
-        line-height: 1.2;
-        font-weight: bold;
-        margin: 0;
-        text-transform: uppercase;
-        margin-bottom: 5px;
-
-        a {
-            color: #FFF;
-            text-decoration: none;
-        }
-    }
-    h2.subtitle {
-        font-size: 12px;
-        line-height: 1.3;
-        margin: 0;
-        text-transform: uppercase;
-        font-weight: normal;
-    }
-}
 
 
 
@@ -356,3 +307,4 @@ header {
     display: inline-block;
     vertical-align: middle;
 }
+*/

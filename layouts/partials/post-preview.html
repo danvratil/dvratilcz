@@ -1,6 +1,6 @@
 <article class="post-preview">
     <header>
-        <h1><a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a></h1>
+        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
         {{ if .Params.thumbnail }}
         <div class="thumbnail">
             <a href="{{ .Permalink }}" title="{{ .Title }}">
@@ -12,38 +12,11 @@
             {{ partial "genericon" "standard" }}
         </span>
     </header>
-    <div class="post-preview-content">
+    <section class="post-preview-content">
     {{ .Content }}
-    </div>
+    </section>
     <footer class="post-preview-footer">
-        <div class="post-preview-social">
-            {{ partial "share-bar.html" . }}
-        </div>
-        <div class="post-preview-metadata">
-            <ul>
-                <li>
-                    {{ partial "genericon" "month" }}
-                    <span class="screen-reader-text">Date</span>
-                    <a href="{{ .Permalink }}" rel="bookmark">{{ .Date | time.Format "January 2, 2006" }}</a>
-                </li>
-                {{ if .Params.Tags }}
-                <li>
-                    {{ partial "genericon" "tag" }}
-                    <span class="screen-reader-text">Tags</span>
-                    {{ $numTags := len .Params.Tags }}
-                    {{ range $index, $tag := .Params.Tags }}
-                        <a href="/tag/{{ $tag | urlize }}/" rel="tag">{{ $tag }}</a>
-                        {{- if ne (add $index 1) ($numTags) }},{{ end }}
-                    {{ end }}
-                </li>
-                {{ end }}
-                {{ if .Params.comments }}
-                <li>
-                    {{ partial "genericon" "comment" }}
-                    <a href="{{ .Permalink }}#comments">Comments</a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
+        {{ partial "components/post-social.html" . }}
+        {{ partial "components/post-metadata.html" . }}
     </footer>
 </article>

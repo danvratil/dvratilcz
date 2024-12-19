@@ -1,27 +1,47 @@
 #sitenav {
-    border-bottom: 5px solid #303030;
+    position: relative;
+    height: auto;
+    overflow: hidden;
 
-    @media only screen and (min-width: 959px) {
-        display: block;
-        position: relative;
-        width: 300px;
-        padding-top: 10px;
-        margin-left: -40px;
-        border-bottom: none;
+    #menu-toggle-check {
+        display: none;
     }
 
-    .menu-toggle {
-        background: #c0392b;
-        margin: 0 auto;
+    #menu-toggle {
+        display: block;
+        background-color: var(--color-secondary);
         width: 100%;
         height: 60px;
         font-size: 20px;
-        line-height: 60px;
+        line-height: 20px;
+        padding: 20px 0;
         text-align: center;
         cursor: pointer;
+        color: #fff;
 
-        @media only screen and (min-width: 959px) {
+        .genericon {
+            width: 20px;
+            height: 20px;
+            margin: auto;
+
+            svg {
+                //transition: transform 0.5s ease-in-out;
+            }
+        }
+
+        @media only screen and (min-width: $break-point-medium) {
             display: none;
+        }
+    }
+
+    #menu-toggle-check:checked ~ #menu-toggle .genericon>svg {
+        transform: rotate(90deg);
+        //transition: transform 0.5s ease-in-out;
+    }
+
+    #menu-toggle-check:checked ~ .main-menu-container {
+        .main-menu {
+            display: block;
         }
     }
 
@@ -29,22 +49,29 @@
         text-align: left;
         text-transform: uppercase;
         font-weight: bold;
+        overflow: hidden;
+        height: auto;
 
         ul {
             list-style: none;
             margin: 0;
             padding: 0;
-            display: block;
         }
 
         a:hover {
-            background-color: #c0392b;
+            background-color: var(--color-secondary);
         }
 
         .main-menu {
-            @media only screen and (max-width: 959px) {
-                display: none;
-                border-top: 5px solid #303030;
+            display: none;
+
+            border-top: 5px solid var(--color-surface);
+            border-bottom: 5px solid var(--color-surface);
+
+            @media only screen and (min-width: $break-point-medium) {
+                display: block;
+                border: none;
+                padding-top: 10px;
             }
 
             li {
@@ -87,8 +114,6 @@
                     display: none;
                     padding: 2.5px 0;
                     margin: 2.5px 0;
-                    border-top: 5px solid #303030;
-                    border-bottom: 5px solid #303030;
 
                     a {
                         padding-left: 60px;
@@ -101,12 +126,12 @@
             }
 
             li.active {
-                background-color: #303030;
+                background-color: var(--color-surface);
             }
         }
     }
 
-    @media only screen and (min-width: 959px) {
+    @media only screen and (min-width: $break-point-medium) {
         .menu-bottom {
             border-bottom: 15px double #c0392b;
             width: 220px;

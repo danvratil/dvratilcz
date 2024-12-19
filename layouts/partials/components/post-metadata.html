@@ -1,0 +1,18 @@
+<section class="post-metadata">
+    <ul>
+        <li aria-label="Publish date">
+            {{ partial "genericon" "month" }}
+            <a href="{{ .Permalink }}" rel="bookmark">{{ .Date.Format "January 2, 2006" }}</a>
+        </li>
+        {{ if .Params.Tags }}
+        <li aria-label="Tagss">
+            {{ partial "genericon" "tag" }}
+            {{ $numTags := len .Params.Tags }}
+            {{ range $index, $tag := .Params.Tags }}
+                <a href="/tag/{{ $tag | urlize }}" rel="tag">{{ $tag }}</a>
+                {{ if ne (add $index 1) ($numTags) }},&nbsp;{{ end }}
+            {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+</section>

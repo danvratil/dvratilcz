@@ -75,27 +75,27 @@ menu:
     url: /
     weight: 10
   - name: KDE
-    url: /category/kde
+    url: /category/kde/
     weight: 20
-  - name: Projects 
+  - name: Projects
     url: '#'
     weight: 30
   - name: QCoro
-    url: /category/qcoro
+    url: /category/qcoro/
     parent: Projects
     weight: 1
   - name: Fedora
-    url: /category/fedora
+    url: /category/fedora/
     weight: 40
   - name: Gnome
-    url: /category/gnome
+    url: /category/gnome/
     weight: 50
   - name: Linux Stuff
-    url: /category/linux-stuff
+    url: /category/linux-stuff/
     weight: 60
   - name: Random Blurb
-    url: /category/random-blurb
+    url: /category/random-blurb/
     weight: 70
   - name: About Me
-    url: /about-me
+    url: /about-me/
     weight: 80

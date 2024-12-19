@@ -1,45 +1,30 @@
+<input type="checkbox" id="sidebar-toggle-check" aria-hidden unchecked />
+<label for="sidebar-toggle-check" id="sidebar-toggle" role="button" aria-label="Toggle sidebar">
+    {{ partial "genericon" "close" }}
+</label>
+
 <aside id="sidebar">
-    <a href="#" class="sidebar-toggle" title="Sidebar">
-        {{ partial "genericon" "close" }}
-        <span class="screen-reader-text">Sidebar</span>
-    </a>
     <div class="sidebar-content">
-        <!-- header -->
-        <header id="head">
-            <div id="branding">
-                <h1 class="title"><a href="/" class="site-title">{{ .Site.Title }}</a></h1>
-                <h2 class="subtitle">{{ .Site.Params.Subtitle }}</h2>
-            </div>
-
-            {{ partial "menu.html" . }}
-        </header>
-        <div class="head-placeholder"></div>
-        <!-- end of header -->
-
-        <aside id="sociallinks" class="widget">
+        <aside id="social-links" class="widget">
             <h1>Social</h1>
             <ul>
                 <li>
-                    <a href="https://fostoddon.org/@danvratil">
-                        <span class="screen-reader-text">Mastodon</span>
+                    <a href="https://fostoddon.org/@danvratil" aria-label="Dan's Mastodon profile">
                         {{ partial "font-awesome" "mastodon" }}
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/danvratil">
-                        <span class="screen-reader-text">Twitter</span>
+                    <a href="https://twitter.com/danvratil" aria-label="Dan's Twitter profile">
                         {{ partial "font-awesome" "x-twitter" }}
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/danvratil">
-                        <span class="screen-reader-text">Github</span>
+                    <a href="https://github.com/danvratil" aria-label="Dan's Github profile">
                         {{ partial "font-awesome" "github" }}
                     </a>
                 </li>
                 <li>
-                    <a href="https://linkedin.com/in/danielvratil">
-                        <span class="screen-reader-text">LinkedIn</span>
+                    <a href="https://linkedin.com/in/danielvratil" aria-label="Dan's LinkedIn profile">
                         {{ partial "font-awesome" "linkedin" }}
                     </a>
                 </li>

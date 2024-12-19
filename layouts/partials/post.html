@@ -16,29 +16,8 @@
     {{ .Content }}
     </section>
     <footer class="post-preview-footer">
-        <section class="post-preview-social">
-            {{ partial "share-bar.html" . }}
-        </section >
-        <section class="post-preview-metadata">
-            <ul>
-                <li>
-                    {{ partial "genericon" "month" }}
-                    <span class="screen-reader-text">Date</span>
-                    <a href="{{ .Permalink }}" rel="bookmark">{{ .Date.Format "January 2, 2006" }}</a>
-                </li>
-                {{ if .Params.Tags }}
-                <li>
-                    {{ partial "genericon" "tag" }}
-                    <span class="screen-reader-text">Tags</span>
-                    {{ $numTags := len .Params.Tags }}
-                    {{ range $index, $tag := .Params.Tags }}
-                        <a href="/tag/{{ $tag | urlize }}" rel="tag">{{ $tag }}</a>
-                        {{ if ne (add $index 1) ($numTags) }},{{ end }}
-                    {{ end }}
-                </li>
-                {{ end }}
-            </ul>
-        </section>
+        {{ partial "components/post-social.html" . }}
+        {{ partial "components/post-metadata.html" . }}
     </footer>
 
     {{ partial "comments.html" .}}

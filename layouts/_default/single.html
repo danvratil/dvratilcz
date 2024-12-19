@@ -3,6 +3,8 @@
 {{ end }}
 
 {{ define "main" }}
-    {{ partial "post.html" . }}
+    <article class="post">
+        {{ .Content }}
+    </article>
 {{ end }}
 
