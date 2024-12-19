@@ -14,8 +14,9 @@
     <link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/ttf" crossorigin />
     {{- end }}
 
-    {{ $style := resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{ with resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
 
     {{ with .OutputFormats.Get "atom" -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
@@ -47,10 +48,10 @@
 
         </footer>
     </div>
+    {{ with resources.Get "js/menu.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ .RelPermalink }}"></script>
+    {{ end }}
 </body>
-{{ with resources.Get "js/menu.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ .RelPermalink }}"></script>
-{{ end }}
 <!--
 {{- with .GitInfo -}}
 Built on {{ time.Now }} from {{ .AbbreviatedHash }}

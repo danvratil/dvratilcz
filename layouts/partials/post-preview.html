@@ -37,10 +37,12 @@
                     {{ end }}
                 </li>
                 {{ end }}
+                {{ if .Params.comments }}
                 <li>
                     {{ partial "genericon" "comment" }}
-                    <a href="{{ .Permalink }}#isso-thread">Comments</a>
+                    <a href="{{ .Permalink }}#comments">Comments</a>
                 </li>
+                {{ end }}
             </ul>
         </div>
     </footer>

@@ -12,14 +12,14 @@
             {{ partial "genericon" "standard" }}
         </span>
     </header>
-    <div class="post-preview-content">
+    <section class="post-preview-content">
     {{ .Content }}
-    </div>
+    </section>
     <footer class="post-preview-footer">
-        <div class="post-preview-social">
+        <section class="post-preview-social">
             {{ partial "share-bar.html" . }}
-        </div>
-        <div class="post-preview-metadata">
+        </section >
+        <section class="post-preview-metadata">
             <ul>
                 <li>
                     {{ partial "genericon" "month" }}
@@ -38,11 +38,8 @@
                 </li>
                 {{ end }}
             </ul>
-        </div>
+        </section>
     </footer>
-</article>
 
-<h1>Comments</h1>
-<div class="comments">
-    <section id="isso-thread"></section>
-</div>
+    {{ partial "comments.html" .}}
+</article>

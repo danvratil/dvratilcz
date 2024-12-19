@@ -76,7 +76,7 @@
             }
         }
     }
-    
+
     .post-preview-content {
         margin: 20px 0 0;
 
@@ -100,12 +100,15 @@
         padding: 20px 40px;
         margin: 0 0 20px -40px;
         width: 100%;
-        border-top: 5px solid #303030;
-        border-bottom: 5px solid #303030;
         position: relative;
     }
 
     .post-preview-metadata {
+        padding: 20px 40px;
+        margin: 0 0 0px -40px;
+        width: 100%;
+        position: relative;
+        border-top: 5px solid #303030;
         font-size: 12px;
         font-weight: bold;
         text-transform: uppercase;
@@ -132,6 +135,21 @@
                 margin: 0;
                 padding: 5px 0 0 0px;
             }
+        }
+    }
+
+    .post-comments {
+        padding: 20px 40px;
+        margin: 0 0 20px -40px;
+        width: 100%;
+        border-top: 5px solid #303030;
+        position: relative;
+
+        h1 {
+            color: #303030;
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
     }
 

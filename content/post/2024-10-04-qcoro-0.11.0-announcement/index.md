@@ -7,6 +7,10 @@ tags:
 - Qt
 - QCoro
 title: QCoro 0.11.0 Release Announcement
+comments:
+    host: fosstodon.org
+    username: danvratil
+    id: 113676304131537877
 ---
 
 <!--

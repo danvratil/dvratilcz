@@ -4,6 +4,13 @@ params:
   author: Daniel Vrátil
   email: me@dvratil.cz
   subtitle: Because opensource matters.
+  mainSections:
+    - post
+  comments:
+    host: fosstodon.org
+    username: danvratil
+    id: 109324408262930398
+
 title: Daniel Vrátil's blog
 capitalizeListTitles: false
 pluralizeListTitles: false
