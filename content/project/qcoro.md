@@ -2,6 +2,7 @@
 title: QCoro
 weight: 10
 params:
+  url: /category/qcoro/
   icon: /images/qcoro.svg
   homepage: https://qcoro.dev
   github: https://github.com/qcoro/qcoro

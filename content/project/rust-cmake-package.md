@@ -2,6 +2,7 @@
 title: cmake-package
 weight: 30
 params:
+  url: https://crates.io/crates/cmake-package
   icon: /images/cargo.png
   homepage: https://crates.io/crates/cmake-package
   github: https://github.com/danvratil/cmake-package-rs

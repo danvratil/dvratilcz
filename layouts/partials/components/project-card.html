@@ -1,6 +1,6 @@
 <article class="project">
     <header>
-        <a href="/category/qcoro">
+        <a href="{{ .Params.url }}">
         {{ with resources.Get .Params.icon }}
             <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="{{ .Title }} logo" />
         {{ end}}

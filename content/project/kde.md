@@ -2,6 +2,7 @@
 title: KDE
 weight: 20
 params:
+  url: /category/kden
   icon: /images/kde.svg
   homepage: https://kde.org/
 ---
