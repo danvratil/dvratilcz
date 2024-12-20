@@ -5,7 +5,7 @@
             {{ $projects := where .Site.RegularPages "Type" "project" }}
             {{ $projects = $projects.ByParam "weight" }}
             {{ range $projects }}
-                {{ partial "components/project.html" .}}
+                {{ partial "components/project-card.html" .}}
             {{ end }}
         </section>
     </div>
