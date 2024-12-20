@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetchDepth: 0 # Fetch all of history for .GitInfo
+        fetch-depth: 0 # Fetch all of history for .GitInfo
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
