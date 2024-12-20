@@ -1,0 +1,21 @@
+{{ if gt .TotalPages 1 }}
+<nav role="navigation" class="pagination" aria-label="Post navigation">
+    <div class="pagination-next">
+        {{ if .HasNext }}
+        <a href="{{ .Next.URL }}">
+            {{ partial "genericon" "leftarrow"}}
+            Older posts
+        </a>
+        {{ end }}
+    </div>
+
+    <div class="pagination-previous">
+        {{ if .HasPrev }}
+        <a href="{{ .Prev.URL }}">
+            Newer posts
+            {{ partial "genericon" "rightarrow" }}
+        </a>
+        {{ end }}
+    </div>
+</nav>
+{{ end }}

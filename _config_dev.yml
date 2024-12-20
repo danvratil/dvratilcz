@@ -1,6 +1,0 @@
-# Development overrides
-
-show_drafts: true
-
-sass:
-    style: full

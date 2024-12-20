@@ -1,0 +1,35 @@
+<input type="checkbox" id="sidebar-toggle-check" aria-hidden unchecked />
+<label for="sidebar-toggle-check" id="sidebar-toggle" role="button" aria-label="Toggle sidebar">
+    {{ partial "genericon" "close" }}
+</label>
+
+<aside id="sidebar">
+    <div class="sidebar-content">
+        <aside id="social-links" class="widget">
+            <h1>Social</h1>
+            <ul>
+                {{ range .Site.Params.social }}
+                <li>
+                    <a href="{{ .url }}" aria-label="Dan's {{ .name }} profile" title="{{ .name }}">
+                        {{ partial "font-awesome" .icon }}
+                    </a>
+                </li>
+                {{ end }}
+            </ul>
+        </aside>
+        <aside id="about" class="widget">
+            <p>Powered by <a href="https://gohugo.io" target="_blank">Hugo</a></p>
+            <p>Theme based on Writr by Wordpress.com</p>
+        </aside>
+
+        <aside id="license" class="widget">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Creative Commons License" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />
+                All content on this website is published under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                    International License</a>, unless stated otherwise.
+            </p>
+        </aside>
+    </div>
+</aside>

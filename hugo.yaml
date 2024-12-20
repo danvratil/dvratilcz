@@ -1,0 +1,110 @@
+baseURL: https://dvratil.cz
+languageCode: en-us
+params:
+  author: Daniel Vrátil
+  email: me@dvratil.cz
+  subtitle: Because opensource matters.
+  mainSections:
+    - post
+  social:
+    - name: GitHub
+      url: https://github.com/danvratil
+      icon: github
+    - name: Fosstodon
+      url: https://fosstodon.org/@danvratil
+      icon: mastodon
+    - name: Twitter
+      url: https://twitter.com/danvratil
+      icon: x-twitter
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/danielvratil
+      icon: linkedin
+
+title: Daniel Vrátil's blog
+capitalizeListTitles: false
+pluralizeListTitles: false
+enableGitInfo: true
+
+disableKinds:
+  - RSS
+  - taxonomy
+
+frontmatter:
+  lastmod:
+    # Disable reading last modification date from git - after migration from Jekyll to Hugo,
+    # all migrated posts would have lastmod of the migration and would spam PlanetKDE and RSS readers
+    # with old posts.
+    # This can theoretically be enabled in the future, when the migration date will be so far enough it
+    # won't matter.
+    #- :git
+    - lastmod
+    - modified
+    - date
+    - publishDate
+
+permalinks:
+  term:
+    tags: /tag/:slug/
+    categories: /category/:slug/
+  post: /:year/:month/:title/
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputFormats:
+  atom:
+    mediaType: application/atom
+    # Puts feed.xml into feed subdirectory for backwards compat with the original Wordpress blog
+    # that produced feed on dvratil.cz/category/foo/feed/ - using special nginx rule we effectively
+    # set feed.xml as an index file for the feed directory.
+    baseName: feed/feed
+    isPlainText: false
+
+mediaTypes:
+  application/atom:
+    suffixes:
+      - xml
+
+outputs:
+  home:
+    - html
+    - atom
+  section:
+    - html
+    - atom
+  term:
+    - html
+    - atom
+
+menu:
+  main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: KDE
+    url: /category/kde/
+    weight: 20
+  - name: Projects
+    url: '#'
+    weight: 30
+  - name: QCoro
+    url: /category/qcoro/
+    parent: Projects
+    weight: 1
+  - name: Fedora
+    url: /category/fedora/
+    weight: 40
+  - name: Gnome
+    url: /category/gnome/
+    weight: 50
+  - name: Linux Stuff
+    url: /category/linux-stuff/
+    weight: 60
+  - name: Random Blurb
+    url: /category/random-blurb/
+    weight: 70
+  - name: About Me
+    url: /about-me/
+    weight: 80

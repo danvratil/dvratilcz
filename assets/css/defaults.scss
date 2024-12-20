@@ -1,0 +1,43 @@
+@import '../fonts/montserrat/montserrat';
+
+$break-point-small: 767px;
+$break-point-medium: 959px;
+$break-point-large: 1220px;
+$break-point-xlarge: 2200px;
+
+:root {
+    --color-primary: rgb(231, 76, 60);
+    --color-secondary: rgb(192, 57, 43);
+    --color-background: rgb(255, 255, 255);
+    --color-background-darker: rgb(101, 101, 101);
+    --color-surface: rgb(32, 32, 32);
+    --color-text: rgb(101, 101, 101);
+    --color-text-light: rgb(248, 248, 242);
+
+    --color-accent: var(--color-primary);
+    --color-hover: var(--color-secondary);
+
+    --font-primary: 'Montserrat', sans-serif;
+    --font-size: 16px;
+    --line-height: 1.5;
+}
+
+a {
+    color: var(--color-accent);
+    transition: color 0.25s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-hover);
+    transition: color 0.25s ease-in-out;
+}
+
+h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+body {
+    color: var(--color-text);
+}

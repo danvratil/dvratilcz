@@ -1,0 +1,24 @@
+<article class="post-preview">
+    <header>
+        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        {{ if .Params.thumbnail }}
+        <div class="thumbnail">
+            <a href="{{ .Permalink }}" title="{{ .Title }}">
+            <img src="/{{ .Params.thumbnail }}" alt="Post thumbnail">
+            </a>
+        </div>
+        {{ end }}
+        <span class="badge">
+            {{ partial "genericon" "standard" }}
+        </span>
+    </header>
+    <section class="post-preview-content">
+    {{ .Content }}
+    </section>
+    <footer class="post-preview-footer">
+        {{ partial "components/post-social.html" . }}
+        {{ partial "components/post-metadata.html" . }}
+    </footer>
+
+    {{ partial "components/post-comments.html" . }}
+</article>

@@ -1,0 +1,29 @@
+<section class="post-social">
+    <h3 class="sb-title">Share this</h3>
+    <ul>
+        <li class="share-facebook">
+            <a href="https://www.facebook.com/dialog/share?display=page&href={{ .Permalink }}"
+                target="_blank" alt="Share on Facebook" title="Click to share on Facebook (opens in new window)" class="social-logo">
+                {{ partial "font-awesome" "facebook" }}
+            </a>
+        </li>
+        <li class="share-twitter">
+            <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}"
+                target="_blank" alt="Share on Twitter" title="Click to share on Twitter (opens in new window)" class="social-logo">
+                {{ partial "font-awesome" "x-twitter" }}
+            </a>
+        </li>
+        <li class="share-mastodon">
+            <a href="https://mastodonshare.com/?url={{ .Permalink }}&text={{ .Title }}"
+                target="_blank" alt="Share on Mastodon" title="Click to share on Mastodon (opens in new window)" class="social-logo">
+                {{ partial "font-awesome" "mastodon" }}
+            </a>
+        </li>
+        <li class="share-reddit">
+            <a href="https://www.reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}"
+                target="_blank" alt="Share on Reddit" title="Click to share on Reddit (opens in new window)" class="social-logo">
+                {{ partial "font-awesome" "reddit" }}
+            </a>
+        </li>
+    </ul>
+</section>

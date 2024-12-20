@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{- block "title" . }}
+    <title>{{ .Site.Title }}</title>
+    {{ end }}
+
+    {{ $fonts := resources.Match "fonts/**/*.ttf" }}
+    {{ range $fonts }}
+    <link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/ttf" crossorigin />
+    {{- end }}
+
+    {{ with resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+
+    {{ with .OutputFormats.Get "atom" -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title | safeHTML }}">
+    {{ end }}
+
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    {{ partial "matomo.html" . }}
+</head>
+
+<body class="sidebar-closed">
+    <div id="page">
+        {{ partial "header.html" . }}
+
+        {{ partial "sidebar.html" . }}
+
+        <div id="separator"></div>
+
+        <main id="main">
+            {{ block "main" . }}
+            {{ end }}
+        </main>
+
+        <div id="nebula"></div>
+    </div>
+</body>
+<!--
+{{- with .GitInfo -}}
+Built on {{ time.Now }} from {{ .AbbreviatedHash }}
+{{- end -}}
+//-->
+</html>

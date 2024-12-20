@@ -1,0 +1,5 @@
+{{- $icon := . -}}
+<span class="genericon">
+    {{- $partial := printf "genericons/%s.html" $icon -}}
+    {{- partial $partial -}}
+</span>

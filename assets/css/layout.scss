@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    font-family: var(--font-primary);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+
+    @media only screen and (max-width: $break-point-medium) {
+        background-image: url('/background/carina-nebula-webb-1024.jpg');
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: contain;
+        background-color: #303030;
+    }
+}
+
+#page {
+    background-color: #fff;
+    width: min-content;
+    display: grid;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar content";
+
+    @media only screen and (min-width: $break-point-small) {
+        grid-template-areas:
+            "sidebar separator header"
+            "sidebar separator content";
+        grid-template-columns: auto 100px 540px;
+    }
+
+    @media only screen and (min-width: $break-point-medium) {
+        width: 100%;
+        grid-template-areas:
+            "header  separator content nebula"
+            "sidebar separator content nebula";
+        grid-template-columns: 300px 100px 540px auto;
+        grid-template-rows: min-content 1fr;
+    }
+
+    @media only screen and (min-width: $break-point-large) {
+        width: 100%;
+        grid-template-columns: 300px 100px 800px auto;
+    }
+}
+
+#nebula {
+    grid-area: nebula;
+    display: none;
+
+    @media only screen and (min-width: $break-point-medium) {
+        display: block;
+        background-color: #fff;
+        background-image: url('/background/carina-nebula-webb-1024.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: right top;
+    }
+
+    @media only screen and (min-width: $break-point-large) {
+        background-image: url('/background/carina-nebula-webb-2048.jpg');
+    }
+
+    @media only screen and (min-width: $break-point-xlarge) {
+        background-size: cover;
+        background-position: auto;
+    }
+}
+
+#separator {
+    grid-area: separator;
+    display: none;
+
+    @media only screen and (min-width: $break-point-small) {
+        display: block;
+        width: 100px;
+        background-color: rgb(48, 48, 48);
+        height: 100%;
+    }
+}

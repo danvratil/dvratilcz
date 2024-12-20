@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <header class="section-header">
+        <h1>{{ .Title }}</h1>
+    </header>
+
+    {{ $pages := .Pages }}
+    {{ $pages = $pages.ByDate.Reverse }}
+    {{ $paginator := .Paginate $pages }}
+    <section class="article-list">
+        {{ range $paginator.Pages }}
+            {{ if not .Draft }}
+                {{ partial "post-preview.html" . }}
+            {{ end }}
+        {{ end }}
+    </section>
+    {{ partial "components/pagination.html" $paginator }}
+{{ end }}

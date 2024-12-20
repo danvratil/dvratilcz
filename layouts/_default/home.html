@@ -1,0 +1,24 @@
+{{ define "main" }}
+    <div id="projects">
+        <h2>My Projects</h2>
+        <section class="project-list">
+            {{ $projects := where .Site.RegularPages "Type" "project" }}
+            {{ $projects = $projects.ByParam "weight" }}
+            {{ range $projects }}
+                {{ partial "components/project-card.html" .}}
+            {{ end }}
+        </section>
+    </div>
+
+    {{ $pages := where .Site.RegularPages "Type" "post" }}
+    {{ $pages := $pages.ByDate.Reverse }}
+    {{ $paginator := .Paginate $pages }}
+    <section class="article-list">
+        {{ range $paginator.Pages }}
+            {{ if not .Draft }}
+                {{ partial "post-preview.html" . }}
+            {{ end }}
+        {{ end }}
+    </section>
+    {{ partial "components/pagination.html" $paginator }}
+{{ end }}

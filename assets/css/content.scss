@@ -1,0 +1,183 @@
+#main {
+    grid-area: content;
+    overflow: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-height: 100vh;
+
+    @media only screen and (min-width: $break-point-small) {
+        overflow: unset;
+    }
+
+    figure {
+        max-width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+figure.alignleft {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+figure.alignright{
+    float: right;
+    margin: 0 0 20px 20px;
+}
+
+figure.aligncenter {
+    display: block;
+    clear: both;
+    margin: 0 auto 20px auto;
+}
+
+img.small {
+    max-width: 320px;
+}
+
+img.tiny {
+    max-width: 150px;
+}
+
+img.large {
+    max-width: 100%;
+}
+
+.section-header h1 {
+    display: block;
+    padding: 15px 40px;
+    margin: 0;
+    background-color: var(--color-surface);
+    color: #FFF;
+}
+
+.post {
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        border-bottom: 15px double var(--color-secondary);
+        width: 50%;
+        margin: 40px auto;
+    }
+}
+
+.post-content {
+    padding: 20px 40px;
+
+    pre {
+        overflow: auto;
+        padding: 20px;
+        margin-bottom: 20px;
+        max-width: 100%;
+        background: #f5f5f5;
+        font: 15px/1.6 'Courier 10 Pitch', Courier, monospace;
+    }
+
+    blockquote {
+        padding: 0 0 0 20px;
+        border-left: 15px double #f5f5f5;
+        quotes: "" "";
+    }
+}
+
+.post-header {
+    display: block;
+    position: relative;
+
+    h1 {
+        position: relative;
+        padding: 15px 40px;
+        width: 100%;
+        background-color: #f5f5f5;
+        color: #303030;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+        a {
+            color: #303030;
+            text-decoration: none;
+        }
+    }
+
+    @media only screen and (min-width: $break-point-small) {
+        h1:after {
+            content: '';
+            z-index: 2;
+            display: block;
+            position: absolute;
+            top: 25px;
+            left: -5px;
+            border-right: 5px solid  #f5f5f5;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+    }
+
+    .badge {
+        display: none;
+        color: #fff;
+
+        @media only screen and (min-width: $break-point-small) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: -80px;
+            width: 60px;
+            height: 60px;
+            background: #202020;
+            border-radius: 50%;
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    .thumbnail {
+        overflow: hidden;
+        width: 100%;
+        background-color: #202020;
+        text-align: center;
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            margin: auto;
+        }
+    }
+}
+
+.post-comments {
+    padding: 0px 40px;
+    width: 100%;
+    border-top: 5px solid #303030;
+    position: relative;
+
+    h1 {
+        color: #303030;
+        font-size: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.post-preview {
+    margin-bottom: 40px;
+
+    header {
+        @extend .post-header;
+    }
+
+    .post-preview-content {
+        @extend .post-content;
+    }
+}

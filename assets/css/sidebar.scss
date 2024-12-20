@@ -1,0 +1,128 @@
+#sidebar-toggle {
+    --toggle-size: 40px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--color-secondary);
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    cursor: pointer;
+
+    @media only screen and (min-width: $break-point-medium) {
+        display: none;
+    }
+
+    &::after, &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: var(--toggle-size) solid var(--color-secondary);
+        border-bottom: var(--toggle-size) solid transparent;
+    }
+
+    &::before {
+        left: var(--toggle-size)
+    }
+    &::after {
+        top: var(--toggle-size)
+    }
+
+    .genericon {
+        width: var(--toggle-size);
+        height: var(--toggle-size);
+        color: #fff;
+
+        svg {
+            transform: rotate(-45deg);
+            transition: transform 0.5s ease-in-out;
+        }
+    }
+}
+
+#sidebar-toggle-check {
+    display: none;
+}
+
+#sidebar-toggle-check:checked ~ #sidebar-toggle .genericon>svg {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+#sidebar-toggle-check:checked ~ #sidebar {
+    @media only screen and (max-width: $break-point-small) {
+        margin-left: 0;
+        transition: margin-left 0.5s ease-in-out;
+    }
+}
+
+#sidebar {
+    --color-accent: #fff;
+    --color-hover: #fff;
+
+    grid-area: sidebar;
+
+    width: 300px;
+    margin-left: -300px;
+
+    @media only screen and (max-width: $break-point-small) {
+        transition: margin-left 0.5s ease-in-out;
+    }
+
+    background-color: var(--color-primary);
+    padding: 40px 40px 0;
+    color: #fff;
+
+    @media only screen and (min-width: $break-point-small) {
+        margin-left: -260px;
+    }
+
+    @media only screen and (min-width: $break-point-medium) {
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .widget {
+        margin: 0 0 20px;
+        border-bottom: 15px double var(--color-secondary);
+        font-size: 0.9rem;
+
+        h1 {
+            font-size: 1.2rem;
+
+        }
+    }
+
+    #social-links {
+        ul {
+            display: block;
+            margin: 0 0 1.5em;
+            padding: 0;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                line-height: 1;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    text-decoration: none;
+                    border: 0;
+                }
+
+                svg {
+                    display: inline-block;
+                    vertical-align: top;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
