@@ -1,6 +1,6 @@
 {{ define "main" }}
     <div id="projects">
-        <h2>Projects</h2>
+        <h2>My Projects</h2>
         <section class="project-list">
             {{ $projects := where .Site.RegularPages "Type" "project" }}
             {{ $projects = $projects.ByParam "weight" }}
