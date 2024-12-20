@@ -8,10 +8,10 @@ tags:
 - Hugo
 - Jekyll
 title: 'Old New Blog'
-#comments:
-#    host: fosstodon.org
-#    username: danvratil
-#    id: 113676304131537877
+comments:
+    host: fosstodon.org
+    username: danvratil
+    id: 113686435457222753
 ---
 
 I started this blog back in 2010. Back then I used Wordpress and it worked reasonably well. In 2018 I decided to switch to a static generated site, mostly because the Wordpress blog felt slow to load and it was hassle to maintain. Back then the go-to static site generator was Jekyll, so I went with that. Lately I've been struggling with it though, because in order to keep all the plugins working, I needed to use older versions or Ruby, which meant I had to use Docker to build the blog locally. Overall, it felt like too much work and for the past few years I've been eyeing Hugo - more so since Carl and others migrated most of KDE websites to it. I mean, if it's good enough for KDE, it's good enough for me, right?
