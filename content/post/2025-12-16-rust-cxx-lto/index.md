@@ -12,19 +12,19 @@ title: 'Rust: linking static C/C++ libraries with LTO'
 I wasted entire afternoon today trying to figure this out, so here's a quick note for future reference - hopefully to save someone else's afternoon.
 
 Today, I was working on adding Rust bindings for an internal C++ library. The C++ library itself is built using CMake and produces a statically-linked library, let's call it <em>libfoo.a</em>.
-I used the[`cxx`](https://cxx.rs/) crate to generate the glue code between Rust and the C++ library, wrote the higher-level Rust API and ran `cargo build`. The crate built just fine, so I moved on to integrating it into our larger Rust project. However, when I tried to build the project, I got a linker error:
+I used the [`cxx`](https://cxx.rs/) crate to generate the glue code between Rust and the C++ library, wrote the higher-level Rust API and ran `cargo build`. The crate built just fine, so I moved on to integrating it into our larger Rust project. However, when I tried to build the project, I got a linker error:
 
 ```
 note: rust-lld: error: undefined symbol: url_to_json[abi:cxx11](std::basic_string_view<char, std::char_traits<char>> const&)
 ```
 
-I double-checked the `build.rs` script of the bindings crate to ensure that <em>libfoo.a</em> was being linked. It was. I then used `nm` to confirm that the symbol actually exists in <em>libfoo.a</em>. It did. So what now? I spent a lot of time googling around, trying different "hacks" in the build.rs script and more. I had a temporary success by adding complex `build.rs` into the consumer project, but that wasn't really a scalable solution.
+I double-checked the `build.rs` script of the bindings crate to ensure that <em>libfoo.a</em> was being linked. It was. I then used `nm` to confirm that the symbol actually exists in <em>libfoo.a</em>. It did. So what now? I spent a lot of time googling around, trying different "hacks" in the build.rs script and other sorcery. I had a temporary success by adding complex `build.rs` into the consumer project, but that wasn't really a scalable solution.
 
-What was the most confusing part was that I used the exact same approach and code to create bindings for another our C++ library a while ago, and there it all just worked. No special linker flags, no magical cargo incantations, no `build.rs` in projects that used the bindings crate. What was different this time?
+The most confusing part was that I used the exact same approach and code to create bindings for another our C++ library a while ago, and there it all just worked. No special linker flags, no magical cargo incantations, no `build.rs` in projects that used the bindings crate. What was different this time?
 
 ## A Suspect is Identified
 
-After literally hours of trial and error and out of desparation, I decided to `objdump` the <em>libfoo.a</em> to look at the disassembly of the problematic `url_to_json` function. I am far from an assembly expert, but the disassembled output looked very suspicious, even to my untrained eye.
+After literally hours of trial and error and out of desperation, I decided to `objdump` the <em>libfoo.a</em> to look at the disassembly of the problematic `url_to_json` function. I am far from an assembly expert, but the disassembled output looked very suspicious, even to my untrained eye.
 
 ```
 0000000000000000 <.gnu.lto__Z11url_to_jsonB5cxx11RKSt17basic_string_viewIcSt11char_traitsIcEE.1350.d0d92fceb60052fc>:
@@ -55,7 +55,7 @@ Wait! Did it say LTO? The static library is definitely built with LTO (it's even
 
 My (shallow) understanding of LTO has always been that it's just a special optimizer pass at link time, when the linker can see the final executable (or shared library) as a whole, and can perform optimizations across translation units and more efficiently eliminate unused code. A static library is just a collection of object files, so LTO should not really play any role here, right?
 
-The reality is that with LTO enabled, compilers "cheat" (yes, compiler<strong>s</strong> - GCC does this as well), and instead of producing object files with the final machine code, they produce object-like files that contain the intermediate representation (IR) of the code. IR (GCC calls it GIR) is a compiler-specific representation of the code during the compilation process. It's no longer the original source code, but it's not the final machine code either.  Having access to the IR allows the linker to perform advanced optimizations that wouldn't be possible if it only had access to the final machine code. The final codegen that emits the executable machine code happens after the optimization pass.
+The reality is that with LTO enabled, compilers "cheat" (yes, compiler**s** - GCC does this as well), and instead of producing object files with the final machine code, they produce object-like files that contain the intermediate representation (IR) of the code. IR (GCC calls it GIR) is a compiler-specific representation of the code during the compilation process. It's no longer the original source code, but it's not the final machine code either.  Having access to the IR allows the linker to perform advanced optimizations that wouldn't be possible if it only had access to the final machine code. The final codegen that emits the executable machine code happens after the optimization pass.
 
 This entire process is actually described quite nicely in the [LLVM documentation about LTO](https://llvm.org/docs/LinkTimeOptimization.html) - which is an information that is useful only when you know that you need it :-)
 
