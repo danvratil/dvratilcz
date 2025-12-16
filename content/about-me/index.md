@@ -18,16 +18,15 @@ title: About Me
 
 Hi,
 
-my name is Daniel Vrátil (dvratil) and I live in Prague, Czech republic. I work at [Avast Software][avast] as a senior software engineer, previously I worked  as software engineer at [KDAB][kdab] and [Red Hat][redhat] (first as Evolution developer, then moved to work on KDE and Fedora packaging). [My CV][cv].
+my name is Daniel Vrátil (dvratil) and I live in Prague, Czech republic. I work at [GEN Digital][gen] (previously known as [Avast Software][avast]) as a senior software engineer in a team responsible for various internal and public-facing backends, primarily in C++ and Rust. I also lead a small team of backend developers for a few years, focusing on C++ high performance backends. Previously I worked as a software engineer at [KDAB][kdab] and [Red Hat][redhat] (first as Evolution developer, then moved to work on KDE and Fedora packaging). [My CV][cv].
 
-My main interest are open source, free culture, software development, metal music and watching or reading science fiction. And beer (see the picture on the right - can't even get a profile picture without it :-)).
+My main interest are my family, open source, free culture, software development, metal music and watching or reading science fiction. And beer - can't even get a profile picture without one :-)).
 
-I'm a Linux geek, using ArchLinux and Fedora since around 2006. I've done some stuff in PHP, Gtk+ (C) and now I'm mostly doing C++, Qt and KDE. I'm a Qt Ambassador, KDE supporting member and KDE e.V. member, working mainly on KDE PIM.
-
-Except for programming, I love scifi - Doctor Who, Babylon 5, Firefly, Firescape, Isac Asimov, H.G. Wells etc.), good beer (easy to get in Czech republic ;-)) and metal (hey, maybe we can meet on some Amon Amarth, Sabaton, Nigthwish or Epica gig!)...see [my profile][lastfm] on Last.fm. I also pretend to be a guitar player, attempting to play mostly covers from Amon Amarth, but I really suck.
+I'm a Linux geek, using ArchLinux and Fedora since around 2006. I've done some stuff in PHP, Gtk+ (C), C++, Qt and KDE and nowadays in Rust. I maintain various open-source projects, you can find the list of the most prominent ones on the main page, and have contributed to various parts of [KDE] for years.
 
 You can find me on [Mastodon][mastodon], [Twitter][twitter], [GitHub][github] and [LinkedIn][linkedin] and probably elsewhere too :)
 
+[gen]: https://www.gendigital.com
 [avast]: https://www.avast.com
 [kdab]: https://www.kdab.com
 [redhat]: https://cz.redhat.com
@@ -37,3 +36,4 @@ You can find me on [Mastodon][mastodon], [Twitter][twitter], [GitHub][github] an
 [github]: https://github.com/danvratil
 [twitter]: https://twitter.com/danvratil
 [linkedin]: https://www.linkedin.com/profile/view?id=86449677
+[kde]: https://kde.org
