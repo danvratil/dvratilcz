@@ -1,7 +1,7 @@
 ---
 categories:
 - Rust
-date: '2026-12-16 23:00:00 +0100'
+date: '2025-12-16 23:00:00 +0100'
 tags:
 - Rust
 title: 'Rust: linking static C/C++ libraries with LTO'
