@@ -1,5 +1,5 @@
 baseURL: https://dvratil.cz
-languageCode: en-us
+locale: en-us
 params:
   author: Daniel Vrátil
   email: me@dvratil.cz
