@@ -46,6 +46,19 @@ img.large {
     max-width: 100%;
 }
 
+details {
+    div.content {
+        padding-left: 30px;
+    }
+
+    &:open {
+        div.content {
+            margin-left: 3px;
+            border-left: 2px solid var(--color-secondary);
+        }
+    }
+}
+
 .section-header h1 {
     display: block;
     padding: 15px 40px;
