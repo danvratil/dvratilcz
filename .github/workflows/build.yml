@@ -16,7 +16,7 @@ jobs:
         fetch-depth: 0 # Fetch all of history for .GitInfo
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
+      uses: https://github.com/peaceiris/actions-hugo@v3
       with:
         extended: true
 
@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: hugo --minify --panicOnWarning
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       name: Upload artifact
       with:
         name: public
