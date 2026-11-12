@@ -27,7 +27,7 @@ pluralizeListTitles: false
 enableGitInfo: true
 
 disableKinds:
-  - RSS
+  - rss
   - taxonomy
 
 frontmatter:

@@ -1,16 +1,16 @@
-@import 'defaults';
-@import 'layout';
-@import 'header';
-@import 'menu';
-@import 'sidebar';
+@forward 'defaults';
+@forward 'layout';
+@forward 'header';
+@forward 'menu';
+@forward 'sidebar';
 
-@import 'content';
-@import 'pagination';
+@forward 'content';
+@forward 'pagination';
 
-@import 'components/post-social';
-@import 'components/post-metadata';
-@import 'components/post-comments';
-@import 'components/project-card';
+@forward 'components/post-social';
+@forward 'components/post-metadata';
+@forward 'components/post-comments';
+@forward 'components/project-card';
 
 .genericon {
     display: flex;

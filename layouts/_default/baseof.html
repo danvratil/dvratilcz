@@ -14,8 +14,13 @@
     <link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/ttf" crossorigin />
     {{- end }}
 
-    {{ with resources.Get "css/main.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ with resources.Get "css/main.scss" }}
+      {{ $opts := dict
+        "transpiler" "dartsass"
+      }}
+      {{ with . | css.Sass $opts | resources.Minify | resources.Fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+      {{ end }}
     {{ end }}
 
     {{ with .OutputFormats.Get "atom" -}}
