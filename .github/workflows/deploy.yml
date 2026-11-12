@@ -8,14 +8,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
       with:
         fetch-depth: 0 # fetch all history for .GitInfo
 
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v3
+      uses: https://github.com/peaceiris/actions-hugo@v3
       with:
         extended: true
+
+    - name: Setup Dart Sass
+      run: |
+        DART_SASS_VERSION=1.108.2
+        curl -LJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+        tar -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+        echo "$GITHUB_WORKSPACE/dart-sass" >> $GITHUB_PATH
 
     - name: Build
       run: hugo --minify --panicOnWarning

@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: hugo --minify --panicOnWarning
 
-    - uses: actions/upload-artifact@v7
+    - uses: actions/upload-artifact@v3 # Forgejo doesn't support v4+
       name: Upload artifact
       with:
         name: public
