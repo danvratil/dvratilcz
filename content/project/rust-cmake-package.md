@@ -8,6 +8,6 @@ params:
   github: https://github.com/danvratil/cmake-package-rs
 ---
 
-A Rust crate for Cargo build scripts that provides a simple way to find and use CMake package 
+A Rust crate for Cargo build scripts that provides a simple way to find and use CMake packages 
 installed on the system.
 
